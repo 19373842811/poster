@@ -1,0 +1,23 @@
+<template name="9fb28a58">
+    <view class="_div data-v-872513fc container-wrapper">
+        <view class="_div data-v-872513fc title">亲爱的老师，我们知道【喵个班】还可以做的更好，所以我们从未停止努力的脚步，感谢前进的路上有您！我们会认真考虑和重视每一份建议。</view>
+        <textarea bindinput="handleProxy" class="_textarea data-v-872513fc textarea" data-comkey="{{$k}}" data-eventid="{{'0'}}" maxlength="200" placeholder="在此写下您的建议" placeholderClass="placeholderStyle" value="{{form.content}}"></textarea>
+        <view class="_div data-v-872513fc num-wrapper"> {{form.content.length}} / 200 </view>
+        <view class="_div data-v-872513fc btn-wrapper btn-liner">
+            <view bindtap="handleProxy" class="_div data-v-872513fc" data-comkey="{{$k}}" data-eventid="{{'1'}}">提交</view>
+        </view>
+        <view class="_section data-v-872513fc" wx:if="{{list.length>0}}">
+            <view class="_div data-v-872513fc section-title">我的反馈</view>
+            <view class="_div data-v-872513fc reply-wrapper">
+                <view class="_div data-v-872513fc reply-item" wx:for="{{list}}" wx:key="index">
+                    <label class="_span data-v-872513fc">{{item.createTime}}</label>
+                    <view class="_div data-v-872513fc reply-question margin-top-10">{{item.content}}</view>
+                    <view class="_div data-v-872513fc reply-answer margin-top-10" wx:if="{{item.reply}}">
+                        <label class="_span data-v-872513fc">喵个班回复:</label>
+                        <view class="_div data-v-872513fc">{{item.reply}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

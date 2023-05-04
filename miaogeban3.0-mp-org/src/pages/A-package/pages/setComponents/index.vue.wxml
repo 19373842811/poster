@@ -1,0 +1,41 @@
+<template name="5572c545">
+    <view class="_div data-v-4850a1d1 container-wrapper">
+        <view class="_header data-v-4850a1d1 slider-wrapper">
+            <view class="_div data-v-4850a1d1 slider-item">
+                <view class="_div data-v-4850a1d1">上边距<label class="_span data-v-4850a1d1">(左右拖动更改组件位置)</label>
+                </view>
+                <slider bindchanging="handleProxy" blockSize="24" class="_slider data-v-4850a1d1" data-comkey="{{$k}}" data-eventid="{{'0'}}" max="{{bgStyle.height}}" min="0" step="2" style="width: 90%;margin: 5px 18px;" value="{{marginTop}}"></slider>
+            </view>
+            <view class="_div data-v-4850a1d1 slider-item">
+                <view class="_div data-v-4850a1d1">左边距<label class="_span data-v-4850a1d1">(左右拖动更改组件位置)</label>
+                </view>
+                <slider bindchanging="handleProxy" blockSize="24" class="_slider data-v-4850a1d1" data-comkey="{{$k}}" data-eventid="{{'1'}}" max="750" min="0" step="2" style="width: 90%;margin: 5px 18px;" value="{{marginLeft}}"></slider>
+            </view>
+        </view>
+        <view class="_div data-v-4850a1d1 tips">(效果预览)</view>
+        <view class="_div data-v-4850a1d1 {{posterType=='sellPoster'?'sellPoster-wrapper':''}}" style=" {{'width:'+bgStyle.width+'rpx'+';'+'height:'+bgStyle.height+'rpx'+';'+'margin:'+'0 auto'+';'}}">
+            <view class="_div data-v-4850a1d1 poster-wrapper" style=" {{'width:'+painterJson.width+'rpx'+';'+'height:'+painterJson.height+'rpx'+';'}}">
+                <image class="_img data-v-4850a1d1" mode="widthFix" src="{{painterJson.background}}" wx:if="{{painterJson.background}}"></image>
+                <view class="_div data-v-4850a1d1 poster-element-wrapper" style=" {{'top:'+item.css.top+'rpx'+';'+'left:'+item.css.left+'rpx'+';'+'width:'+item.css.width+'rpx'+';'+'height:'+(item.css.height?item.css.height+'rpx':'auto')+';'+'margin-top:'+(item.css.marginTop?item.css.marginTop+'rpx':'')+';'}}" wx:for="{{posterElements}}" wx:key="index">
+                    <view class="_div data-v-4850a1d1 poster-element">
+                        <view class="_div data-v-4850a1d1 {{item.editElement?'editElement':''}}" style=" {{'text-shadow:'+item.css.shadow+';'+'width:'+item.css.width+'rpx'+';'+'color:'+item.css.color+';'+'font-size:'+item.css.fontSize+'rpx'+';'+'line-height:'+item.css.lineHeight+'rpx'+';'+'font-weight:'+item.css.fontWeight+';'+'text-align:'+item.css.textAlign+';'+'font-family:'+item.css.fontFamily+';'+'text-decoration:'+item.css.textDecoration+';'+'font-style:'+item.css.fontStyle+';'}}" wx:if="{{item.type=='text'}}">{{item.text}}</view>
+                        <image class="_img data-v-4850a1d1" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.url}}"></image>
+                    </view>
+                </view>
+                <view class="_div data-v-4850a1d1 poster-element-wrapper" style=" {{'border:'+(item.picType==4?'1px dashed red':'none')+';'+'top:'+item.css.top+'rpx'+';'+'left:'+item.css.left+'rpx'+';'+'width:'+item.css.width+'rpx'+';'+'height:'+(item.css.height?item.css.height+'rpx':'auto')+';'}}" wx:for="{{componentsArray}}" wx:key="index">
+                    <view class="_div data-v-4850a1d1 poster-element">
+                        <view class="_div data-v-4850a1d1" style=" {{'text-shadow:'+item.css.shadow+';'+'color:'+item.css.color+';'+'font-size:'+item.css.fontSize+'rpx'+';'+'line-height:'+item.css.lineHeight+'rpx'+';'+'font-weight:'+item.css.fontWeight+';'+'text-align:'+item.css.textAlign+';'+'font-family:'+item.css.fontFamily+';'+'text-decoration:'+item.css.textDecoration+';'+'font-style:'+item.css.fontStyle+';'}}" wx:if="{{item.type=='text'}}">{{item.text}}</view>
+                        <image class="_img data-v-4850a1d1" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.url}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_footer data-v-4850a1d1 flex-space_around">
+            <view bindtap="handleProxy" class="_div data-v-4850a1d1 flex-box" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                <image alt class="_img data-v-4850a1d1" src="/miaogeban3.0-mp-org/static/images/Icons/editor_back444.png"></image>
+                <label class="_span data-v-4850a1d1">不合适，重新选择</label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-4850a1d1 btn-liner" data-comkey="{{$k}}" data-eventid="{{'3'}}">确定添加</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,1 @@
+[is="app"]{width:100%}[is="static/styles/weui"]{width:100%}[is="static/vantUi/icon/index"]{align-items:center;display:inline-flex;justify-content:center}[is="static/vantUi/loading/index"]{font-size:0;line-height:1}[is="static/vantUi/tab/index"]{box-sizing:border-box;flex-shrink:0;width:100%}

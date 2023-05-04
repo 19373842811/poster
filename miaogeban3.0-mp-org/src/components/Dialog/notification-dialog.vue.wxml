@@ -1,0 +1,19 @@
+<template name="1036d005">
+    <view class="_div data-v-398cc9bd">
+        <view class="_div data-v-398cc9bd popup-window flex-box" style="z-index: 9999;" wx:if="{{visible}}">
+            <view class="_div data-v-398cc9bd popup-window_shadow"></view>
+            <view class="_div data-v-398cc9bd popup-window_body warning-popup">
+                <view class="_div data-v-398cc9bd popup-window_content" style="padding-bottom: 30rpx">
+                    <view class="_div data-v-398cc9bd popup-window_header">
+                        <view class="_div data-v-398cc9bd">温馨提示</view>
+                    </view>
+                    <view class="_div data-v-398cc9bd popup-window_section">
+                        <view class="_p data-v-398cc9bd">为了能让您实时接收学员报名消息，建议您接下来按如下操作：</view>
+                        <image class="_img data-v-398cc9bd" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/prompt_empower.png"></image>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-398cc9bd popup-window_button btn-liner" data-comkey="{{$k}}" data-eventid="{{'0'}}">好的，知道了</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

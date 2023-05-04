@@ -1,0 +1,24 @@
+<template name="be5b9134">
+    <view class="_div data-v-d89fd81c container-wrapper">
+        <view class="_div data-v-d89fd81c list-wrapper flex-space">
+            <view class="_div data-v-d89fd81c qrCode-item" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                <image class="_img data-v-d89fd81c" src="{{item.path}}"></image>
+                <view class="_div data-v-d89fd81c btn-wrapper flex-space">
+                    <view bindtap="handleProxy" class="_div data-v-d89fd81c btn-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:if="{{item.isDefault==0}}">
+                        <image class="_img data-v-d89fd81c btn-icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_default.png"></image>
+                        <label class="_span data-v-d89fd81c">设为默认</label>
+                    </view>
+                    <view class="_div data-v-d89fd81c" style="width: 50rpx;height: 55rpx;" wx:else></view>
+                    <view bindtap="handleProxy" class="_div data-v-d89fd81c btn-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}">
+                        <image class="_img data-v-d89fd81c btn-icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_delete.png"></image>
+                        <label class="_span data-v-d89fd81c">删除</label>
+                    </view>
+                </view>
+                <view class="_div data-v-d89fd81c flag" wx:if="{{item.isDefault==1}}">默认</view>
+            </view>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-d89fd81c add-btn btn-liner" data-comkey="{{$k}}" data-eventid="{{'2'}}">+添加二维码</view>
+        <template is="54667386" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>

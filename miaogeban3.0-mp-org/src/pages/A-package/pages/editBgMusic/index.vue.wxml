@@ -1,0 +1,34 @@
+<template name="781ff9e3">
+    <view class="_div data-v-0f4f8a2f edit-tem-music-wrapper">
+        <view class="_header data-v-0f4f8a2f search-wrapper flex-box">
+            <view class="_div data-v-0f4f8a2f search-input flex-space">
+                <input bindconfirm="handleProxy" bindinput="handleProxy" class="_input data-v-0f4f8a2f" confirmType="search" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="请输入音乐名称" style="width: 90%;" type="text" value="{{searchKey}}"></input>
+                <icon bindtap="handleProxy" class="_icon data-v-0f4f8a2f clear-icon" data-comkey="{{$k}}" data-eventid="{{'1'}}" hidden="{{!searchKey}}" size="16" type="clear"></icon>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-0f4f8a2f search-btn" data-comkey="{{$k}}" data-eventid="{{'2'}}">搜索</view>
+        </view>
+        <view class="_div data-v-0f4f8a2f margin-top-20">
+            <view class="_div data-v-0f4f8a2f music-list-wp">
+                <view class="_div data-v-0f4f8a2f music-item flex-space" key="{{index}}" wx:for="{{musicList}}" wx:key="index">
+                    <label class="_span data-v-0f4f8a2f">{{item.name}}</label>
+                    <view class="_div data-v-0f4f8a2f handle-btn-wp flex-box-end">
+                        <view bindtap="handleProxy" class="_div data-v-0f4f8a2f play-btn flex-box" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}">
+                            <image class="_img data-v-0f4f8a2f music-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/musicplay.png" wx:if="{{!item.isPlay}}"></image>
+                            <image class="_img data-v-0f4f8a2f music-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/musicstop.png" wx:else></image>
+                            <label class="_span data-v-0f4f8a2f" style=" {{'color:'+(item.isPlay?'#ff9900':'#999')+';'}}">{{item.isPlay?'停止':'播放'}}</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-0f4f8a2f choose-btn" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" wx:if="{{musicId!=item.id}}">选择</view>
+                        <view class="_div data-v-0f4f8a2f" style="width: 100rpx;margin-left: 40rpx;text-align: center;" wx:else>
+                            <icon class="_icon data-v-0f4f8a2f" size="24" type="success"></icon>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-0f4f8a2f footer flex-space">
+            <label class="_span data-v-0f4f8a2f" wx:if="{{bgmFlag==1}}">已开启背景音乐(曲名:{{musicName}})</label>
+            <label class="_span data-v-0f4f8a2f" style="color: #999" wx:else>已关闭背景音乐</label>
+            <switch disabled bindtap="handleProxy" checked="{{bgmFlag==1}}" class="_switch data-v-0f4f8a2f" color="#FDA50F" data-comkey="{{$k}}" data-eventid="{{'5'}}" type="switch"></switch>
+        </view>
+    </view>
+</template>

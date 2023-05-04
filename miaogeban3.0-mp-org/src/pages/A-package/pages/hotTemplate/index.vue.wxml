@@ -1,0 +1,28 @@
+<template name="38020914">
+    <view class="_div data-v-619ccd40 container-wrapper">
+        <view class="_header data-v-619ccd40" id="header">
+            <view class="_div data-v-619ccd40 nav-section">
+                <scroll-view class="_scroll-view data-v-619ccd40" enhanced="true" scrollX="{{showMoreClassify?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(showMoreClassify?'wrap':'nowrap')+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-619ccd40 nav-item {{queryList.typeId==''?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}" id="scroll0">全部分类</view>
+                    <view bindtap="handleProxy" class="_div data-v-619ccd40 nav-item {{queryList.typeId==item.id?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" key="{{index}}" wx:for="{{classifyList}}" wx:key="index">{{item.name}}</view>
+                </scroll-view>
+                <view class="_div data-v-619ccd40 arrow-shadow"></view>
+                <view bindtap="handleProxy" class="_div data-v-619ccd40 bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'2'}}" style=" {{'transform:'+(showMoreClassify?'rotate(180deg)':'')+';'}}">
+                    <image alt class="_img data-v-619ccd40" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-619ccd40 margin-top-20 flex-space" wx:if="{{imageList.length>0}}">
+            <view bindtap="handleProxy" class="_div data-v-619ccd40 template-item" data-comkey="{{$k}}" data-eventid="{{'3_'+imgIndex}}" wx:for="{{imageList}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key="imgIndex">
+                <image class="_img data-v-619ccd40" mode="widthFix" src="{{imgItem.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                <view class="_div data-v-619ccd40">[{{imgItem.tagName||imgItem.realmName}}] {{imgItem.trickName}}</view>
+            </view>
+        </view>
+        <view class="_div data-v-619ccd40 noData" wx:else>
+            <view class="_div data-v-619ccd40">
+                <image alt class="_img data-v-619ccd40" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/Nodata.png"></image>
+                <view class="_p data-v-619ccd40">暂无数据</view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,229 @@
+<template name="886f7e9a">
+    <view class="_div data-v-45d54361 container-wrapper">
+        <scroll-view enhanced scrollWithAnimation scrollY bindscroll="handleProxy" class="_scroll-view data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'12'}}" scrollIntoView="{{scrollIndex}}" style=" {{'background:'+templateInfo.mainColor+';'+'padding-bottom:'+footerHeight+';'+'height:'+'calc(100vh - '+footerHeight+')'+';'}}">
+            <view class="_div data-v-45d54361">
+                <view class="_div data-v-45d54361 banner-wrapper">
+                    <label class="_span data-v-45d54361" id="scroll0"></label>
+                    <image bindload="handleProxy" class="_img data-v-45d54361 banner" data-comkey="{{$k}}" data-eventid="{{'0'}}" mode="widthFix" src="{{classInfo.bannerPath||templateInfo.banner}}"></image>
+                    <view bindtap="handleProxy" class="_div data-v-45d54361 flag" data-comkey="{{$k}}" data-eventid="{{'1'}}" style="top: auto;bottom: 20rpx">
+                        <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                        <label class="_span data-v-45d54361">修改主图片</label>
+                    </view>
+                    <view class="_div data-v-45d54361 music-btn flex-box">
+                        <image class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/Icons/music.png"></image>
+                    </view>
+                    <navigator class="_navigator data-v-45d54361 flag" hoverClass="none" style="bottom: auto;top: 22%;" url="{{'../editBgMusic/main?id='+classInfo.musicId+'&cid='+cid+'&bgmFlag='+classInfo.bgmFlag}}">
+                        <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                        <label class="_span data-v-45d54361">修改背景音乐</label>
+                    </navigator>
+                    <view class="_div data-v-45d54361 share-btn flex-box">
+                        <label class="_span data-v-45d54361">分享活动</label>
+                    </view>
+                </view>
+                <view class="_div data-v-45d54361 baseInfo-section">
+                    <view class="_div data-v-45d54361 price-wrapper flex-space">
+                        <view class="_div data-v-45d54361 price-section">
+                            <view class="_p data-v-45d54361 bold">{{templateInfo.trickName=='选课报名'?'选科/选期报名':templateInfo.trickName}}</view>
+                            <view class="_div data-v-45d54361 flex-box-start" wx:if="{{templateInfo.trickType!=3}}">￥<label class="_span data-v-45d54361 bold">{{classInfo.newPrice||templateInfo.newPrice}}</label>
+                                <label class="_span data-v-45d54361">原价{{classInfo.oldPrice||templateInfo.oldPrice}}</label>
+                            </view>
+                            <view class="_div data-v-45d54361" wx:if="{{templateInfo.trickType==3&&maxReduction>0}}">多科/期连报最高减￥{{maxReduction}}</view>
+                            <view class="_div data-v-45d54361" wx:if="{{templateInfo.trickType==3&&maxReduction==0}}">名额有限，抢完即止</view>
+                        </view>
+                        <view class="_div data-v-45d54361 countDown-wrapper">
+                            <view class="_p data-v-45d54361 flex-box">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/template_clock.png"></image>
+                                <label class="_span data-v-45d54361">活动倒计时</label>
+                            </view>
+                            <view class="_div data-v-45d54361 countDown flex-box">{{time.day}}天  <view class="_div data-v-45d54361">{{time.hr}}</view> : <view class="_div data-v-45d54361">{{time.min}}</view> : <view class="_div data-v-45d54361">{{time.sec}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="_div data-v-45d54361 title-wrapper">
+                        <view class="_div data-v-45d54361">{{classInfo.title||templateInfo.title}}</view>
+                        <label class="_span data-v-45d54361">{{classInfo.title2||templateInfo.title2}}</label>
+                    </view>
+                    <navigator class="_navigator data-v-45d54361 flag" hoverClass="none" style="bottom: auto;top: 5%;" url="{{'../editBasicInfo/main?cid='+cid+'&trickType='+templateInfo.trickType}}">
+                        <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                        <label class="_span data-v-45d54361">修改基本信息</label>
+                    </navigator>
+                </view>
+                <view class="_div data-v-45d54361 tab-section flex-space">
+                    <view bindtap="handleProxy" class="_div data-v-45d54361 tab-item {{tabIndex==1?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                        <view class="_div data-v-45d54361" style=" {{'color:'+(tabIndex==1?templateInfo.tabColor||templateInfo.mainColor:'#999')+';'}}">课程介绍</view>
+                        <label class="_span data-v-45d54361" style=" {{'background:'+(templateInfo.tabColor||templateInfo.mainColor)+';'}}"></label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-45d54361 tab-item {{tabIndex==2?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'3'}}">
+                        <view class="_div data-v-45d54361" style=" {{'color:'+(tabIndex==2?templateInfo.tabColor||templateInfo.mainColor:'#999')+';'}}">活动说明</view>
+                        <label class="_span data-v-45d54361" style=" {{'background:'+(templateInfo.tabColor||templateInfo.mainColor)+';'}}"></label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-45d54361 tab-item {{tabIndex==3?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'4'}}">
+                        <view class="_div data-v-45d54361" style=" {{'color:'+(tabIndex==3?templateInfo.tabColor||templateInfo.mainColor:'#999')+';'}}">关于我们</view>
+                        <label class="_span data-v-45d54361" style=" {{'background:'+(templateInfo.tabColor||templateInfo.mainColor)+';'}}"></label>
+                    </view>
+                </view>
+                <view class="_section data-v-45d54361">
+                    <view class="_div data-v-45d54361 position">
+                        <image bindload="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'5'}}" mode="widthFix" src="{{classInfo.coursePath||templateInfo.course}}"></image>
+                        <view bindtap="handleProxy" class="_div data-v-45d54361 flag" data-comkey="{{$k}}" data-eventid="{{'6'}}">
+                            <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                            <label class="_span data-v-45d54361">修改课程介绍</label>
+                        </view>
+                        <label class="_span data-v-45d54361" id="scroll2"></label>
+                    </view>
+                    <view class="_div data-v-45d54361 position">
+                        <image bindload="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'7'}}" mode="widthFix" src="{{classInfo.activityPath||templateInfo.activity}}"></image>
+                        <view bindtap="handleProxy" class="_div data-v-45d54361 flag" data-comkey="{{$k}}" data-eventid="{{'8'}}">
+                            <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                            <label class="_span data-v-45d54361">修改活动说明</label>
+                        </view>
+                        <label class="_span data-v-45d54361" id="scroll3"></label>
+                    </view>
+                    <view class="_div data-v-45d54361 position">
+                        <image bindload="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'9'}}" mode="widthFix" src="{{classInfo.aboutPath||templateInfo.about}}"></image>
+                        <view bindtap="handleProxy" class="_div data-v-45d54361 flag" data-comkey="{{$k}}" data-eventid="{{'10'}}">
+                            <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                            <label class="_span data-v-45d54361">修改关于我们</label>
+                        </view>
+                        <label class="_span data-v-45d54361" id="scroll4"></label>
+                    </view>
+                </view>
+                <view class="_div data-v-45d54361 profit-list-section contact-us-section">
+                    <label class="_span data-v-45d54361" id="scroll5"></label>
+                    <view class="_div data-v-45d54361 section-title">联系我们</view>
+                    <view class="_div data-v-45d54361 qrcode-wrapper">
+                        <image showMenuByLongpress class="_img data-v-45d54361" src="{{classInfo.qrCode||'https://img.miaogeban.com/20200310/557dfc18-c0cf-4dae-ac48-c4d6c02efb2b.jpeg'}}"></image>
+                        <label class="_span data-v-45d54361">长按识别，加老师微信</label>
+                        <view class="_div data-v-45d54361 line"></view>
+                    </view>
+                    <view class="_div data-v-45d54361 info-wrapper">
+                        <view class="_div data-v-45d54361 info-item">
+                            <view class="_div data-v-45d54361 flex-box-start">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/template_org.png"></image>
+                                <label class="_span data-v-45d54361">{{classInfo.shortName}}</label>
+                            </view>
+                        </view>
+                        <view class="_div data-v-45d54361 info-item flex-space">
+                            <view class="_div data-v-45d54361 flex-box-start">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/template_phone.png"></image>
+                                <label class="_span data-v-45d54361">{{classInfo.phone}}</label>
+                            </view>
+                            <view class="_div data-v-45d54361 btn-liner">拨号</view>
+                        </view>
+                        <view class="_div data-v-45d54361 info-item flex-space">
+                            <view class="_div data-v-45d54361 flex-box-start">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/template_location.png"></image>
+                                <label class="_span data-v-45d54361">{{classInfo.address}}</label>
+                            </view>
+                            <view bindtap="handleProxy" class="_div data-v-45d54361 btn-liner" data-comkey="{{$k}}" data-eventid="{{'11'}}">导航</view>
+                        </view>
+                    </view>
+                    <navigator class="_navigator data-v-45d54361 flag" hoverClass="none" style="bottom: auto;top: 5%;" url="{{'../editContactUs/main?cid='+cid}}">
+                        <image class="_img data-v-45d54361 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/editTemplate.png"></image>
+                        <label class="_span data-v-45d54361">修改联系我们</label>
+                    </navigator>
+                </view>
+                <view class="_div data-v-45d54361 copyright" style=" {{'color:'+templateInfo.textColor+';'+'background:'+'url('+templateInfo.bottomBg+') no-repeat;'+';'+'background-size:'+'100% 100%'+';'}}"> 本活动最终解释权归@{{orgInfo.orgInfo.name||'XXXXX教育咨询有限公司'}}所有 <view class="_div data-v-45d54361 margin-top-10">技术支持：<label class="_span data-v-45d54361">喵个班</label>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="_footer data-v-45d54361" id="footer">
+            <view class="_div data-v-45d54361 flex-space_around" wx:if="{{classInfo.status==0}}">
+                <navigator class="_navigator data-v-45d54361 normal-button" hoverClass="none" url="../operationHelp/main">
+                    <image class="_img data-v-45d54361 icon" src="/miaogeban3.0-mp-org/static/images/templateIcons/template_opera.png"></image>
+                    <label class="_span data-v-45d54361">操作帮助</label>
+                </navigator>
+                <view bindtap="handleProxy" class="_div data-v-45d54361 active-button" data-comkey="{{$k}}" data-eventid="{{'13'}}">立即发布</view>
+            </view>
+            <view class="_div data-v-45d54361 flex-space_around" style=" {{'padding:'+(classInfo.status==3?'30rpx 0':'15rpx 0')+';'}}" wx:else>
+                <view class="_div data-v-45d54361 class_status" wx:if="{{classInfo.status==1}}">此课程正在审核！</view>
+                <view class="_div data-v-45d54361 class_status" style="color: #53B548" wx:if="{{classInfo.status==2}}">此课程已发布!</view>
+                <button class="_button data-v-45d54361 btn flex-box" openType="contact">
+                    <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/me_service.png"></image>
+                    <label class="_span data-v-45d54361">在线客服</label>
+                </button>
+                <button bindtap="handleProxy" class="_button data-v-45d54361 btn flex-box" data-comkey="{{$k}}" data-eventid="{{'14'}}" wx:if="{{classInfo.status==2}}">
+                    <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/eye.png"></image>
+                    <label class="_span data-v-45d54361">访问客户端</label>
+                </button>
+                <navigator class="_navigator data-v-45d54361 btn flex-box" hoverClass="none" openType="switchTab" url="../../../index/main">
+                    <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/back_grey.png"></image>
+                    <label class="_span data-v-45d54361">返回首页</label>
+                </navigator>
+            </view>
+        </view>
+        <view class="_div data-v-45d54361 popup-window flex-box" wx:if="{{popupWindowVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-45d54361 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'15'}}"></view>
+            <view class="_div data-v-45d54361 popup-window_body publish-popupWindow">
+                <view class="_div data-v-45d54361 popup-window_content">
+                    <view class="_div data-v-45d54361 popup-window_header">
+                        <view class="_div data-v-45d54361">发布必读</view>
+                    </view>
+                    <view class="_div data-v-45d54361 popup-window_section">
+                        <view class="_p data-v-45d54361">亲爱的，为能快速发布线上招生课程，需满足微信官方规定，请您必须知晓以下问题：</view>
+                        <view class="_div data-v-45d54361 flex-box-start">
+                            <view class="_p data-v-45d54361">1.</view>
+                            <view class="_div data-v-45d54361">禁止在文字或图片上以利益诱导用户转发分享朋友圈及加群行为；</view>
+                        </view>
+                        <view class="_div data-v-45d54361 flex-box-start">
+                            <view class="_p data-v-45d54361">2.</view>
+                            <view class="_div data-v-45d54361">禁止发布学科类课程内容，禁止利用文字制造教育焦虑；</view>
+                        </view>
+                        <view class="_div data-v-45d54361 btn-group flex-space">
+                            <button class="_button data-v-45d54361 normal-btn" openType="contact">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/kefu.png"></image>
+                                <label class="_span data-v-45d54361">咨询客服</label>
+                            </button>
+                            <button bindtap="handleProxy" class="_button data-v-45d54361 normal-btn" data-comkey="{{$k}}" data-eventid="{{'16'}}">
+                                <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/edit.png"></image>
+                                <label class="_span data-v-45d54361">修改</label>
+                            </button>
+                            <view bindtap="handleProxy" class="_div data-v-45d54361 active-btn" data-comkey="{{$k}}" data-eventid="{{'17'}}">知晓并同意以上，提交发布</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-45d54361 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'18'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-45d54361 popup-window flex-box" wx:if="{{warningVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-45d54361 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'19'}}"></view>
+            <view class="_div data-v-45d54361 popup-window_body warning-popupWindow">
+                <view class="_div data-v-45d54361 popup-window_content">
+                    <view class="_div data-v-45d54361 popup-window_header">
+                        <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/landscape_warning01.png"></image>
+                        <view class="_div data-v-45d54361">机构VIP特权已过期！</view>
+                    </view>
+                    <view class="_div data-v-45d54361 popup-window_section androidWarning">
+                        <view class="_p data-v-45d54361">限时特惠，续期所有模板免费用</view>
+                        <view class="_div data-v-45d54361 warning-item flex-box-start">
+                            <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-45d54361">多名资深设计师倾注心血之作</label>
+                        </view>
+                        <view class="_div data-v-45d54361 warning-item flex-box-start">
+                            <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-45d54361">教培业顾问级操刀策划课程活动方案</label>
+                        </view>
+                        <view class="_div data-v-45d54361 warning-item flex-box-start">
+                            <image alt class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-45d54361">模板不断上新，紧跟热点和招生期段</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-45d54361 renew-btn" data-comkey="{{$k}}" data-eventid="{{'20'}}">去续期，享限时特惠</view>
+                    </view>
+                </view>
+                <view class="_div data-v-45d54361 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'21'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-45d54361 prompt-wrapper" wx:if="{{promptVisible}}">
+            <image class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/prompt_banner.png" style="height: 328rpx" wx:if="{{promptType==1}}"></image>
+            <image class="_img data-v-45d54361" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/prompt_contact.png" style="height: 327rpx" wx:if="{{promptType==2}}"></image>
+            <image bindtap="handleProxy" class="_img data-v-45d54361" data-comkey="{{$k}}" data-eventid="{{'22'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editTemplate/images/prompt_btn.png" style="height: 94rpx"></image>
+        </view>
+        <template is="1036d005" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/notification-dialog.vue.wxml"></import>

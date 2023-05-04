@@ -1,0 +1,33 @@
+<template name="2ed0e976">
+    <view class="_div data-v-72a48df3 container-wrapper">
+        <painter bindimgOK="handleProxy" class="_painter data-v-72a48df3" customStyle="{{customStyle}}" data-comkey="{{$k}}" data-eventid="{{'0'}}" dirty="{{true}}" id="painterEle" palette="{{template}}" width="750" wx:if="{{showPainter}}"></painter>
+        <view class="_header data-v-72a48df3 flex-space">
+            <image class="_img data-v-72a48df3 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_prompt.png"></image>
+            <view class="_p data-v-72a48df3">将海报发给好友或分享朋友圈，客户识码进入小程序授权注册后，将自动关联为你的客户。</view>
+        </view>
+        <view class="_section data-v-72a48df3">
+            <view class="_div data-v-72a48df3 pic-item" wx:if="{{qrCode}}">
+                <image class="_img data-v-72a48df3" mode="widthFix" src="{{qrCode}}"></image>
+                <view bindtap="handleProxy" class="_div data-v-72a48df3 download" data-comkey="{{$k}}" data-eventid="{{'1'}}">下载</view>
+            </view>
+            <view class="_div data-v-72a48df3 pic-item" key="{{index}}" wx:for="{{picList}}" wx:key="index">
+                <image class="_img data-v-72a48df3" mode="widthFix" src="{{item.path}}"></image>
+                <view bindtap="handleProxy" class="_div data-v-72a48df3 download" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}">下载</view>
+            </view>
+        </view>
+        <view class="_div data-v-72a48df3 promote-text-wrapper">
+            <view class="_div data-v-72a48df3 promote-text-item" key="{{index}}" wx:for="{{promoteText}}" wx:key="index">
+                <view class="_div data-v-72a48df3 promote-text-item-title">推广话术({{item.index}})</view>
+                <view class="_div data-v-72a48df3 promote-text-item-content flex-space">
+                    <text class="_text data-v-72a48df3">{{item.content}}</text>
+                    <view bindtap="handleProxy" class="_div data-v-72a48df3 btn-liner" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}">复制话术</view>
+                </view>
+            </view>
+        </view>
+        <template is="cec1e984" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+        <view bindtap="handleProxy" class="_div data-v-72a48df3 float" data-comkey="{{$k}}" data-eventid="{{'4'}}" wx:if="{{scrollTop<=2000}}">
+            <view class="_div data-v-72a48df3">推广话术</view>
+        </view>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>

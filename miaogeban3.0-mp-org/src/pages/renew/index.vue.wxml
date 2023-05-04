@@ -1,0 +1,287 @@
+<template name="70d3c534">
+    <view class="_div data-v-15ae6e34 container-wrapper">
+        <swiper autoplay circular vertical class="_swiper data-v-15ae6e34 swiper banner" interval="800">
+            <swiper-item class="_swiper-item data-v-15ae6e34" key="{{index}}" wx:for="{{renewList}}" wx:key="index">
+                <view class="_div data-v-15ae6e34 swiper-item flex-box">
+                    <image class="_img data-v-15ae6e34 circle" src="{{item.avatarUrl}}"></image>
+                    <label class="_span data-v-15ae6e34">{{item.orgName}} 刚刚已开通</label>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view class="_header data-v-15ae6e34">
+            <image class="_img data-v-15ae6e34 background" src="/miaogeban3.0-mp-org/src/pages/renew/images/org_bg.png"></image>
+            <view class="_div data-v-15ae6e34 orgName-wrapper">
+                <view class="_div data-v-15ae6e34 flex-space">
+                    <view class="_div data-v-15ae6e34 orgName flex-box-start">
+                        <label class="_span data-v-15ae6e34">{{orgInfo.name}}</label>
+                        <image alt class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/static/images/orgIcons/authen.png"></image>
+                    </view>
+                </view>
+                <view class="_div data-v-15ae6e34 validityTime flex-box-start">
+                    <view class="_div data-v-15ae6e34 flex-box-start" wx:if="{{validityTime>0}}">贵机构会员权益仅剩<label class="_span data-v-15ae6e34">{{validityTime}}</label>天</view>
+                    <view class="_div data-v-15ae6e34" style="color: red" wx:if="{{validityTime<1}}">贵机构VIP会员已过期！</view>
+                </view>
+            </view>
+            <image class="_img data-v-15ae6e34 shadow" src="/miaogeban3.0-mp-org/static/images/org_shadow.png"></image>
+        </view>
+        <view class="_div data-v-15ae6e34 benefit-wrapper flex-space">
+            <view class="_div data-v-15ae6e34 benefit-item">
+                <image class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/renew_benefit01.png"></image>
+                <view class="_p data-v-15ae6e34">全部模板</view>
+                <label class="_span data-v-15ae6e34">无限制使用</label>
+            </view>
+            <view class="_div data-v-15ae6e34 benefit-item">
+                <image class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/renew_benefit02.png"></image>
+                <view class="_p data-v-15ae6e34">所有素材</view>
+                <label class="_span data-v-15ae6e34">均可企业商用</label>
+            </view>
+            <view class="_div data-v-15ae6e34 benefit-item">
+                <image class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/renew_benefit03.png"></image>
+                <view class="_p data-v-15ae6e34">所有课程</view>
+                <label class="_span data-v-15ae6e34">无限制空间存储</label>
+            </view>
+            <view class="_div data-v-15ae6e34 benefit-item">
+                <image class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/renew_benefit04.png"></image>
+                <view class="_p data-v-15ae6e34">正规发票</view>
+                <label class="_span data-v-15ae6e34">报销无忧</label>
+            </view>
+        </view>
+        <view class="_section data-v-15ae6e34">
+            <view class="_div data-v-15ae6e34 tab-wrapper flex-space">
+                <view bindtap="handleProxy" class="_div data-v-15ae6e34 tab-item {{cid==item.id?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:for="{{list}}" wx:key="index">
+                    <view class="_div data-v-15ae6e34 leftTop">{{priceName}}</view>
+                    <view class="_div data-v-15ae6e34">
+                        <view class="_p data-v-15ae6e34 renew-name">{{item.name}}</view>
+                        <view class="_div data-v-15ae6e34 renew-price">￥{{item.newPrice}}</view>
+                        <view class="_div data-v-15ae6e34 renew-originPrice">￥{{item.oldPrice}}</view>
+                        <view class="_div data-v-15ae6e34 renew-remark margin-top-10" wx:if="{{item.remark}}">{{item.remark}}</view>
+                    </view>
+                    <view class="_div data-v-15ae6e34 rightBottom-tips" wx:if="{{cid==item.id}}">
+                        <image class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/renewal_icon02.png" style="width: 100%;height: 100%"></image>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-15ae6e34 coupon-wrapper flex-space" data-comkey="{{$k}}" data-eventid="{{'1'}}">
+                <view class="_div data-v-15ae6e34 coupon-left">
+                    <view class="_div data-v-15ae6e34 flex-box-start">
+                        <image alt class="_img data-v-15ae6e34" src="/miaogeban3.0-mp-org/src/pages/renew/images/icoupons.png"></image>
+                        <view class="_p data-v-15ae6e34 bold">优惠券</view>
+                        <view class="_div data-v-15ae6e34" wx:if="{{couponItem.couponId}}">
+                            <label class="_span data-v-15ae6e34">已选</label>
+                            <label class="_span data-v-15ae6e34" style="color: #000">{{couponItem.name}}</label>
+                        </view>
+                        <label class="_span data-v-15ae6e34" wx:else>暂无优惠券</label>
+                    </view>
+                </view>
+                <view class="_div data-v-15ae6e34 coupon-right" wx:if="{{couponItem.couponId}}">
+                    <label class="_span data-v-15ae6e34" style="color: red">-￥{{couponItem.price}}</label>
+                    <label class="_span data-v-15ae6e34">></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 welfare-wrapper">
+                <view class="_div data-v-15ae6e34 welfare-item">
+                    <label class="_span data-v-15ae6e34">·</label> 支付即表示同意<label bindtap="handleProxy" class="_span data-v-15ae6e34" data-comkey="{{$k}}" data-eventid="{{'2'}}" style="color: #999;text-decoration: underline">《喵个班软件服务协议》</label>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-15ae6e34 open-btn" data-comkey="{{$k}}" data-eventid="{{'4'}}" wx:if="{{price>0}}">应付<label class="_span data-v-15ae6e34" style="color: #ff0000">￥{{price}}</label>，立即续期</view>
+            <view bindtap="handleProxy" class="_div data-v-15ae6e34 open-btn" data-comkey="{{$k}}" data-eventid="{{'3'}}" wx:else>立即续期</view>
+            <view class="_div data-v-15ae6e34 other-desc" wx:if="{{otherDesc}}">
+                <view class="_div data-v-15ae6e34 other-desc_header">购买须知</view>
+                <view class="_div data-v-15ae6e34 other-desc_section margin-top-10">{{otherDesc}}</view>
+            </view>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item" style="margin-bottom: 100rpx">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">专注教培行业</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 intro-item_section">
+                <view class="_p data-v-15ae6e34">倾心设计让学员眼前一亮</view>
+                <view class="_div data-v-15ae6e34 margin-top-10">每个招生活动模板均由为资深设计师倾注心血之作！</view>
+            </view>
+            <image class="_img data-v-15ae6e34" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/renew_ad01.png" style="margin-top: 40rpx;"></image>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">顾问级招生方案策划</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 intro-item_section">
+                <view class="_p data-v-15ae6e34">只为提升报班成交率</view>
+                <view class="_div data-v-15ae6e34 margin-top-10">每个招生活动模板均由教培行业顾问综合各类活动玩法<view class="_br data-v-15ae6e34"></view>策划而成，精心设计招生文案，只为提升您的招生成交率！</view>
+            </view>
+            <view class="_div data-v-15ae6e34 flex-space trick-wrapper">
+                <view class="_div data-v-15ae6e34 trick-item" wx:for="{{trickList}}" wx:key="index">
+                    <image alt class="_img data-v-15ae6e34" src="{{item.icon}}"></image>
+                    <view class="_div data-v-15ae6e34">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">实时接受报名信息</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 intro-item_section">
+                <view class="_div data-v-15ae6e34 margin-top-10">家长/学员报名信息，都会通过微信通知及时<view class="_br data-v-15ae6e34"></view>推送给您，您可以及时与家长取得联系</view>
+            </view>
+            <image class="_img data-v-15ae6e34" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/renew_ad04.png"></image>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">模板不断上新</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 intro-item_section">
+                <view class="_p data-v-15ae6e34">紧跟热点和招生期段</view>
+                <view class="_div data-v-15ae6e34 margin-top-10">让您的机构全年没有招生淡季</view>
+            </view>
+            <image class="_img data-v-15ae6e34" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/renew_ad02.png"></image>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">教培领域全覆盖</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 intro-item_section">
+                <view class="_div data-v-15ae6e34 margin-top-10">48大教培领域，160+细分类型，全教培行业覆盖</view>
+            </view>
+            <image class="_img data-v-15ae6e34" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/renew_ad03.png" style="margin-top: -35rpx"></image>
+        </view>
+        <view class="_div data-v-15ae6e34 intro-item">
+            <view class="_div data-v-15ae6e34 intro-item_header flex-box">
+                <view class="_div data-v-15ae6e34 flex-box-end">
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                </view>
+                <view class="_p data-v-15ae6e34">来自同行的声音</view>
+                <view class="_div data-v-15ae6e34 flex-box-start">
+                    <label class="_span data-v-15ae6e34 small-diamond"></label>
+                    <label class="_span data-v-15ae6e34 mini-diamond"></label>
+                </view>
+            </view>
+            <view class="_div data-v-15ae6e34 swiper-wrapper">
+                <swiper autoplay circular bindchange="handleProxy" class="_swiper data-v-15ae6e34" current="{{swiperIndex}}" data-comkey="{{$k}}" data-eventid="{{'5'}}" interval="3000">
+                    <swiper-item class="_swiper-item data-v-15ae6e34" wx:for="{{peerList}}" wx:key="index">
+                        <view class="_div data-v-15ae6e34 swiper-item">
+                            <view class="_div data-v-15ae6e34 swiper-item_header flex-box-start">
+                                <image alt class="_img data-v-15ae6e34" src="{{item.avatar}}"></image>
+                                <view class="_div data-v-15ae6e34">
+                                    <view class="_p data-v-15ae6e34">{{item.name}}</view>
+                                    <label class="_span data-v-15ae6e34">{{item.position}}</label>
+                                </view>
+                            </view>
+                            <view class="_div data-v-15ae6e34 swiper-item_section">{{item.content}}</view>
+                            <view class="_div data-v-15ae6e34 flag">”</view>
+                        </view>
+                    </swiper-item>
+                </swiper>
+                <view class="_div data-v-15ae6e34 indicator-dots flex-box">
+                    <view class="_div data-v-15ae6e34 dots-item {{swiperIndex==0?'active-dots':''}}"></view>
+                    <view class="_div data-v-15ae6e34 dots-item {{swiperIndex==1?'active-dots':''}}"></view>
+                    <view class="_div data-v-15ae6e34 dots-item {{swiperIndex==2?'active-dots':''}}"></view>
+                </view>
+            </view>
+        </view>
+        <button class="_button data-v-15ae6e34 float-btn flex-box" openType="contact">
+            <view class="_div data-v-15ae6e34">联系客服</view>
+        </button>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-15ae6e34 landscape" data-comkey="{{$k}}" data-eventid="{{'6'}}" maskClosable="{{true}}" visible="{{policyVisible}}">
+            <view class="_div data-v-15ae6e34 policy-wrapper">
+                <view class="_h1 data-v-15ae6e34 landscape-header">喵个班软件服务协议</view>
+                <view class="_div data-v-15ae6e34 landscape-p">欢迎使用中创科技（广州）有限公司旗下喵个班微信小程序（此小程序包括“喵个班”及“喵个班机构端”两款配套小程序，以下简称“喵个班”）的软件服务，为了保障您的权益，请在进行下一步操作前，详细阅读本协议的所有内容。当您代表您的机构购买机构VIP会员时，您的行为表示您同意并签署了本协议，并同意遵守本协议中的约定。该协议构成您与喵个班达成的协议，具有法律效力。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">本协议内容包括本协议正文、喵个班已经发布和/或将来可能发布的与喵个班机构服务相关的各类规则。所有规则为本协议不可分割的组成部分，与本协议具有同等法律效力。一旦相关内容发生变动，喵个班将会通过电子邮件、微信或小程序公告等方式提示您。如果您不同意对本协议内容所做的修改，则应立即停止使用喵个班；如果您继续使用本服务的，则视为您同意对本协议内容所做的修改。</view>
+                <view class="_div data-v-15ae6e34 landscape-title">一. 定义</view>
+                <view class="_div data-v-15ae6e34 landscape-p">1.喵个班机构：指喵个班机构端微信授权注册用户，并作为管理员代表本机构在喵个班机构端小程序填写、上传本机构相关信息，并成功通过审核认证的单位组织。以下简称“贵机构”。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">2.喵个班软件服务：指喵个班为贵机构提供了一套在线编辑、发布课程，并在线吸引学员在线报名的招生工具，您可根据喵个班提供的模板进行编辑、发布课程和在线招生。您和本机构绑定的员工账号只有在机构VIP会员有效期内方可享受此服务。以下简称“本服务”。</view>
+                <view class="_div data-v-15ae6e34 landscape-title">二. 使用规范</view>
+                <view class="_div data-v-15ae6e34 landscape-p">1.代表贵机构使用本服务前，需要您通过微信授权注册成为喵个班机构端用户，包括不限于微信昵称、手机号、头像等个人资料，并保证您提供的个人资料真实、准确、完整、合法有效，如有变动，您应及时更新。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">2.贵机构成功认证后，喵个班将给贵机构提供5天机构VIP会员免费试期。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">3. 若您希望在贵机构VIP会员有效期届满后继续享受机构服务，则需要购买续期，机构VIP会员有效期根据您选择购买的具体时长为准，自您代表贵机构成功支付机构服务费用之日起计算。每一个收费包的服务周期以页面标注期限为准（如有赠送则按赠送后计算的周期为准）。如您未在有效时间内使用已购买的服务，视为您已使用。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">4.喵个班有权单方面对其提供的虚拟产品(包括但不限于机构VIP会员)予以定价，并有权根据自身运营需要予以变更，您所获取的虚拟产品一经购买不支持退款，不能够进行退货、换货、兑换现金亦不得用于商业领域如买卖、置换、抵押等。一切通过非官方公布渠道取得的虚拟产品及其衍生服务均不获保护，喵个班有权中止或终止对贵机构的服务。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">5.在使用机构服务过程中，您和贵机构绑定的用户应当是具备与您行为相适应的民事行为能力的自然人、法人或其他组织。若您不具备前述主体资格，请务必在您的监护人的帮助下共同完成，若因此使得喵个班或任何第三方权益受损，您及您的监护人将承担相应的责任。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">6.您知悉并同意，喵个班有权通过邮件、短信或电话等形式， 向您和贵机构绑定的员工账号发送机构活动相关信息。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">7.您确认机构VIP会员仅限贵机构使用，不以任何形式转让您所享有的机构VIP会员，不以任何形式将您所享有的机构VIP会员借给他人或其他组织单位使用，如喵个班有合理理由怀疑您及贵机构绑定的员工账号存在不当使用机构VIP会员时，喵个班有权取消贵机构的机构VIP会员资格且不退还已支付的费用，因此产生的相关责任及损失均由您自行承担，给喵个班造成损失的，喵个班保留向您追偿的权利。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">8.您理解并同意喵个班有权根据实际业务需要不时地调整其内容而无需另行通知您，包括但不限于内容增减、收费模式等等。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">9. 您理解并同意贵机构编辑和发布的内容必须合法、合规，并遵守微信官方规定，因此产生的相关责任及损失均由您和贵机构自行承担，给喵个班造成损失的，喵个班保留向您和贵机构追偿的权利。</view>
+                <view class="_div data-v-15ae6e34 landscape-title">三. 员工账号</view>
+                <view class="_div data-v-15ae6e34 landscape-p">1. 贵机构管理员可邀请多个用户进行协同管理或发布贵机构的课程信息，所有用户均需通过微信授权注册成为喵个班机构端用户，包括不限于微信昵称、手机号、头像等个人资料（以下简称“员工账号”）；</view>
+                <view class="_div data-v-15ae6e34 landscape-p">2.管理员及绑定的员工账号自行发布或编辑的内容若有不当、不合法合规等情形，由此造成的损失由您和贵机构自行承担，给喵个班造成损失的，喵个班保留向您追偿的权利。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">3. 为避免不当、不合法合规等内容向外发布，您理解并同意您及员工账号发布的内容均有可能经过喵个班审核后方可对外发布。</view>
+                <view class="_div data-v-15ae6e34 landscape-title">四. 机构服务售后</view>
+                <view class="_div data-v-15ae6e34 landscape-p">1.您代表贵机构知悉并确认，开通、续费机构VIP会员后，若您中途主动取消服务或终止资格或违反法规被喵个班注销账号、终止会员资格的，您已支付的费用将不予退还。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">2.如您有其他与机构VIP会员售后相关的问题，可以通过喵个班公布的联系方式联系客服进行反馈。</view>
+                <view class="_div data-v-15ae6e34 landscape-title">五. 其他约定</view>
+                <view class="_div data-v-15ae6e34 landscape-p">1.本协议适用中华人民共和国的法律。当本协议的任何内容与中华人民共和国法律相抵触时，应当以法律规定为准，同时相关条款将按法律规定进行修改或重新解释，而本协议其他部分的法律效力不变。</view>
+                <view class="_div data-v-15ae6e34 landscape-p">2.如使用机构服务过程中出现纠纷，您与喵个班应友好协商解决，若协商不成，应约定相关诉讼由广州市番禺区人民法院管辖。</view>
+            </view>
+        </wux-landscape>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-15ae6e34 landscape" data-comkey="{{$k}}" data-eventid="{{'7'}}" maskClosable="{{true}}" visible="{{tipsLandscapeVisible}}">
+            <view class="_div data-v-15ae6e34 tips-wrapper">
+                <icon class="_icon data-v-15ae6e34" size="28" type="success"></icon>
+                <view class="_h1 data-v-15ae6e34">成功续费</view>
+                <navigator class="_navigator data-v-15ae6e34 navigator_btn" hoverClass="none" openType="navigateBack" style="background: #ffac00;color: #fff;" url="../organization/main">返回机构页</navigator>
+                <navigator class="_navigator data-v-15ae6e34 navigator_btn" hoverClass="none" openType="switchTab" url="../index/main">返回首页</navigator>
+            </view>
+        </wux-landscape>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-15ae6e34 landscape" data-comkey="{{$k}}" data-eventid="{{'9'}}" maskClosable="{{true}}" visible="{{couponVisible}}">
+            <view class="_div data-v-15ae6e34 coupon-list-wrapper">
+                <view class="_div data-v-15ae6e34 coupon_title">请选择可用券</view>
+                <view class="_div data-v-15ae6e34 coupon-list" wx:if="{{couponList.length>0}}">
+                    <view class="_div data-v-15ae6e34 coupon-item" wx:for="{{couponList}}" wx:key="index">
+                        <image class="_img data-v-15ae6e34 coupon_bg" mode="widthFix" src="/miaogeban3.0-mp-org/src/pages/renew/images/couponslist.png"></image>
+                        <view class="_div data-v-15ae6e34 coupon-item-left flex-box">
+                            <view class="_h1 data-v-15ae6e34 coupon-item-price">{{item.price}}元</view>
+                            <view class="_div data-v-15ae6e34">
+                                <view class="_div data-v-15ae6e34 coupon-item-title">{{item.name}}</view>
+                                <label class="_span data-v-15ae6e34 coupon-item-time">{{item.lessDay}}天后到期</label>
+                            </view>
+                        </view>
+                        <view class="_div data-v-15ae6e34 coupon-item-right">
+                            <label class="_span data-v-15ae6e34">满{{item.threshold}}元可用</label>
+                            <view bindtap="handleProxy" class="_div data-v-15ae6e34 coupon-item-btn" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}">立即使用</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-15ae6e34" style="padding: 10rpx 0;font-size: 28rpx;" wx:else>暂无可用优惠券</view>
+            </view>
+        </wux-landscape>
+        <template is="38064374" data="{{...$root[$kk+'5'],$root:$root,$for:{default:'data-v-15ae6e34-default-5'},$slotdefault:'data-v-15ae6e34-default-5'}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>

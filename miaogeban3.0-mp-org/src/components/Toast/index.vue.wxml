@@ -1,0 +1,9 @@
+<template name="cec1e984">
+    <view animation="{{animationData}}" class="_div data-v-3a9a7940 wx-toast-box" style=" {{'display:'+displayStyle+';'}}">
+        <view class="_div data-v-3a9a7940 wx-toast-content">
+            <icon class="_icon data-v-3a9a7940" color="#ffffff" size="30" type="success_no_circle"></icon>
+            <view class="_div data-v-3a9a7940 wx-toast-toast margin-top-20">{{content1}}</view>
+            <view class="_div data-v-3a9a7940 wx-toast-toast">{{content2}}</view>
+        </view>
+    </view>
+</template>

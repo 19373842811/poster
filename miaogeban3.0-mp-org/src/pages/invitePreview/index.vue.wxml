@@ -1,0 +1,51 @@
+<template name="0ed50ba6">
+    <view class="_div data-v-206fcb50 container-wrapper">
+        <view class="_header data-v-206fcb50">
+            <view class="_div data-v-206fcb50"> Hi，如果您觉得我们课程还不错，<view class="_br data-v-206fcb50"></view> 欢迎推荐给身边有需要的朋友，<view class="_br data-v-206fcb50"></view>
+            </view>
+        </view>
+        <view class="_section data-v-206fcb50 flex-space_around" wx:if="{{posterList.length>0}}">
+            <view class="_div data-v-206fcb50 arrow left_arrow">
+                <image alt bindtap="handleProxy" class="_img data-v-206fcb50" data-comkey="{{$k}}" data-eventid="{{'0'}}" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/arrow515151.png" wx:if="{{swiperIndex>0}}"></image>
+                <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/arrowefefef.png" wx:if="{{swiperIndex==0}}"></image>
+                <view class="_p data-v-206fcb50" style=" {{'color:'+(swiperIndex>0?'#515151':'#cccccc')+';'}}">上一张</view>
+            </view>
+            <swiper bindchange="handleProxy" class="_swiper data-v-206fcb50" current="{{swiperIndex}}" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                <swiper-item class="_swiper-item data-v-206fcb50" wx:for="{{posterList}}" wx:key="index">
+                    <view class="_div data-v-206fcb50 poster-wrapper" style=" {{'width:'+'750rpx'+';'+'height:'+'1334rpx'+';'}}">
+                        <image class="_img data-v-206fcb50" src="{{item.background}}" style=" {{'width:'+'750rpx'+';'+'height:'+'1334rpx'+';'}}"></image>
+                        <view class="_div data-v-206fcb50 element-item-wrapper" style=" {{'width:'+eleItem.css.width+';'+'height:'+(eleItem.css.height?eleItem.css.height:'auto')+';'+'top:'+eleItem.css.top+';'+'left:'+eleItem.css.left+';'}}" wx:for="{{item.views}}" wx:for-index="eleIndex" wx:for-item="eleItem" wx:key="eleIndex">
+                            <view class="_div data-v-206fcb50 element-item">
+                                <image class="_img data-v-206fcb50" src="{{eleItem.url}}" style=" {{'border-radius:'+eleItem.css.borderRadius+';'}}" wx:if="{{eleItem.type==='image'}}"></image>
+                                <view class="_div data-v-206fcb50" style=" {{'color:'+eleItem.css.color+';'+'font-size:'+eleItem.css.fontSize+';'+'line-height:'+eleItem.css.lineHeight+';'+'font-weight:'+eleItem.css.fontWeight+';'}}" wx:if="{{eleItem.type==='text'}}">{{eleItem.text}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-206fcb50 shadow" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}">
+                        <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/btnImage02.png"></image>
+                        <label class="_span data-v-206fcb50">下载这张专属推广海报</label>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="_div data-v-206fcb50 arrow right_arrow">
+                <image alt bindtap="handleProxy" class="_img data-v-206fcb50" data-comkey="{{$k}}" data-eventid="{{'3'}}" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/arrow515151.png" wx:if="{{swiperIndex<posterList.length-1}}"></image>
+                <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/arrowefefef.png" wx:if="{{swiperIndex==posterList.length-1}}"></image>
+                <view class="_p data-v-206fcb50" style=" {{'color:'+(swiperIndex<posterList.length-1?'#515151':'#cccccc')+';'}}">下一张</view>
+            </view>
+        </view>
+        <view class="_footer data-v-206fcb50 flex-space">
+            <view bindtap="handleProxy" class="_div data-v-206fcb50 footer-item" data-comkey="{{$k}}" data-eventid="{{'4'}}">
+                <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/btnImage05.png"></image>
+                <view class="_div data-v-206fcb50">转发到朋友圈</view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-206fcb50 footer-item" data-comkey="{{$k}}" data-eventid="{{'5'}}">
+                <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/btnImage01.png"></image>
+                <view class="_div data-v-206fcb50">转发给好友</view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-206fcb50 footer-item" data-comkey="{{$k}}" data-eventid="{{'6'}}">
+                <image alt class="_img data-v-206fcb50" src="/miaogeban3.0-mp-org/src/pages/invitePreview/images/btnImage04.png"></image>
+                <view class="_div data-v-206fcb50">下载邀请码</view>
+            </view>
+        </view>
+    </view>
+</template>

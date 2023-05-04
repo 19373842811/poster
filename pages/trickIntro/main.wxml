@@ -1,0 +1,2 @@
+<import src="/miaogeban3.0-mp-org/src/pages/trickIntro/index.vue.wxml"></import>
+<template is="1e42436e" data="{{...$root['0'],$root:$root}}"></template>

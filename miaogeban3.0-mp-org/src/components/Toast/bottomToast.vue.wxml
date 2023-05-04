@@ -1,0 +1,7 @@
+<template name="ca26c5b0">
+    <view animation="{{animationData}}" class="_div data-v-282bfcac wx-toast-box" style=" {{'display:'+displayStyle+';'}}">
+        <view class="_div data-v-282bfcac wx-toast-content">
+            <view class="_div data-v-282bfcac wx-toast-toast">{{content}}</view>
+        </view>
+    </view>
+</template>

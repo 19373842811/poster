@@ -1,0 +1,10 @@
+<template name="3c226659">
+    <view class="_div data-v-1d5033c7 container-wrapper">
+        <view class="_header data-v-1d5033c7">温馨提示</view>
+        <view class="_section data-v-1d5033c7">
+            <view class="_p data-v-1d5033c7">亲爱的老师：</view>
+            <view class="_div data-v-1d5033c7">根据反洗钱及相关合规要求，同时为了方便您课程款提现，需要您进行提现认证后才能发布活动和提现哦！</view>
+        </view>
+        <navigator class="_navigator data-v-1d5033c7 btn-liner" hoverClass="none" url="../authenticationSubmit/main">立即去认证</navigator>
+    </view>
+</template>

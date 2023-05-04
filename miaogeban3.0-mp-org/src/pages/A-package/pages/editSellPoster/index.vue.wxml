@@ -1,0 +1,288 @@
+<template name="6df4d678">
+    <view class="_div data-v-121d14e6 container-wrapper">
+        <view class="_div data-v-121d14e6" style=" {{'width:'+bgStyle.width+'rpx'+';'+'height:'+bgStyle.height+'rpx'+';'+'margin:'+'0 auto'+';'}}">
+            <view class="_div data-v-121d14e6 poster-wrapper" style=" {{'width:'+painterJson.width+'rpx'+';'+'height:'+painterJson.height+'rpx'+';'}}">
+                <movable-area class="_movable-area data-v-121d14e6" style="width: 150%;height: 150%;top: 0;left: 0;">
+                    <image bindtap="handleProxy" class="_img data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'0'}}" src="{{painterJson.background+'?x-oss-process=image/resize,w_750,m_mfit'}}" style=" {{'width:'+painterJson.width+'rpx'+';'+'height:'+painterJson.height+'rpx'+';'}}"></image>
+                    <view class="_div data-v-121d14e6 poster-element-wrapper" key="{{index}}" style=" {{'top:'+item.css.top+'rpx'+';'+'left:'+item.css.left+'rpx'+';'+'width:'+item.css.width+'rpx'+';'+'height:'+(item.css.height?item.css.height+'rpx':'auto')+';'+'margin-top:'+(item.css.marginTop?item.css.marginTop+'rpx':'')+';'}}" wx:if="{{!item.showTips}}" wx:for="{{posterElements}}" wx:key="index">
+                        <view class="_div data-v-121d14e6 poster-element">
+                            <view class="_div data-v-121d14e6 {{item.editElement?'editElement':''}}" style=" {{'text-shadow:'+item.css.shadow+';'+'width:'+item.css.width+'rpx'+';'+'color:'+item.css.color+';'+'font-size:'+item.css.fontSize+'rpx'+';'+'line-height:'+item.css.lineHeight+'rpx'+';'+'font-weight:'+item.css.fontWeight+';'+'text-align:'+item.css.textAlign+';'+'font-family:'+item.css.fontFamily+';'+'text-decoration:'+item.css.textDecoration+';'+'font-style:'+item.css.fontStyle+';'}}" wx:if="{{item.type=='text'}}">{{item.text}}</view>
+                            <image class="_img data-v-121d14e6" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.picType!=2}}"></image>
+                            <image bindload="handleProxy" class="_img data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.picType==2}}"></image>
+                            <view catchtap="handleProxy" class="_div data-v-121d14e6 shadowStyle" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" wx:if="{{item.picType==4}}"></view>
+                            <view catchtap="handleProxy" class="_div data-v-121d14e6 border" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.picType!=4}}"></view>
+                        </view>
+                    </view>
+                    <movable-view animation="{{false}}" bindtouchend="handleProxy" bindtouchstart="handleProxy" catchchange="handleProxy" class="_movable-view data-v-121d14e6 poster-element-wrapper" data-comkey="{{$k}}" data-eventid="{{'10_'+index}}" data-index="{{index}}" data-item="{{item}}" direction="{{!item.editElement||item.picType==4?'none':'all'}}" key="{{index}}" style=" {{'z-index:'+'999'+';'+'width:'+item.css.width+'rpx'+';'+'height:'+(item.css.height?item.css.height+'rpx':'auto')+';'+'margin-top:'+(item.css.marginTop?item.css.marginTop+'rpx':'')+';'}}" x="{{item.css.left+'rpx'}}" y="{{item.css.top+'rpx'}}" wx:if="{{item.editElement&&item.showTips}}" wx:for="{{posterElements}}" wx:key="index">
+                        <view class="_div data-v-121d14e6 poster-element">
+                            <view class="_div data-v-121d14e6 {{item.editElement?'editElement':''}}" style=" {{'text-shadow:'+item.css.shadow+';'+'width:'+item.css.width+'rpx'+';'+'color:'+item.css.color+';'+'font-size:'+item.css.fontSize+'rpx'+';'+'line-height:'+item.css.lineHeight+'rpx'+';'+'font-weight:'+item.css.fontWeight+';'+'text-align:'+item.css.textAlign+';'+'font-family:'+item.css.fontFamily+';'+'text-decoration:'+item.css.textDecoration+';'+'font-style:'+item.css.fontStyle+';'}}" wx:if="{{item.type=='text'}}">{{item.text}}</view>
+                            <image class="_img data-v-121d14e6" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.picType!=2}}"></image>
+                            <image class="_img data-v-121d14e6" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.picType==2}}"></image>
+                            <view catchtap="handleProxy" class="_div data-v-121d14e6 editTips" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.showTips}}">点击修改{{item.type==='image'?'图片':'文字'}}</view>
+                            <view bindtap="handleProxy" class="_div data-v-121d14e6 border" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.picType!=4}}"></view>
+                            <view catchtouchend="handleProxy" catchtouchmove="handleProxy" catchtouchstart="handleProxy" class="_div data-v-121d14e6 scale-icon-wrapper" data-comkey="{{$k}}" data-eventid="{{'6_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.type==='text'&&item.showTips}}">
+                                <view class="_div data-v-121d14e6 scale-icon">
+                                    <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/scale.png" style="width: 80%;height: 80%;"></image>
+                                </view>
+                            </view>
+                            <view catchtouchend="handleProxy" catchtouchmove="handleProxy" catchtouchstart="handleProxy" class="_div data-v-121d14e6 scale-icon-wrapper-img" data-comkey="{{$k}}" data-eventid="{{'7_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.type==='image'&&item.showTips}}">
+                                <view class="_div data-v-121d14e6 scale-icon">
+                                    <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/scale1.png" style="width: 80%;height: 80%;"></image>
+                                </view>
+                            </view>
+                            <view catchtap="handleProxy" class="_div data-v-121d14e6 deleteText-icon-wrapper" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.type==='text'&&item.showTips}}">
+                                <view class="_div data-v-121d14e6 scale-icon">
+                                    <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_deletefff.png" style="width: 80%;height: 80%;"></image>
+                                </view>
+                            </view>
+                            <view catchtap="handleProxy" class="_div data-v-121d14e6 deleteImage-icon-wrapper" data-comkey="{{$k}}" data-eventid="{{'9_'+index}}" data-index="{{index}}" data-item="{{item}}" wx:if="{{item.editElement&&item.type==='image'&&item.showTips}}">
+                                <view class="_div data-v-121d14e6 scale-icon">
+                                    <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_deletefff.png" style="width: 80%;height: 80%;"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </movable-view>
+                </movable-area>
+            </view>
+        </view>
+        <view class="_div data-v-121d14e6 showHelp-btn-wrapper flex-box">
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 normal-button" data-comkey="{{$k}}" data-eventid="{{'11'}}">
+                <view class="_div data-v-121d14e6">
+                    <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_back444.png" wx:if="{{goBackArray.length==0}}"></image>
+                    <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_back.png" wx:else></image>
+                    <label class="_span data-v-121d14e6" style=" {{'color:'+(goBackArray.length==0?'#444444':'#ffffff')+';'}}">撤销</label>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 normal-button" data-comkey="{{$k}}" data-eventid="{{'12'}}">
+                <view class="_div data-v-121d14e6">
+                    <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_redo444.png" wx:if="{{goFrontArray.length==0}}"></image>
+                    <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_redo.png" wx:else></image>
+                    <label class="_span data-v-121d14e6" style=" {{'color:'+(goFrontArray.length==0?'#444444':'#ffffff')+';'}}">重做</label>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 showHelp-btn" data-comkey="{{$k}}" data-eventid="{{'13'}}">帮助</view>
+        </view>
+        <view class="_footer data-v-121d14e6 button-group flex-space_around">
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 normal-button" data-comkey="{{$k}}" data-eventid="{{'14'}}">
+                <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_add444.png"></image>
+                <label class="_span data-v-121d14e6">添加</label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 normal-button" data-comkey="{{$k}}" data-eventid="{{'20'}}">
+                <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_modify444.png"></image>
+                <label class="_span data-v-121d14e6">编辑</label>
+                <view class="_div data-v-121d14e6 styleList" style="left: -60%;width: 224%;" wx:if="{{editListVisible}}">
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'15'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_edit444.png"></image>
+                        <label class="_span data-v-121d14e6">修改</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'16'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_cloning444.png"></image>
+                        <label class="_span data-v-121d14e6">复制</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'17'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_lose444.png"></image>
+                        <label class="_span data-v-121d14e6">删除</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'18'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_setTop444.png"></image>
+                        <label class="_span data-v-121d14e6">置顶</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'19'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_setBottom444.png"></image>
+                        <label class="_span data-v-121d14e6">置底</label>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 normal-button" data-comkey="{{$k}}" data-eventid="{{'27'}}">
+                <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_style444.png"></image>
+                <label class="_span data-v-121d14e6">文字样式</label>
+                <view class="_div data-v-121d14e6 styleList" wx:if="{{styleListVisible}}">
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'21'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_fontSize444.png"></image>
+                        <label class="_span data-v-121d14e6">字号</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'22'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_color444.png"></image>
+                        <label class="_span data-v-121d14e6">颜色</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'23'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_align444.png"></image>
+                        <label class="_span data-v-121d14e6">对齐</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'24'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_line444.png"></image>
+                        <label class="_span data-v-121d14e6">行高</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'25'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_bold444.png"></image>
+                        <label class="_span data-v-121d14e6">加粗</label>
+                    </view>
+                    <view catchtap="handleProxy" class="_div data-v-121d14e6 flex-box-start" data-comkey="{{$k}}" data-eventid="{{'26'}}">
+                        <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_font444.png"></image>
+                        <label class="_span data-v-121d14e6">字体</label>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 active-button" data-comkey="{{$k}}" data-eventid="{{'28'}}">
+                <view class="_div data-v-121d14e6">保存修改</view>
+            </view>
+        </view>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-121d14e6 warning" data-comkey="{{$k}}" data-eventid="{{'29'}}" maskClosable="{{true}}" visible="{{videoVisible}}">
+            <view class="_div data-v-121d14e6 video-wrapper">
+                <video class="_video data-v-121d14e6 video" poster="https://img.miaogeban.com/video/videohelpPrintPoster.jpg" src="https://img.miaogeban.com/video/printPosterHelp1.mp4" wx:if="{{videoVisible}}"></video>
+            </view>
+        </wux-landscape>
+        <view class="_div data-v-121d14e6">
+            <view class="_div data-v-121d14e6 weui-mask" hidden="{{!visible}}" id="iosMask" style="opacity: 1;"></view>
+            <view class="_div data-v-121d14e6 weui-actionsheet {{[visible?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+                <view class="_div data-v-121d14e6 weui-actionsheet__title" style="padding: 0 25rpx">
+                    <label bindtap="handleProxy" class="_span data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'30'}}">取消</label>
+                    <view class="_p data-v-121d14e6 weui-actionsheet__title-text">修改文字</view>
+                    <label bindtap="handleProxy" class="_span data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'31'}}" style="color: #ffac00;">确定</label>
+                </view>
+                <view class="_div data-v-121d14e6 weui-halfdialog-content">
+                    <textarea fixed bindinput="handleProxy" class="_textarea data-v-121d14e6" cursorSpacing="65" data-comkey="{{$k}}" data-eventid="{{'32'}}" maxlength="{{textMaxLength}}" placeholder="请输入文本" placeholderClass="placeholderStyle" value="{{inputText}}" wx:if="{{visible}}"></textarea>
+                    <view class="_div data-v-121d14e6 inputNum-wrapper">{{inputText.length}} / {{textMaxLength}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-121d14e6">
+            <view class="_div data-v-121d14e6 weui-mask" hidden="{{!editStyleVisible1}}" id="iosMask" style="opacity: 1;"></view>
+            <view class="_div data-v-121d14e6 weui-actionsheet {{[editStyleVisible1?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+                <view class="_div data-v-121d14e6 weui-actionsheet__title" style="padding: 0 50rpx;">
+                    <label catchtap="handleProxy" class="_span data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'33'}}">取消</label>
+                    <view class="_p data-v-121d14e6 weui-actionsheet__title-text" wx:if="{{editStyleType=='fontSize'}}">修改文字大小</view>
+                    <view class="_p data-v-121d14e6 weui-actionsheet__title-text" wx:if="{{editStyleType=='lineHeight'}}">修改文字行高</view>
+                    <view class="_p data-v-121d14e6 weui-actionsheet__title-text" wx:if="{{editStyleType=='fontFamily'}}">选择字体</view>
+                    <label catchtap="handleProxy" class="_span data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'34'}}" style="color: #ffac00;">确定</label>
+                </view>
+                <view class="_div data-v-121d14e6 weui-halfdialog-content slider-wrapper" wx:if="{{editStyleType=='fontSize'||editStyleType=='lineHeight'}}">
+                    <image bindtap="handleProxy" class="_img data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'35'}}" src="/miaogeban3.0-mp-org/static/images/Icons/editor_textreduce444.png"></image>
+                    <slider showValue bindchanging="handleProxy" blockSize="{{20}}" class="_slider data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'36'}}" max="{{200}}" min="{{14}}" step="2" style="width: 80%" value="{{editStyleType=='fontSize'?fontSize:lineHeight}}"></slider>
+                    <image bindtap="handleProxy" class="_img data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'37'}}" src="/miaogeban3.0-mp-org/static/images/Icons/editor_textadd444.png"></image>
+                </view>
+                <view class="_div data-v-121d14e6 weui-halfdialog-content" style="padding: 0 20rpx 50rpx" wx:if="{{editStyleType=='fontFamily'}}">
+                    <scroll-view scrollY class="_scroll-view data-v-121d14e6 fontList-wrapper" scrollIntoView="{{fontListID}}">
+                        <view class="_div data-v-121d14e6 fontList-background">
+                            <view bindtap="handleProxy" class="_div data-v-121d14e6 font-item" data-comkey="{{$k}}" data-eventid="{{'38_'+index}}" id="{{item.id}}" key="{{index}}" wx:for="{{poster.fontList}}" wx:key="index">
+                                <icon class="_icon data-v-121d14e6 icon-box-img" color="#ff9900" size="20" style="margin-right: 20rpx;" type="success" wx:if="{{selectFont==item.name}}"></icon>
+                            </view>
+                        </view>
+                    </scroll-view>
+                    <view class="_div data-v-121d14e6 loading-wrapper flex-box" wx:if="{{switchFontFamilyLoading}}">
+                        <view class="_div data-v-121d14e6">
+                            <mp-loading class="_mp-loading data-v-121d14e6" tips=" " type="circle"></mp-loading>
+                            <view class="_div data-v-121d14e6" style="font-size: 26rpx;color: #fff">字体下载中...</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-121d14e6">
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 weui-mask" data-comkey="{{$k}}" data-eventid="{{'39'}}" hidden="{{!editStyleVisible2}}" id="iosMask" style="opacity: 1;"></view>
+            <view class="_div data-v-121d14e6 weui-actionsheet {{[editStyleVisible2?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+                <view class="_div data-v-121d14e6 weui-halfdialog-content" style="background: #f0f0f0;" wx:if="{{editStyleType=='color'}}">
+                    <view class="_div data-v-121d14e6 colorArray-wrapper">
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 color-item" data-comkey="{{$k}}" data-eventid="{{'40_'+index}}" key="{{index}}" style=" {{'background:'+item.color+';'}}" wx:for="{{colorArray}}" wx:key="index"></view>
+                    </view>
+                </view>
+                <view class="_div data-v-121d14e6 weui-halfdialog-content" style="background: #f0f0f0;" wx:if="{{editStyleType=='textAlign'}}">
+                    <view class="_div data-v-121d14e6 align-wrapper flex-box" wx:if="{{posterElements[elementChecked.index]}}">
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 {{posterElements[elementChecked.index].css.textAlign=='left'?'actived':''}}" data-comkey="{{$k}}" data-eventid="{{'41'}}">
+                            <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_alignleft444.png"></image>
+                            <label class="_span data-v-121d14e6">左对齐</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 {{posterElements[elementChecked.index].css.textAlign=='center'?'actived':''}}" data-comkey="{{$k}}" data-eventid="{{'42'}}">
+                            <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_alignmiddle444.png"></image>
+                            <label class="_span data-v-121d14e6">居中对齐</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 {{posterElements[elementChecked.index].css.textAlign=='right'?'actived':''}}" data-comkey="{{$k}}" data-eventid="{{'43'}}">
+                            <image class="_img data-v-121d14e6 icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_alignright444.png"></image>
+                            <label class="_span data-v-121d14e6">右对齐</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-121d14e6 weui-halfdialog-content" style="background: #f0f0f0;" wx:if="{{editStyleType=='fontWeight'}}">
+                    <view class="_div data-v-121d14e6 align-wrapper flex-box" style="color:#444" wx:if="{{posterElements[elementChecked.index]}}">
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 {{posterElements[elementChecked.index].css.fontWeight=='bold'?'actived':''}}" data-comkey="{{$k}}" data-eventid="{{'44'}}" style="font-weight: bold">
+                            <label class="_span data-v-121d14e6">B 加粗</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6 {{posterElements[elementChecked.index].css.fontWeight=='normal'?'actived':''}}" data-comkey="{{$k}}" data-eventid="{{'45'}}">
+                            <label class="_span data-v-121d14e6">B 不加粗</label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-121d14e6">
+            <view bindtap="handleProxy" class="_div data-v-121d14e6 weui-mask" data-comkey="{{$k}}" data-eventid="{{'46'}}" hidden="{{!addVisible}}" id="iosMask" style="opacity: 1;"></view>
+            <view class="_div data-v-121d14e6 weui-actionsheet {{[addVisible?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+                <view class="_div data-v-121d14e6 weui-halfdialog-content" style="background: #ffffff;padding-bottom: 20rpx">
+                    <view class="_div data-v-121d14e6 add-element-type-wrapper flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'47'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_addtext444.png"></image>
+                            <view class="_div data-v-121d14e6">文字</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'48'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_addphoto444.png"></image>
+                            <view class="_div data-v-121d14e6">图片</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'49'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_illustrations444.png"></image>
+                            <view class="_div data-v-121d14e6">插画</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'50'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_addmaterial444.png"></image>
+                            <view class="_div data-v-121d14e6">线框/图标</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'51'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_title444.png"></image>
+                            <view class="_div data-v-121d14e6">标题组件</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'52'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_body444.png"></image>
+                            <view class="_div data-v-121d14e6">图文组件</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'53'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_price444.png"></image>
+                            <view class="_div data-v-121d14e6">价格组件</view>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-121d14e6" data-comkey="{{$k}}" data-eventid="{{'54'}}">
+                            <image alt class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_addbackground444.png"></image>
+                            <view class="_div data-v-121d14e6">更换背景</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-121d14e6 shadow" wx:if="{{menuVisible}}">
+            <view class="_div data-v-121d14e6 menu-wrapper">
+                <view catchtap="handleProxy" class="_div data-v-121d14e6 menu-item flex-box" data-comkey="{{$k}}" data-eventid="{{'55'}}" style=" {{'transform:'+transformStyle+';'}}">
+                    <label class="_span data-v-121d14e6">操作演示</label>
+                    <view class="_div data-v-121d14e6 menu-icon flex-box">
+                        <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/help_play.png" style="width: 55%;height: 55%;"></image>
+                    </view>
+                </view>
+                <view catchtap="handleProxy" class="_div data-v-121d14e6 menu-item flex-box" data-comkey="{{$k}}" data-eventid="{{'56'}}" style=" {{'transform:'+transformStyle+';'}}">
+                    <label class="_span data-v-121d14e6">常见问题</label>
+                    <view class="_div data-v-121d14e6 menu-icon flex-box">
+                        <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/help_QA.png" style="width: 55%;height: 55%;"></image>
+                    </view>
+                </view>
+                <button class="_button data-v-121d14e6 menu-item flex-box" openType="contact" style=" {{'transform:'+transformStyle+';'}}">
+                    <label class="_span data-v-121d14e6">在线客服</label>
+                    <view class="_div data-v-121d14e6 menu-icon flex-box">
+                        <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/help_service.png" style="width: 55%;height: 55%;"></image>
+                    </view>
+                </button>
+                <view bindtap="handleProxy" class="_div data-v-121d14e6 close-icon flex-box" data-comkey="{{$k}}" data-eventid="{{'57'}}">
+                    <image class="_img data-v-121d14e6" src="/miaogeban3.0-mp-org/static/images/Icons/editor_deletefff.png" style="width: 80%;height: 80%;"></image>
+                </view>
+            </view>
+        </view>
+        <template is="cec1e984" data="{{...$root[$kk+'4'],$root:$root}}"></template>
+        <template is="ca26c5b0" data="{{...$root[$kk+'5'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

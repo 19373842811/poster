@@ -1,0 +1,111 @@
+<template name="9312f322">
+    <view class="_div data-v-178d9a61 container-wrapper">
+        <view class="_section data-v-178d9a61" wx:if="{{type=='orgInfo'}}">
+            <form bindsubmit="handleProxy" class="_form data-v-178d9a61" data-comkey="{{$k}}" data-eventid="{{'7'}}">
+                <view class="_div data-v-178d9a61 form-item flex-box-start">
+                    <view class="_div data-v-178d9a61 form-item_label"> 机构logo </view>
+                    <view bindtap="handleProxy" class="_div data-v-178d9a61 form-item_content flex-space" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+                        <image class="_img data-v-178d9a61" mode="heightFix" src="{{logo||form.logo}}" wx:if="{{logo||form.logo}}"></image>
+                        <view class="_div data-v-178d9a61 flex-box-start" style="color: #999;" wx:if="{{logo||form.logo}}">
+                            <label class="_span data-v-178d9a61">修改</label>   <image class="_img data-v-178d9a61" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png" style="width: 12rpx;height: 24rpx;"></image>
+                        </view>
+                        <view class="_div data-v-178d9a61 noImg noImg_square" wx:else>+</view>
+                    </view>
+                </view>
+                <view class="_div data-v-178d9a61 form-item flex-box-start">
+                    <view class="_div data-v-178d9a61 form-item_label"> 机构简称 </view>
+                    <view class="_div data-v-178d9a61 form-item_content">
+                        <input bindinput="handleProxy" class="_input data-v-178d9a61" data-comkey="{{$k}}" data-eventid="{{'1'}}" placeholder="如：新东方教育" placeholderClass="placeholderStyle" type="text" value="{{form.orgName}}"></input>
+                    </view>
+                </view>
+                <view class="_div data-v-178d9a61 form-item flex-box-start">
+                    <view class="_div data-v-178d9a61 form-item_label"> 咨询手机号 </view>
+                    <view class="_div data-v-178d9a61 form-item_content">
+                        <input bindinput="handleProxy" class="_input data-v-178d9a61 textareaStyle" data-comkey="{{$k}}" data-eventid="{{'2'}}" placeholder="请输入手机号" placeholderClass="placeholderStyle" type="number" value="{{phone}}"></input>
+                    </view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 form-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'4'}}">
+                    <view class="_div data-v-178d9a61 form-item_label"> 校区地址 </view>
+                    <view class="_div data-v-178d9a61 form-item_content flex-space">
+                        <textarea autoHeight disabled bindinput="handleProxy" class="_textarea data-v-178d9a61" data-comkey="{{$k}}" data-eventid="{{'3'}}" placeholder="请选择校区地址" placeholderClass="placeholderStyle" style="width: 95%;" value="{{form.address}}"></textarea>
+                        <image class="_img data-v-178d9a61" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png" style="width: 12rpx;height: 24rpx;"></image>
+                    </view>
+                </view>
+                <view class="_div data-v-178d9a61 form-item flex-box-start">
+                    <view class="_div data-v-178d9a61 form-item_label"> 联系方式 </view>
+                    <view class="_div data-v-178d9a61 form-item_content">
+                        <textarea autoHeight bindinput="handleProxy" class="_textarea data-v-178d9a61 textareaStyle" data-comkey="{{$k}}" data-eventid="{{'5'}}" placeholder="如：张三老师 18888888888(微信同号)" placeholderClass="placeholderStyle" value="{{form.phone}}"></textarea>
+                    </view>
+                </view>
+                <view class="_div data-v-178d9a61 form-item margin-top-20">
+                    <view class="_div data-v-178d9a61 form-item_label"> 开设课程 </view>
+                    <view class="_div data-v-178d9a61 form-item_content margin-top-20" style="width: 100%">
+                        <textarea bindinput="handleProxy" class="_textarea data-v-178d9a61 textareaStyle" data-comkey="{{$k}}" data-eventid="{{'6'}}" maxlength="100" placeholder="如：少儿美术 | 书法 | 围棋 | 专注力 | ..." placeholderClass="placeholderStyle" style="width: 96%;height: 130rpx" value="{{form.course}}"></textarea>
+                        <view class="_div data-v-178d9a61 margin-top-20 flex-box-end" style="color: #999;font-size: 24rpx;padding-right: 20rpx;">{{form.course.length||0}} / 100</view>
+                    </view>
+                </view>
+                <button class="_button data-v-178d9a61 submit-btn btn-liner" formType="submit" style="margin: 50rpx auto 0;">保存</button>
+            </form>
+        </view>
+        <view class="_section data-v-178d9a61" wx:if="{{type=='school'}}">
+            <view class="_div data-v-178d9a61 flex-space image-wrapper">
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'8'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.school1}}">+{{title}}1</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.school1}}" wx:if="{{form.school1}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.school1}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'9'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.school2}}">+{{title}}2</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.school2}}" wx:if="{{form.school2}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.school2}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'10'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.school3}}">+{{title}}3</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.school3}}" wx:if="{{form.school3}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.school3}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'11'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.school4}}">+{{title}}4</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.school4}}" wx:if="{{form.school4}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.school4}}">更换</view>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-178d9a61" wx:if="{{type=='class'}}">
+            <view class="_div data-v-178d9a61 flex-space image-wrapper">
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'12'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class1}}">+{{title}}1</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class1}}" wx:if="{{form.class1}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class1}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'13'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class2}}">+{{title}}2</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class2}}" wx:if="{{form.class2}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class2}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'14'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class3}}">+{{title}}3</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class3}}" wx:if="{{form.class3}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class3}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'15'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class4}}">+{{title}}4</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class4}}" wx:if="{{form.class4}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class4}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'16'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class5}}">+{{title}}5</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class5}}" wx:if="{{form.class5}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class5}}">更换</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-178d9a61 image-item" data-comkey="{{$k}}" data-eventid="{{'17'}}">
+                    <label class="_span data-v-178d9a61" wx:if="{{!form.class6}}">+{{title}}6</label>
+                    <image alt class="_img data-v-178d9a61" src="{{form.class6}}" wx:if="{{form.class6}}"></image>
+                    <view class="_div data-v-178d9a61 btn" wx:if="{{form.class6}}">更换</view>
+                </view>
+            </view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

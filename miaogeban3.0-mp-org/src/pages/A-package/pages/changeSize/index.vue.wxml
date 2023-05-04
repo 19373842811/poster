@@ -1,0 +1,31 @@
+<template name="0a6bf3e0">
+    <view class="_div data-v-ed7c6a64 container-wrapper">
+        <view class="_header data-v-ed7c6a64 slider-wrapper">
+            <view class="_div data-v-ed7c6a64 slider-item">
+                <view class="_div data-v-ed7c6a64">图片高度<label class="_span data-v-ed7c6a64">(左右拖动更改图片高度)</label>
+                </view>
+                <slider bindchanging="handleProxy" blockSize="24" class="_slider data-v-ed7c6a64" data-comkey="{{$k}}" data-eventid="{{'0'}}" max="{{maxHeight}}" min="{{minHeight}}" step="10" style="width: 90%;margin: 5px 18px;" value="{{bgStyle.height}}"></slider>
+            </view>
+        </view>
+        <view class="_div data-v-ed7c6a64 tips">(效果预览)</view>
+        <view class="_div data-v-ed7c6a64" style=" {{'width:'+bgStyle.width+'rpx'+';'+'height:'+bgStyle.height+'rpx'+';'+'margin:'+'0 auto'+';'}}">
+            <view class="_div data-v-ed7c6a64 poster-wrapper" style=" {{'width:'+bgStyle.width+'rpx'+';'+'height:'+bgStyle.height+'rpx'+';'}}">
+                <image class="_img data-v-ed7c6a64" mode="widthFix" src="{{painterJson.background}}" wx:if="{{painterJson.background}}"></image>
+                <view class="_div data-v-ed7c6a64 poster-element-wrapper" style=" {{'top:'+item.css.top+'rpx'+';'+'left:'+item.css.left+'rpx'+';'+'width:'+item.css.width+'rpx'+';'+'height:'+(item.css.height?item.css.height+'rpx':'auto')+';'+'margin-top:'+(item.css.marginTop?item.css.marginTop+'rpx':'')+';'}}" wx:for="{{posterElements}}" wx:key="index">
+                    <view class="_div data-v-ed7c6a64 poster-element">
+                        <view class="_div data-v-ed7c6a64 {{item.editElement?'editElement':''}}" style=" {{'text-shadow:'+item.css.shadow+';'+'width:'+item.css.width+'rpx'+';'+'color:'+item.css.color+';'+'font-size:'+item.css.fontSize+'rpx'+';'+'line-height:'+item.css.lineHeight+'rpx'+';'+'font-weight:'+item.css.fontWeight+';'+'text-align:'+item.css.textAlign+';'+'font-family:'+item.css.fontFamily+';'+'text-decoration:'+item.css.textDecoration+';'+'font-style:'+item.css.fontStyle+';'}}" wx:if="{{item.type=='text'}}">{{item.text}}</view>
+                        <image class="_img data-v-ed7c6a64" data-index="{{index}}" data-item="{{item}}" src="{{item.url}}" style=" {{'width:'+item.css.width+'rpx'+';'+'height:'+item.css.height+'rpx'+';'+'border-radius:'+item.css.borderRadius+'rpx'+';'}}" wx:elif="{{item.type=='image'&&item.url}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-ed7c6a64" id="bottom"></view>
+        <view class="_footer data-v-ed7c6a64 flex-space_around">
+            <view bindtap="handleProxy" class="_div data-v-ed7c6a64 flex-box" data-comkey="{{$k}}" data-eventid="{{'1'}}">
+                <image alt class="_img data-v-ed7c6a64" src="/miaogeban3.0-mp-org/static/images/Icons/editor_back444.png"></image>
+                <label class="_span data-v-ed7c6a64">恢复默认并返回</label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-ed7c6a64 btn-liner" data-comkey="{{$k}}" data-eventid="{{'2'}}">确认修改</view>
+        </view>
+    </view>
+</template>

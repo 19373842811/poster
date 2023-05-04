@@ -1,0 +1,16 @@
+<template name="default"></template>
+<template name="38064374">
+    <view class="_div data-v-39ab2cbc popup-window flex-box" style="z-index: 9999;" wx:if="{{visible}}">
+        <view class="_div data-v-39ab2cbc popup-window_shadow"></view>
+        <view class="_div data-v-39ab2cbc popup-window_body warning-popup">
+            <view class="_div data-v-39ab2cbc popup-window_content" style="padding-bottom: 30rpx">
+                <view class="_div data-v-39ab2cbc popup-window_header">
+                    <view class="_div data-v-39ab2cbc">温馨提示</view>
+                </view>
+                <template is="{{$slotdefault||'default'}}" data="{{...$root[$p],...$root[$k],$root:$root}}"></template>
+                <view bindtap="handleProxy" class="_div data-v-39ab2cbc popup-window_button btn-liner" data-comkey="{{$k}}" data-eventid="{{'0'}}">{{btnText}}</view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/slots"></import>

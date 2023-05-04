@@ -1,0 +1,45 @@
+<template name="1b828356">
+    <view class="_div data-v-39a92be1 container-wrapper">
+        <view class="_section data-v-39a92be1">
+            <view class="_div data-v-39a92be1 section-header">关键信息确认/补充<label class="_span data-v-39a92be1">（如果以下信息有误，请手动修改后再提交）</label>
+            </view>
+            <view class="_div data-v-39a92be1 input-item flex-box-start">
+                <view class="_div data-v-39a92be1">提现人姓名：</view>
+                <input bindinput="handleProxy" class="_input data-v-39a92be1" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="请输入提现人姓名" placeholderClass="placeholderStyle" type="text" value="{{form.cardName}}"></input>
+            </view>
+            <view class="_div data-v-39a92be1 input-item flex-box-start">
+                <view class="_div data-v-39a92be1">提现人身份证：</view>
+                <input bindinput="handleProxy" class="_input data-v-39a92be1" data-comkey="{{$k}}" data-eventid="{{'1'}}" placeholder="请输入提现人身份证号" placeholderClass="placeholderStyle" type="idcard" value="{{form.certNo}}"></input>
+            </view>
+            <view class="_div data-v-39a92be1 input-item flex-box-start">
+                <view class="_div data-v-39a92be1">提现卡号：</view>
+                <input bindinput="handleProxy" class="_input data-v-39a92be1" data-comkey="{{$k}}" data-eventid="{{'2'}}" placeholder="请输入提现银行卡号" placeholderClass="placeholderStyle" type="text" value="{{form.bankNo}}"></input>
+            </view>
+            <view class="_div data-v-39a92be1 input-item flex-box-start">
+                <view class="_div data-v-39a92be1">银行卡绑定手机：</view>
+                <input bindinput="handleProxy" class="_input data-v-39a92be1" data-comkey="{{$k}}" data-eventid="{{'3'}}" placeholder="请输入银行卡绑定手机号" placeholderClass="placeholderStyle" type="number" value="{{form.bankMobile}}"></input>
+            </view>
+            <view class="_div data-v-39a92be1 input-item flex-box-start">
+                <view class="_div data-v-39a92be1">邮箱：</view>
+                <input bindinput="handleProxy" class="_input data-v-39a92be1" data-comkey="{{$k}}" data-eventid="{{'4'}}" placeholder="请输入您的邮箱" placeholderClass="placeholderStyle" type="text" value="{{form.contactMail}}"></input>
+            </view>
+        </view>
+        <view class="_div data-v-39a92be1 tips font-color-666">• 点击“确认无误，提交”按钮表示您同意<label bindtap="handleProxy" class="_span data-v-39a92be1 font-color-999" data-comkey="{{$k}}" data-eventid="{{'5'}}">《喵个班提现认证告知书》</label>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-39a92be1 btn-liner" data-comkey="{{$k}}" data-eventid="{{'6'}}">确认无误，提交</view>
+        <navigator class="_navigator data-v-39a92be1 textAlign-center font-color-666 fontSize-28 margin-top-30" hoverClass="none" openType="navigateBack">返回上页</navigator>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-39a92be1 landscape" data-comkey="{{$k}}" data-eventid="{{'7'}}" maskClosable="{{true}}" visible="{{policyVisible}}">
+            <view class="_div data-v-39a92be1 policy-wrapper">
+                <view class="_h1 data-v-39a92be1 landscape-header">喵个班提现认证告知书</view>
+                <view class="_div data-v-39a92be1 landscape-p">欢迎使用喵个班提现实名认证服务！</view>
+                <view class="_div data-v-39a92be1 landscape-p">1.您必须确保您是此次实名认证本人，您此次提交的认证资料真实无误，无任何虚假隐瞒，因此造成的损失均由您本人负责。</view>
+                <view class="_div data-v-39a92be1 landscape-p">2.您必须确认您代表您所在的机构在喵个班发布的课程活动合法合规，并已得到你所在机构的授权与认可。</view>
+                <view class="_div data-v-39a92be1 landscape-p">3.你必须确认您所在的机构已授权允许您将喵个班发布的课程活动报名款提现至此次实名认证的银行账号内，否则由此引发的法律责任、资金纠纷均由您本人负责。</view>
+                <view class="_div data-v-39a92be1 landscape-p">4.您需同意喵个班的所属主体中创科技（广州）有限公司有权对您的提现申请认证进行审核，最终向您输出认证成功或认证失败的结果。</view>
+                <view class="_div data-v-39a92be1 landscape-p">5.您的认证信息仅为了方便您提现，喵个班的所属主体中创科技（广州）有限公司将严格为您保密，并愿意承担因我司保密问题引发的所有责任！</view>
+            </view>
+        </wux-landscape>
+        <template is="ca26c5b0" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

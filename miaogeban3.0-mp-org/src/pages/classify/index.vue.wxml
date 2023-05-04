@@ -1,0 +1,36 @@
+<template name="eda6b1ce">
+    <view class="_div data-v-2684f061 container-wrapper">
+        <view class="_header data-v-2684f061">
+            <view bindtap="handleProxy" class="_div data-v-2684f061 tab-item {{tabIndex==1?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}">按分类</view>
+            <view bindtap="handleProxy" class="_div data-v-2684f061 tab-item {{tabIndex==2?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'1'}}">按玩法</view>
+        </view>
+        <view class="_div data-v-2684f061 line"></view>
+        <view class="_section data-v-2684f061" wx:if="{{tabIndex==1}}">
+            <view class="_div data-v-2684f061 left-wrapper">
+                <view bindtap="handleProxy" class="_div data-v-2684f061 field-item {{fieldIndex==index?'active-field':''}}" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                    <label class="_span data-v-2684f061">{{item.name}}</label>
+                    <view class="_div data-v-2684f061 flag"></view>
+                </view>
+            </view>
+            <scroll-view enhanced scrollY bindscroll="handleProxy" class="_scroll-view data-v-2684f061 right-wrapper" data-comkey="{{$k}}" data-eventid="{{'4'}}" scrollIntoView="{{scrollIndex}}">
+                <view class="_div data-v-2684f061 label-list" data-id="{{item}}" id="{{'scroll'+index}}" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                    <view class="_div data-v-2684f061 field-title">
+                        <view class="_div data-v-2684f061">{{item.name}}</view>
+                    </view>
+                    <view class="_div data-v-2684f061 label-wrapper flex-box-start" style="flex-wrap: wrap;">
+                        <view bindtap="handleProxy" class="_div data-v-2684f061 label-item {{item1.isHot==1?'actived-label':''}}" data-comkey="{{$k}}" data-eventid="{{'3_'+index+'-'+index1}}" key="{{index1}}" wx:for="{{item.realmList}}" wx:for-index="index1" wx:for-item="item1" wx:key="index1">{{item1.name}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="_section data-v-2684f061" wx:if="{{tabIndex==2}}">
+            <view class="_div data-v-2684f061 trick-section">
+                <view bindtap="handleProxy" class="_div data-v-2684f061 trick-item" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" wx:for="{{trickList}}" wx:key="index">
+                    <image alt class="_img data-v-2684f061" src="{{item.icon}}"></image>
+                    <view class="_div data-v-2684f061">{{item.name}}</view>
+                    <label class="_span data-v-2684f061">模板量：{{item.templateNum}}</label>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

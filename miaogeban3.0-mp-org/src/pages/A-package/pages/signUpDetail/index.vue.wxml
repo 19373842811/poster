@@ -1,0 +1,135 @@
+<template name="7f169d10">
+    <view class="_div data-v-4a81b426 container-wrapper">
+        <view class="_section data-v-4a81b426">
+            <view class="_div data-v-4a81b426 item" style="align-items: flex-start;">
+                <view class="_div data-v-4a81b426 item_label">课程标题：</view>
+                <label class="_span data-v-4a81b426" style="font-size: 24rpx;word-break: break-all;max-width: 65%;">{{orderInfo.title}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">报名时间：</view>
+                <label class="_span data-v-4a81b426">{{orderInfo.orderTime}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">报名人称呼：</view>
+                <view class="_div data-v-4a81b426 flex-box">
+                    <image class="_img data-v-4a81b426 circle avatar" src="{{orderInfo.avatarUrl}}"></image>
+                    <label class="_span data-v-4a81b426">{{orderInfo.nick}}</label>
+                </view>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">联系电话：</view>
+                <view class="_div data-v-4a81b426 flex-box" wx:if="{{orderInfo.mobile}}">
+                    <label class="_span data-v-4a81b426">{{orderInfo.mobile}}</label> <view bindtap="handleProxy" class="_div data-v-4a81b426 underline colorFF9900 fontSize-26" data-comkey="{{$k}}" data-eventid="{{'0'}}">拨打电话</view>
+                </view>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">转介绍人：</view>
+                <view class="_div data-v-4a81b426 flex-box" wx:if="{{orderInfo.promoter}}">
+                    <image class="_img data-v-4a81b426 circle avatar" src="{{orderInfo.promoterAva}}"></image>
+                    <label class="_span data-v-4a81b426">{{orderInfo.promoter}}</label>
+                </view>
+                <label class="_span data-v-4a81b426" wx:else>无</label>
+            </view>
+            <view class="_div data-v-4a81b426 item" wx:if="{{orderInfo.trickType==3}}">
+                <view class="_div data-v-4a81b426 item_label">报名课程：</view>
+                <label class="_span data-v-4a81b426">{{orderInfo.clazzes}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item" style="align-items: flex-start;">
+                <view class="_div data-v-4a81b426 item_label">备注：</view>
+                <label class="_span data-v-4a81b426" style="font-size: 24rpx;word-break: break-all;max-width: 65%;" wx:if="{{orderInfo.remark}}">{{orderInfo.remark}}</label>
+            </view>
+            <image alt class="_img data-v-4a81b426" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpDetail/images/DeleteOrder.png" wx:if="{{orderInfo.flag==0}}"></image>
+        </view>
+        <view class="_section data-v-4a81b426">
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">学员：</view>
+                <label class="_span data-v-4a81b426">{{orderInfo.student}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">性别：</view>
+                <label class="_span data-v-4a81b426">{{orderInfo.gender}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">年龄：</view>
+                <label class="_span data-v-4a81b426">{{orderInfo.age}}</label>
+            </view>
+        </view>
+        <view class="_section data-v-4a81b426">
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">原价：</view>
+                <label class="_span data-v-4a81b426 lineThrough">￥{{orderInfo.oldPrice}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item" wx:if="{{orderInfo.trickType==1||orderInfo.trickType==2&&orderInfo.orderType==2}}">
+                <view class="_div data-v-4a81b426 item_label">抢购价：</view>
+                <label class="_span data-v-4a81b426">￥{{orderInfo.newPrice}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">实付：</view>
+                <label class="_span data-v-4a81b426 colorFF9900">￥{{orderInfo.orderPrice}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">交易手续费<label class="_span data-v-4a81b426" style="display: inline">({{orderInfo.charge||charge}}%)</label>：</view>
+                <label class="_span data-v-4a81b426 colorFF9900">-￥{{orderInfo.chargePrice}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">已付介绍佣金：</view>
+                <label class="_span data-v-4a81b426 colorFF9900">-￥{{orderInfo.profit}}</label>
+            </view>
+            <view class="_div data-v-4a81b426 item">
+                <view class="_div data-v-4a81b426 item_label">实收：</view>
+                <label class="_span data-v-4a81b426 colorFF9900">￥{{orderInfo.finalPrice}}</label>
+            </view>
+        </view>
+        <view class="_section data-v-4a81b426" style="padding-bottom: 50rpx;" wx:if="{{orderInfo.trickType==2&&orderInfo.flag==1}}">
+            <view class="_p data-v-4a81b426 status"> 拼团状态： <label class="_span data-v-4a81b426" style="color: #67C23A" wx:if="{{orderInfo.groupOrder&&orderInfo.groupOrder.groupStatus==1}}">已成团</label>
+                <label class="_span data-v-4a81b426" style="color: #F56C6C" wx:if="{{orderInfo.groupOrder&&orderInfo.groupOrder.groupStatus==0}}">待成团</label>
+                <label class="_span data-v-4a81b426" style="color: #E6A23C" wx:if="{{orderInfo.orderType==1&&orderInfo.trickType==2}}">单独报名</label>
+            </view>
+            <view class="_div data-v-4a81b426 member-group flex-box" wx:if="{{orderInfo.groupOrder}}">
+                <view class="_div data-v-4a81b426 member-item circle" wx:for="{{orderInfo.groupOrder.groupMemberList}}" wx:key="index">
+                    <image class="_img data-v-4a81b426 circle" src="{{item.avatarUrl}}"></image>
+                    <view class="_div data-v-4a81b426 flag" wx:if="{{item.isLeader==1}}">团长</view>
+                    <view class="_div data-v-4a81b426 flag" style="background: #ff9900;" wx:if="{{item.isLeader==0}}">团员</view>
+                </view>
+                <view class="_div data-v-4a81b426 member-item circle empty-member" wx:for="{{orderInfo.groupOrder.groupNumber-orderInfo.groupOrder.groupMemberList.length}}" wx:key="index">?</view>
+            </view>
+            <view class="_p data-v-4a81b426 group-finished" wx:if="{{orderInfo.groupOrder&&orderInfo.groupOrder.groupStatus==1}}">已于 {{orderInfo.groupOrder.groupTime}} 成团！</view>
+            <view class="_div data-v-4a81b426 group-progress" wx:if="{{orderInfo.groupOrder&&orderInfo.groupOrder.groupStatus==0}}">
+                <view class="_div data-v-4a81b426 bold">
+                    <label class="_span data-v-4a81b426" style="color: red">{{orderInfo.groupOrder.groupNumber}}</label>人团，仅差<label class="_span data-v-4a81b426" style="color: red">{{orderInfo.groupOrder.groupNumber-orderInfo.groupOrder.groupMemberList.length}}</label>人</view>
+                <button bindtap="handleProxy" class="_button data-v-4a81b426 btn-liner" data-comkey="{{$k}}" data-eventid="{{'1'}}">去邀请好友跟团 ></button>
+            </view>
+        </view>
+        <view class="_div data-v-4a81b426 popup-window flex-box" wx:if="{{warningVisible}}">
+            <view class="_div data-v-4a81b426 popup-window_shadow"></view>
+            <view class="_div data-v-4a81b426 popup-window_body warning-popup">
+                <view class="_div data-v-4a81b426 popup-window_content">
+                    <view class="_div data-v-4a81b426 popup-window_header">
+                        <view class="_div data-v-4a81b426">注意</view>
+                    </view>
+                    <view class="_div data-v-4a81b426 popup-window_section">
+                        <view class="_p data-v-4a81b426">{{warningContent}}</view>
+                    </view>
+                    <view class="_div data-v-4a81b426 popup-window_footer flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-4a81b426" data-comkey="{{$k}}" data-eventid="{{'2'}}">取消</view>
+                        <view bindtap="handleProxy" class="_div data-v-4a81b426" data-comkey="{{$k}}" data-eventid="{{'3'}}">知道了，确定删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-4a81b426 popup-window flex-box" wx:if="{{tipsVisible}}">
+            <view class="_div data-v-4a81b426 popup-window_shadow"></view>
+            <view class="_div data-v-4a81b426 popup-window_body warning-popup">
+                <view class="_div data-v-4a81b426 popup-window_content" style="padding-bottom: 30rpx">
+                    <view class="_div data-v-4a81b426 popup-window_header">
+                        <view class="_div data-v-4a81b426">温馨提示</view>
+                    </view>
+                    <view class="_div data-v-4a81b426 popup-window_section">
+                        <view class="_p data-v-4a81b426" style="color: #000">此订单为团长订单，删除团长订单后将会解散此拼团，因此请在删除团长订单前请先删除成员订单！</view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-4a81b426 popup-window_button btn-liner" data-comkey="{{$k}}" data-eventid="{{'4'}}">知道了</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

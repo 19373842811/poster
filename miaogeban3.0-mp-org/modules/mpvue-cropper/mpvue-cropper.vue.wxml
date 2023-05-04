@@ -1,0 +1,6 @@
+<template name="11914932">
+    <view class="_div data-v-b40e08d4">
+        <canvas disableScroll bindtouchend="handleProxy" bindtouchmove="handleProxy" bindtouchstart="handleProxy" canvasId="{{_canvasId}}" class="_canvas data-v-b40e08d4" data-comkey="{{$k}}" data-eventid="{{'0'}}" style=" {{'width:'+_width+'px'+';'+'height:'+_height+'px'+';'+'background:'+'rgba(0, 0, 0, .8)'+';'}}" wx:if="{{_canvasId}}"></canvas>
+        <canvas disableScroll canvasId="{{_targetId}}" class="_canvas data-v-b40e08d4" style=" {{'position:'+'fixed'+';'+'top:'+-_width*_pixelRatio+'px'+';'+'left:'+-_height*_pixelRatio+'px'+';'+'width:'+_width*_pixelRatio+'px'+';'+'height:'+_height*_pixelRatio+'px'+';'}}" wx:if="{{_targetId}}"></canvas>
+    </view>
+</template>

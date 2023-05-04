@@ -1,0 +1,209 @@
+<template name="44456fc5">
+    <view class="_div data-v-79c9729a">
+        <view class="_div data-v-79c9729a container-wrapper" wx:if="{{newSign&&signNum==0}}">
+            <view class="_div data-v-79c9729a noNewData" wx:if="{{recentCheckUser&&recentCheckUser.nickName}}">
+                <image alt class="_img data-v-79c9729a" src="{{recentCheckUser.avatarUrl}}"></image>
+                <view class="_div data-v-79c9729a margin-top-10">暂无信息！最近查看最新报名信息的是：<view class="_br data-v-79c9729a"></view>
+                    <label class="_span data-v-79c9729a" style="color: #666">{{recentCheckUser.nickName}}</label> {{recentCheckUser.checkTime}}</view>
+            </view>
+            <view class="_div data-v-79c9729a noData" wx:else>
+                <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/noData.png"></image>
+                <label class="_span data-v-79c9729a">暂无数据！</label>
+            </view>
+        </view>
+        <view class="_div data-v-79c9729a container-wrapper" wx:if="{{signNum>0||!newSign&&signNum==0}}">
+            <view class="_header data-v-79c9729a">
+                <view class="_p data-v-79c9729a">{{signNum}}</view>
+                <label class="_span data-v-79c9729a">{{newSign?'新报名':'总报名量'}}</label>
+                <view class="_div data-v-79c9729a search-input-wrapper flex-box-start" wx:if="{{!newSign}}">
+                    <image class="_img data-v-79c9729a search-icon" src="/miaogeban3.0-mp-org/static/images/Icons/search.png"></image>
+                    <input disabled bindtap="handleProxy" class="_input data-v-79c9729a search-input" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="搜索报名" placeholderClass="placeholderStyle"></input>
+                </view>
+                <view class="_div data-v-79c9729a float-btn flex-space" wx:if="{{!newSign}}">
+                    <view bindtap="handleProxy" class="_div data-v-79c9729a flex-box" data-comkey="{{$k}}" data-eventid="{{'1'}}" style="padding: 0;width: 37%">
+                        <image class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/addRobot.png" style="height: 45rpx"></image>
+                        <label class="_span data-v-79c9729a">添加机器人报名</label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-79c9729a flex-box" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                        <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/createForm.png"></image>
+                        <label class="_span data-v-79c9729a">生成报名表</label>
+                    </view>
+                </view>
+            </view>
+            <view class="_section data-v-79c9729a" wx:if="{{signNum>0}}">
+                <view class="_div data-v-79c9729a list-item" wx:for="{{list}}" wx:key="index">
+                    <view bindtap="handleProxy" class="_div data-v-79c9729a flex-space" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}">
+                        <view class="_div data-v-79c9729a flex-box-start">
+                            <view class="_div data-v-79c9729a avatar-wrapper">
+                                <image class="_img data-v-79c9729a circle" src="{{item.avatarUrl}}"></image>
+                                <label class="_span data-v-79c9729a" wx:if="{{item.orderType==2}}">团长</label>
+                                <view class="_div data-v-79c9729a flex-box" wx:if="{{item.remark=='机器人'}}">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/robot.png"></image>
+                                    <view class="_p data-v-79c9729a">机器人</view>
+                                </view>
+                            </view>
+                            <view class="_div data-v-79c9729a list-item-section">
+                                <view class="_div data-v-79c9729a list-nickName">
+                                    <label class="_span data-v-79c9729a">{{item.nick}}{{item.mobile?'， '+item.mobile:''}}</label>
+                                    <label class="_span data-v-79c9729a groupStatus" wx:if="{{item.orderType==2&&item.groupStatus==1}}">{{item.groupNumber}}人团，已成团</label>
+                                    <label class="_span data-v-79c9729a groupStatus" style="color: #FF2828" wx:if="{{item.orderType==2&&item.groupStatus==0}}">{{item.groupNumber}}人团，待成团</label>
+                                    <label class="_span data-v-79c9729a groupStatus" style="color: #FF6A07" wx:if="{{item.trickType==2&&item.orderType==1}}">单独报名</label>
+                                </view>
+                                <view class="_p data-v-79c9729a">学员信息：{{item.student}}，{{item.gender}}，{{item.age}}</view>
+                                <label class="_span data-v-79c9729a orderTime">报名时间：{{item.orderTime}}</label>
+                            </view>
+                        </view>
+                        <image class="_img data-v-79c9729a arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" wx:if="{{item.memberOrderList.length>0&&item.orderType==2}}">
+                        <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                        <label class="_span data-v-79c9729a">移至其它团</label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" wx:if="{{item.memberOrderList.length==0&&item.orderType==2}}">
+                        <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                        <label class="_span data-v-79c9729a">移至其它团</label>
+                    </view>
+                    <view class="_div data-v-79c9729a flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'6_'+index}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                            <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/phoneCall.png"></image>
+                            <label class="_span data-v-79c9729a">电话回访</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'7_'+index}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                            <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/phoneBook.png"></image>
+                            <label class="_span data-v-79c9729a">复制手机号加微信</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                            <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/checkIn.png" wx:if="{{!item.checkMsg}}"></image>
+                            <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/check.png" wx:else></image>
+                            <label class="_span data-v-79c9729a" wx:if="{{!item.checkMsg}}">登记邀约信息</label>
+                            <label class="_span data-v-79c9729a" style="color: #009900" wx:else>查看邀约信息</label>
+                        </view>
+                    </view>
+                    <block wx:for="{{item.memberOrderList}}" wx:for-index="index1" wx:for-item="item1" wx:key="index">
+                        <view class="_div data-v-79c9729a line"></view>
+                        <view class="_div data-v-79c9729a" wx:if="{{item.orderType==2&&item.memberOrderList.length>0}}">
+                            <view bindtap="handleProxy" class="_div data-v-79c9729a flex-space margin-top-20" data-comkey="{{$k}}" data-eventid="{{'9_'+index+'-'+index1}}">
+                                <view class="_div data-v-79c9729a flex-box-start">
+                                    <view class="_div data-v-79c9729a avatar-wrapper">
+                                        <image class="_img data-v-79c9729a circle" src="{{item1.avatarUrl}}"></image>
+                                        <label class="_span data-v-79c9729a" style="background: #ff9900;">团员</label>
+                                        <view class="_div data-v-79c9729a flex-box" wx:if="{{item1.remark=='机器人'}}">
+                                            <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/robot.png"></image>
+                                            <view class="_p data-v-79c9729a">机器人</view>
+                                        </view>
+                                    </view>
+                                    <view class="_div data-v-79c9729a list-item-section">
+                                        <view class="_div data-v-79c9729a list-nickName">{{item1.nick}}{{item.mobile?'， '+item.mobile:''}}</view>
+                                        <view class="_p data-v-79c9729a">学员信息：{{item1.student}}，{{item1.gender}}，{{item1.age}}</view>
+                                        <label class="_span data-v-79c9729a orderTime">报名时间：{{item1.orderTime}}</label>
+                                    </view>
+                                </view>
+                                <image class="_img data-v-79c9729a arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                            </view>
+                            <view class="_div data-v-79c9729a flex-box-start" style=" {{'padding-bottom:'+(index1==0&&item.memberOrderList.length>1?'20rpx':'')+';'}}">
+                                <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'10_'+index+'-'+index1}}" style="margin-right: 30rpx">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                                    <label class="_span data-v-79c9729a">移至其它团</label>
+                                </view>
+                                <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'11_'+index+'-'+index1}}">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/create.png"></image>
+                                    <label class="_span data-v-79c9729a">置为一个新团并为团长</label>
+                                </view>
+                            </view>
+                            <view class="_div data-v-79c9729a flex-space">
+                                <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'12_'+index+'-'+index1}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/phoneCall.png"></image>
+                                    <label class="_span data-v-79c9729a">电话回访</label>
+                                </view>
+                                <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'13_'+index+'-'+index1}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/phoneBook.png"></image>
+                                    <label class="_span data-v-79c9729a">复制手机号加微信</label>
+                                </view>
+                                <view bindtap="handleProxy" class="_div data-v-79c9729a newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'14_'+index+'-'+index1}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}">
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/checkIn.png" wx:if="{{!item1.checkMsg}}"></image>
+                                    <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/check.png" wx:else></image>
+                                    <label class="_span data-v-79c9729a" wx:if="{{!item1.checkMsg}}">登记邀约信息</label>
+                                    <label class="_span data-v-79c9729a" style="color: #009900" wx:else>查看邀约信息</label>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <i-load-more class="_i-load-more data-v-79c9729a" loading="{{showLoading}}" tip="{{resTips}}" wx:if="{{!newSign}}"></i-load-more>
+            </view>
+            <view class="_div data-v-79c9729a noData" wx:if="{{!newSign&&signNum==0}}">
+                <image alt class="_img data-v-79c9729a" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/noData.png"></image>
+                <label class="_span data-v-79c9729a">暂无数据！</label>
+            </view>
+            <view class="_div data-v-79c9729a groupPopupWindow" wx:if="{{groupVisible}}">
+                <view class="_div data-v-79c9729a groupPopupWindow-body">
+                    <view class="_div data-v-79c9729a groupPopupWindow-header">请选择要转入的新团</view>
+                    <view class="_div data-v-79c9729a groupPopupWindow-section">
+                        <view class="_div data-v-79c9729a group-item flex-space" wx:for="{{groupList}}" wx:key="index">
+                            <view class="_div data-v-79c9729a flex-box-start">
+                                <image class="_img data-v-79c9729a circle" src="{{item.avatarUrl}}"></image>
+                                <view class="_div data-v-79c9729a">
+                                    <view class="_div data-v-79c9729a">{{item.nickName}}</view>
+                                    <label class="_span data-v-79c9729a">{{item.groupNumber}}人团，仅差<label class="_span data-v-79c9729a" style="color: #ff0000">{{item.lessNumber}}</label>人</label>
+                                </view>
+                            </view>
+                            <button bindtap="handleProxy" class="_button data-v-79c9729a btn-liner" data-comkey="{{$k}}" data-eventid="{{'15_'+index}}">转至此团</button>
+                        </view>
+                    </view>
+                    <image bindtap="handleProxy" class="_img data-v-79c9729a close-icon" data-comkey="{{$k}}" data-eventid="{{'16'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+            <template is="38064374" data="{{...$root[$kk+'1'],$root:$root,$for:{default:'data-v-79c9729a-default-1'},$slotdefault:'data-v-79c9729a-default-1'}}"></template>
+            <view class="_div data-v-79c9729a popup-window flex-box" wx:if="{{formVisible}}">
+                <view class="_div data-v-79c9729a popup-window_shadow"></view>
+                <view class="_div data-v-79c9729a popup-window_body form-popup" style="width: 80%;">
+                    <view class="_div data-v-79c9729a popup-window_content" style="padding-bottom: 30rpx;">
+                        <view class="_div data-v-79c9729a popup-window_header">
+                            <view class="_div data-v-79c9729a">报名表已生成！</view>
+                        </view>
+                        <view class="_div data-v-79c9729a popup-window_section">
+                            <view class="_p data-v-79c9729a url" style="color: #000">{{formUrl}}</view>
+                            <button bindtap="handleProxy" class="_button data-v-79c9729a btn-liner" data-comkey="{{$k}}" data-eventid="{{'18'}}">复制报名表链接</button>
+                            <view class="_div data-v-79c9729a">请复制以上报名表链接至电脑浏览器网址栏打开即可下载！</view>
+                            <label class="_span data-v-79c9729a" style="color: #ff9900">注：如果报名订单发生改变，请重新生成报名表</label>
+                        </view>
+                    </view>
+                    <view class="_div data-v-79c9729a popup-window_footer" style="border-top: 0">
+                        <image bindtap="handleProxy" class="_img data-v-79c9729a" data-comkey="{{$k}}" data-eventid="{{'19'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-79c9729a popup-window flex-box" wx:if="{{robotVisible}}">
+                <view class="_div data-v-79c9729a popup-window_shadow"></view>
+                <view class="_div data-v-79c9729a popup-window_body form-popup" style="width: 80%;">
+                    <view class="_div data-v-79c9729a popup-window_content" style="padding-bottom: 30rpx;">
+                        <view class="_div data-v-79c9729a popup-window_header">
+                            <view class="_div data-v-79c9729a">温馨提示</view>
+                        </view>
+                        <view class="_div data-v-79c9729a popup-window_section robot-popup-window_section">
+                            <view class="_p data-v-79c9729a">为提升活动的活跃度与报名气氛，您可以添加机器人报名，建议请不要在同一时间添加多名机器人报名，把握好节奏，需间隔一定时间添加机器人报名较为合适！</view>
+                            <view class="_div data-v-79c9729a group-wrapper" wx:if="{{classInfo.trickType&&classInfo.trickType==2}}">
+                                <label class="_span data-v-79c9729a">请选择机器人开团人数：</label>
+                                <radio-group bindchange="handleProxy" class="_radio-group data-v-79c9729a radio-group flex-box-start margin-top-20" data-comkey="{{$k}}" data-eventid="{{'20'}}">
+                                    <label class="_label data-v-79c9729a radio flex-box" wx:for="{{groupTypeList}}" wx:key="index">
+                                        <radio checked="{{item.checked}}" class="_radio data-v-79c9729a" color="#ff9900" value="{{item.groupTypeName}}"></radio>{{item.groupTypeName}}人团 </label>
+                                </radio-group>
+                            </view>
+                            <view bindtap="handleProxy" class="_div data-v-79c9729a btn-liner" data-comkey="{{$k}}" data-eventid="{{'21'}}">知道了，立即添加1名机器人报名</view>
+                        </view>
+                    </view>
+                    <view class="_div data-v-79c9729a popup-window_footer" style="border-top: 0">
+                        <image bindtap="handleProxy" class="_img data-v-79c9729a" data-comkey="{{$k}}" data-eventid="{{'22'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                    </view>
+                </view>
+            </view>
+            <template is="1f570be6" data="{{...$root[$kk+'3'],$root:$root,$for:{default:'data-v-79c9729a-default-3'},$slotdefault:'data-v-79c9729a-default-3'}}"></template>
+            <template is="1f570be6" data="{{...$root[$kk+'4'],$root:$root,$for:{default:'data-v-79c9729a-default-4'},$slotdefault:'data-v-79c9729a-default-4'}}"></template>
+            <template is="1f570be6" data="{{...$root[$kk+'5'],$root:$root,$for:{default:'data-v-79c9729a-default-5'},$slotdefault:'data-v-79c9729a-default-5'}}"></template>
+            <template is="ca26c5b0" data="{{...$root[$kk+'6'],$root:$root}}"></template>
+        </view>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/operate-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

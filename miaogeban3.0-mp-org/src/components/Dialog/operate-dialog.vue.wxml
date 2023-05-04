@@ -1,0 +1,19 @@
+<template name="default"></template>
+<template name="1f570be6">
+    <view class="_div data-v-7aac41a4 popup-window flex-box" wx:if="{{visible}}">
+        <view class="_div data-v-7aac41a4 popup-window_shadow"></view>
+        <view class="_div data-v-7aac41a4 popup-window_body warning-popup">
+            <view class="_div data-v-7aac41a4 popup-window_content">
+                <view class="_div data-v-7aac41a4 popup-window_header">
+                    <view class="_div data-v-7aac41a4">{{title}}</view>
+                </view>
+                <template is="{{$slotdefault||'default'}}" data="{{...$root[$p],...$root[$k],$root:$root}}"></template>
+                <view class="_div data-v-7aac41a4 popup-window_footer flex-space">
+                    <view bindtap="handleProxy" class="_div data-v-7aac41a4" data-comkey="{{$k}}" data-eventid="{{'0'}}">{{cancelBtnText}}</view>
+                    <view bindtap="handleProxy" class="_div data-v-7aac41a4" data-comkey="{{$k}}" data-eventid="{{'1'}}">{{confirmBtnText}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+<import src="/components/slots"></import>

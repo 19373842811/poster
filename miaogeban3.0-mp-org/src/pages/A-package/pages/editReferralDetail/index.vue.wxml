@@ -1,0 +1,37 @@
+<template name="1ed4f572">
+    <view class="_div data-v-73906b35 container-wrapper">
+        <form bindsubmit="handleProxy" class="_form data-v-73906b35" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+            <view class="_div data-v-73906b35" wx:if="{{type==1}}">
+                <view class="_div data-v-73906b35 form-wrapper">
+                    <input class="_input data-v-73906b35" name="profit" type="digit" value="{{profit}}"></input>
+                </view>
+                <view bindtap="handleProxy" class="_p data-v-73906b35 tips" data-comkey="{{$k}}" data-eventid="{{'0'}}">请输入小于或等于<label class="_span data-v-73906b35" style="color: #333;">{{maxProfit}}</label>的数字，<label class="_span data-v-73906b35" style="color: #2851A6">为什么？</label>
+                </view>
+            </view>
+            <view class="_div data-v-73906b35" wx:if="{{type==2}}">
+                <view class="_div data-v-73906b35 textarea-wrapper">
+                    <textarea bindinput="handleProxy" class="_textarea data-v-73906b35" data-comkey="{{$k}}" data-eventid="{{'1'}}" maxlength="120" name="speechcraft" value="{{speechcraft}}"></textarea>
+                </view>
+                <view class="_p data-v-73906b35 flex-box-end count">{{speechcraft.length}} / 120</view>
+            </view>
+            <button class="_button data-v-73906b35 btn-liner" formType="submit">保存修改</button>
+        </form>
+        <view class="_div data-v-73906b35 popup-window flex-box" wx:if="{{popupWindowVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-73906b35 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'3'}}"></view>
+            <view class="_div data-v-73906b35 popup-window_body">
+                <view class="_div data-v-73906b35 popup-window_content">
+                    <view class="_div data-v-73906b35 popup-window_section">
+                        <view class="_p data-v-73906b35">佣金上限说明</view>
+                        <view class="_div data-v-73906b35">佣金应小于扣除课程交易手续费(<label class="_span data-v-73906b35">{{charge}}</label>%)后的价格(微信官方收取，非喵个班收取)。因此，此课程佣金上限为：</view>
+                        <view class="_div data-v-73906b35 bold">{{newPrice}} - {{newPrice}} * {{charge}}% = {{maxProfit}}元</view>
+                    </view>
+                </view>
+                <view class="_div data-v-73906b35 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-73906b35" data-comkey="{{$k}}" data-eventid="{{'4'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

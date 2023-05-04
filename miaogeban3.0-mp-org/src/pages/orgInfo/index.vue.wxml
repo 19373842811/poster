@@ -1,0 +1,38 @@
+<template name="327b584e">
+    <view class="_div data-v-1336624b container-wrapper">
+        <view class="_header data-v-1336624b flex-space">
+            <image class="_img data-v-1336624b icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_prompt.png"></image>
+            <view class="_p data-v-1336624b">填写好机构介绍信息，每次在制作课程时会帮您自动填入模板的合适位置，大大提高制作效率。</view>
+        </view>
+        <view class="_div data-v-1336624b item-wrapper">
+            <navigator class="_navigator data-v-1336624b item flex-space" hoverClass="none" openType="navigate" url="../editOrgInfo/main?type=orgInfo">
+                <view class="_div data-v-1336624b flex-box-start">
+                    <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/src/pages/orgInfo/images/icon01.png"></image>
+                    <label class="_span data-v-1336624b">基本信息</label>
+                </view>
+                <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </navigator>
+            <navigator class="_navigator data-v-1336624b item flex-space" hoverClass="none" openType="navigate" url="../A-package/pages/qrCodeMessage/main">
+                <view class="_div data-v-1336624b flex-box-start">
+                    <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/src/pages/orgInfo/images/icon02.png"></image>
+                    <label class="_span data-v-1336624b">常用二维码</label>
+                </view>
+                <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </navigator>
+            <navigator class="_navigator data-v-1336624b item flex-space" hoverClass="none" openType="navigate" url="../editOrgInfo/main?type=school">
+                <view class="_div data-v-1336624b flex-box-start">
+                    <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/src/pages/orgInfo/images/icon03.png"></image>
+                    <label class="_span data-v-1336624b">教学环境照片</label>
+                </view>
+                <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </navigator>
+            <navigator class="_navigator data-v-1336624b item flex-space" hoverClass="none" openType="navigate" url="../editOrgInfo/main?type=class">
+                <view class="_div data-v-1336624b flex-box-start">
+                    <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/src/pages/orgInfo/images/icon04.png"></image>
+                    <label class="_span data-v-1336624b">课堂风采照片</label>
+                </view>
+                <image alt class="_img data-v-1336624b" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </navigator>
+        </view>
+    </view>
+</template>

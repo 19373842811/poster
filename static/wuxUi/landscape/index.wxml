@@ -1,0 +1,10 @@
+<wux-popup bind:close="onClose" hasFooter="{{false}}" hasHeader="{{false}}" mask="{{showMask}}" maskClosable="{{maskClosable}}" visible="{{visible}}" wuxBodyClass="{{classes.popupBody}}" wuxCloseClass="{{classes.popupClose}}" wuxContentClass="{{classes.popup}}">
+    <view class="wux-class {{classes.wrap}}">
+        <view class="{{classes.inner}}">
+            <slot></slot>
+        </view>
+        <view bindtap="onClose" class="{{classes.close}}" wx:if="{{closable}}">
+            <text class="{{classes.x}}"></text>
+        </view>
+    </view>
+</wux-popup>

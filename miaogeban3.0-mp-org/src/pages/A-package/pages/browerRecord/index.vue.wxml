@@ -1,0 +1,44 @@
+<template name="b61579b6">
+    <view class="_div data-v-2f0245d3 container-wrapper">
+        <view class="_header data-v-2f0245d3">
+            <view class="_p data-v-2f0245d3">{{visitNum.partVisit}} / {{visitNum.totalVisit}}</view>
+            <label class="_span data-v-2f0245d3">今日浏览人数 / 总人数：</label>
+            <picker bindchange="handleProxy" class="_picker data-v-2f0245d3" data-comkey="{{$k}}" data-eventid="{{'0'}}" end="2050-12-31" mode="date" start="2022-01-01" value="{{date}}">
+                <view class="_div data-v-2f0245d3 picker"> {{date}} <image class="_img data-v-2f0245d3" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/iconfont-arrowdown.png"></image>
+                </view>
+            </picker>
+            <view bindtap="handleProxy" class="_div data-v-2f0245d3 flex-box robot-btn" data-comkey="{{$k}}" data-eventid="{{'1'}}">
+                <image class="_img data-v-2f0245d3" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/addRobot.png" style="height: 45rpx"></image>
+                <label class="_span data-v-2f0245d3">添加机器人浏览</label>
+            </view>
+        </view>
+        <view class="_div data-v-2f0245d3 line"></view>
+        <view class="_section data-v-2f0245d3">
+            <view class="_div data-v-2f0245d3 list-item flex-box-start" wx:for="{{list}}" wx:key="index">
+                <image class="_img data-v-2f0245d3 circle" src="{{item.avatarUrl||defaultAvatar}}"></image>
+                <view class="_div data-v-2f0245d3">
+                    <view class="_div data-v-2f0245d3 list-nickName">{{item.nickName||'游客'}}</view>
+                    <label class="_span data-v-2f0245d3">访问时间：{{item.createTime}}</label>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-2f0245d3" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <view class="_div data-v-2f0245d3 popup-window flex-box" wx:if="{{robotVisible}}">
+            <view class="_div data-v-2f0245d3 popup-window_shadow"></view>
+            <view class="_div data-v-2f0245d3 popup-window_body form-popup" style="width: 80%;">
+                <view class="_div data-v-2f0245d3 popup-window_content" style="padding-bottom: 30rpx;">
+                    <view class="_div data-v-2f0245d3 popup-window_header">
+                        <view class="_div data-v-2f0245d3">温馨提示</view>
+                    </view>
+                    <view class="_div data-v-2f0245d3 popup-window_section robot-popup-window_section">
+                        <view class="_p data-v-2f0245d3">为提升活动的活跃度与气氛，您可以添加机器人浏览来提升人气！</view>
+                        <view bindtap="handleProxy" class="_div data-v-2f0245d3 btn-liner" data-comkey="{{$k}}" data-eventid="{{'2'}}">知道了，立即添加1名机器人浏览</view>
+                    </view>
+                </view>
+                <view class="_div data-v-2f0245d3 popup-window_footer" style="border-top: 0">
+                    <image bindtap="handleProxy" class="_img data-v-2f0245d3" data-comkey="{{$k}}" data-eventid="{{'3'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

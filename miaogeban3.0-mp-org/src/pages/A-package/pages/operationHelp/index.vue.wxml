@@ -1,0 +1,20 @@
+<template name="95886516">
+    <scroll-view scrollY class="_scroll-view data-v-afccabfe container-wrapper" scrollIntoView="{{scrollInto}}">
+        <view class="_div data-v-afccabfe video-wrapper flex-space" id="index0">
+            <view bindtap="handleProxy" class="_div data-v-afccabfe video-item" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+                <image class="_img data-v-afccabfe" mode="widthFix" src="/miaogeban3.0-mp-org/src/pages/A-package/images/helpVideoPoster1.jpg" style="width: 100%"></image>
+            </view>
+        </view>
+        <view class="_div data-v-afccabfe list-wrapper margin-top-20" id="index1">
+            <view class="_p data-v-afccabfe">常见问题</view>
+            <view bindtap="handleProxy" class="_div data-v-afccabfe list-item" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                <image class="_img data-v-afccabfe" mode="widthFix" src="{{item.pic}}" style="width: 100%;"></image>
+            </view>
+        </view>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-afccabfe warning" data-comkey="{{$k}}" data-eventid="{{'2'}}" maskClosable="{{true}}" visible="{{videoVisible}}">
+            <view class="_div data-v-afccabfe video-wrapper">
+                <video autoplay class="_video data-v-afccabfe video" src="{{videoPath}}" style="width: 100%;height: 425px;" wx:if="{{videoVisible}}"></video>
+            </view>
+        </wux-landscape>
+    </scroll-view>
+</template>

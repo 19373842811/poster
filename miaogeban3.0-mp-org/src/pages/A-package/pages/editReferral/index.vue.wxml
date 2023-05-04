@@ -1,0 +1,35 @@
+<template name="659cbfd4">
+    <view class="_div data-v-573ea2c4 container-wrapper">
+        <navigator class="_navigator data-v-573ea2c4 item-wrapper" hoverClass="none" url="{{'../editReferralDetail/main?type=1&cid='+cid+'&profit='+sellConfig.profit+'&newPrice='+newPrice}}">
+            <view class="_div data-v-573ea2c4 flex-space">
+                <view class="_div data-v-573ea2c4">
+                    <view class="_p data-v-573ea2c4" style="margin-bottom: -10rpx;">佣金(元)</view>
+                    <label class="_span data-v-573ea2c4" style="font-size: 24rpx;color: #999">推广用户每成功邀请一个客户购课，获得的提成</label>
+                </view>
+                <view class="_div data-v-573ea2c4 flex-box-end">
+                    <label class="_span data-v-573ea2c4">{{sellConfig.profit}}</label>
+                    <image alt class="_img data-v-573ea2c4" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                </view>
+            </view>
+        </navigator>
+        <view class="_div data-v-573ea2c4 item-wrapper margin-top-20">
+            <view class="_p data-v-573ea2c4">转介绍海报</view>
+            <view class="_div data-v-573ea2c4 flex-box-start image-list">
+                <view class="_div data-v-573ea2c4 image-item" wx:for="{{sellConfig.sellPoster}}" wx:key="index">
+                    <image alt class="_img data-v-573ea2c4" src="{{item.path+'?x-oss-process=image/resize,p_60'}}" wx:if="{{item.path}}"></image>
+                    <image alt class="_img data-v-573ea2c4" src="{{item.thumbnail}}" wx:else></image>
+                    <view bindtap="handleProxy" class="_div data-v-573ea2c4 btn" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}">编辑海报</view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-573ea2c4 item-wrapper margin-top-20">
+            <view class="_p data-v-573ea2c4 bold">推广话术</view>
+            <view class="_div data-v-573ea2c4 speechcraft-wrapper">
+                <view class="_div data-v-573ea2c4 speechcraft-item flex-space" wx:for="{{sellConfig.sellSpeech}}" wx:key="index">
+                    <view class="_p data-v-573ea2c4">{{item.content}}</view>
+                    <label bindtap="handleProxy" class="_span data-v-573ea2c4" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}">编辑 ></label>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

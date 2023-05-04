@@ -1,0 +1,37 @@
+<template name="6092e5ab">
+    <view class="_div data-v-107b1412 container-wrapper">
+        <view class="_section data-v-107b1412" wx:if="{{list.length>0}}">
+            <view class="_div data-v-107b1412 form-item" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-107b1412 form-item_header flex-space">
+                    <label class="_span data-v-107b1412">{{item.name}}</label>
+                    <label class="_span data-v-107b1412" style="color: red">￥{{item.orderPrice}}</label>
+                </view>
+                <view class="_div data-v-107b1412 form-item_footer flex-space">
+                    <label class="_span data-v-107b1412">"{{item.nickName}}"支付于 {{item.payTime}} </label>
+                    <view bindtap="handleProxy" class="_div data-v-107b1412" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:if="{{item.bill}}">下载发票 ></view>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-107b1412 flex-box" wx:if="{{list.length==0}}">
+            <view class="_div data-v-107b1412 noData-wrapper">
+                <image alt class="_img data-v-107b1412" src="/miaogeban3.0-mp-org/static/images/noData.png"></image>
+                <view class="_div data-v-107b1412">暂无数据</view>
+            </view>
+        </view>
+        <view class="_div data-v-107b1412 popup-window flex-box" wx:if="{{popupWindowVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-107b1412 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'1'}}"></view>
+            <view class="_div data-v-107b1412 popup-window_body">
+                <view class="_div data-v-107b1412 popup-window_content">
+                    <view class="_div data-v-107b1412 popup-window_header">
+                        <view class="_div data-v-107b1412">发票链接</view>
+                    </view>
+                    <view class="_div data-v-107b1412 popup-window_section">
+                        <view class="_p data-v-107b1412">{{billUrl}}</view>
+                        <view bindtap="handleProxy" class="_div data-v-107b1412 btn-liner" data-comkey="{{$k}}" data-eventid="{{'2'}}">复制发票链接</view>
+                        <label class="_span data-v-107b1412">请复制以上发票链接至电脑浏览器网址栏打开，并“另存”下载！</label>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

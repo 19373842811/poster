@@ -1,0 +1,146 @@
+<template name="ac7d3b66">
+    <view class="_div data-v-4e24ec7b container-wrapper">
+        <view class="_header data-v-4e24ec7b flex-space">
+            <view class="_div data-v-4e24ec7b search-input-wrapper flex-box-start">
+                <image class="_img data-v-4e24ec7b search-icon" src="/miaogeban3.0-mp-org/static/images/Icons/search.png"></image>
+                <input focus bindconfirm="handleProxy" bindinput="handleProxy" class="_input data-v-4e24ec7b search-input" confirmType="search" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="联系人称呼 / 学员姓名 / 手机号" placeholderClass="placeholderStyle" value="{{queryList.searchWord}}"></input>
+                <icon bindtap="handleProxy" class="_icon data-v-4e24ec7b clear-icon" data-comkey="{{$k}}" data-eventid="{{'1'}}" hidden="{{!queryList.searchWord}}" size="16" type="clear"></icon>
+            </view>
+            <label bindtap="handleProxy" class="_span data-v-4e24ec7b search-btn" data-comkey="{{$k}}" data-eventid="{{'2'}}">搜索</label>
+        </view>
+        <view class="_section data-v-4e24ec7b">
+            <view class="_div data-v-4e24ec7b list-item" wx:for="{{list}}" wx:key="index">
+                <view bindtap="handleProxy" class="_div data-v-4e24ec7b flex-space" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}">
+                    <view class="_div data-v-4e24ec7b flex-box-start">
+                        <view class="_div data-v-4e24ec7b avatar-wrapper">
+                            <image class="_img data-v-4e24ec7b circle" src="{{item.avatarUrl}}"></image>
+                            <label class="_span data-v-4e24ec7b" wx:if="{{item.orderType==2&&item.isLeader==1}}">团长</label>
+                            <label class="_span data-v-4e24ec7b" style="background: #ff9900" wx:if="{{item.orderType==2&&item.isLeader==0}}">团员</label>
+                        </view>
+                        <view class="_div data-v-4e24ec7b">
+                            <view class="_div data-v-4e24ec7b list-nickName">
+                                <label class="_span data-v-4e24ec7b">{{item.nick}}，{{item.mobile}}</label>
+                                <label class="_span data-v-4e24ec7b groupStatus" wx:if="{{item.orderType==2&&item.groupStatus==1}}">{{item.groupNumber}}人团，已成团</label>
+                                <label class="_span data-v-4e24ec7b groupStatus" style="color: #FF2828" wx:if="{{item.orderType==2&&item.groupStatus==0}}">{{item.groupNumber}}人团，待成团</label>
+                                <label class="_span data-v-4e24ec7b groupStatus" style="color: #FF6A07" wx:if="{{item.trickType==2&&item.orderType==1}}">单独报名</label>
+                            </view>
+                            <view class="_p data-v-4e24ec7b">学员信息：{{item.student}}，{{item.gender}}，{{item.age}}</view>
+                            <label class="_span data-v-4e24ec7b orderTime">报名时间：{{item.orderTime}}</label>
+                        </view>
+                    </view>
+                    <image class="_img data-v-4e24ec7b arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                </view>
+                <view class="_div data-v-4e24ec7b flex-space" style="padding-left: 130rpx">
+                    <view bindtap="handleProxy" class="_div data-v-4e24ec7b newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" wx:if="{{item.isLeader==0}}">
+                        <image alt class="_img data-v-4e24ec7b" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/create.png"></image>
+                        <label class="_span data-v-4e24ec7b">置为一个新团并为团长</label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-4e24ec7b newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}" wx:if="{{item.memberOrderList.length>0&&item.orderType==2}}">
+                        <image alt class="_img data-v-4e24ec7b" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                        <label class="_span data-v-4e24ec7b">移至其它团</label>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-4e24ec7b newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'6_'+index}}" style=" {{'padding-bottom:'+(item.memberOrderList.length>0?'20rpx':'')+';'}}" wx:if="{{item.memberOrderList.length==0&&item.memberOrderList[0]!==null&&item.orderType==2}}">
+                        <image alt class="_img data-v-4e24ec7b" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                        <label class="_span data-v-4e24ec7b">移至其它团</label>
+                    </view>
+                </view>
+                <block wx:for="{{item.memberOrderList}}" wx:for-index="index1" wx:for-item="item1" wx:key="index">
+                    <view class="_div data-v-4e24ec7b line"></view>
+                    <view class="_div data-v-4e24ec7b" wx:if="{{item.orderType==2&&item.memberOrderList.length>0}}">
+                        <view bindtap="handleProxy" class="_div data-v-4e24ec7b flex-space margin-top-20" data-comkey="{{$k}}" data-eventid="{{'7_'+index+'-'+index1}}">
+                            <view class="_div data-v-4e24ec7b flex-box-start">
+                                <view class="_div data-v-4e24ec7b avatar-wrapper">
+                                    <image class="_img data-v-4e24ec7b circle" src="{{item1.avatarUrl}}"></image>
+                                    <label class="_span data-v-4e24ec7b" style="background: #ff9900;">团员</label>
+                                </view>
+                                <view class="_div data-v-4e24ec7b">
+                                    <view class="_div data-v-4e24ec7b list-nickName">{{item1.nick}}，{{item1.mobile}}</view>
+                                    <view class="_p data-v-4e24ec7b">学员信息：{{item1.student}}，{{item1.gender}}，{{item1.age}}</view>
+                                    <label class="_span data-v-4e24ec7b orderTime">报名时间：{{item1.orderTime}}</label>
+                                </view>
+                            </view>
+                            <image class="_img data-v-4e24ec7b arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                        </view>
+                        <view class="_div data-v-4e24ec7b flex-space" style="padding-left: 130rpx">
+                            <view bindtap="handleProxy" class="_div data-v-4e24ec7b newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'8_'+index+'-'+index1}}">
+                                <image alt class="_img data-v-4e24ec7b" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/create.png"></image>
+                                <label class="_span data-v-4e24ec7b">置为一个新团并为团长</label>
+                            </view>
+                            <view bindtap="handleProxy" class="_div data-v-4e24ec7b newGroup-btn flex-box-start" data-comkey="{{$k}}" data-eventid="{{'9_'+index+'-'+index1}}" style="margin-left: 70rpx">
+                                <image alt class="_img data-v-4e24ec7b" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/signUpList/images/trans.png"></image>
+                                <label class="_span data-v-4e24ec7b">移至其它团</label>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <i-load-more class="_i-load-more data-v-4e24ec7b" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <view class="_div data-v-4e24ec7b popup-window flex-box" wx:if="{{warningVisible}}">
+            <view class="_div data-v-4e24ec7b popup-window_shadow"></view>
+            <view class="_div data-v-4e24ec7b popup-window_body warning-popup">
+                <view class="_div data-v-4e24ec7b popup-window_content">
+                    <view class="_div data-v-4e24ec7b popup-window_header">
+                        <view class="_div data-v-4e24ec7b">注意</view>
+                    </view>
+                    <view class="_div data-v-4e24ec7b popup-window_section">
+                        <view class="_p data-v-4e24ec7b">如果原拼团已成团，此订单置为开团后会导至原拼团为待成团状态！请线下与已拼团学员协商好再操作！</view>
+                    </view>
+                    <view class="_div data-v-4e24ec7b popup-window_footer flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-4e24ec7b" data-comkey="{{$k}}" data-eventid="{{'10'}}">取消</view>
+                        <view bindtap="handleProxy" class="_div data-v-4e24ec7b" data-comkey="{{$k}}" data-eventid="{{'11'}}">知道了，确定提交</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-4e24ec7b groupPopupWindow" wx:if="{{groupVisible}}">
+            <view class="_div data-v-4e24ec7b groupPopupWindow-body">
+                <view class="_div data-v-4e24ec7b groupPopupWindow-header">请选择要转入的新团</view>
+                <view class="_div data-v-4e24ec7b groupPopupWindow-section">
+                    <view class="_div data-v-4e24ec7b group-item flex-space" wx:for="{{groupList}}" wx:key="index">
+                        <view class="_div data-v-4e24ec7b flex-box-start">
+                            <image class="_img data-v-4e24ec7b circle" src="{{item.avatarUrl}}"></image>
+                            <view class="_div data-v-4e24ec7b">
+                                <view class="_div data-v-4e24ec7b">{{item.nickName}}</view>
+                                <label class="_span data-v-4e24ec7b">{{item.groupNumber}}人团，仅差<label class="_span data-v-4e24ec7b" style="color: #ff0000">{{item.lessNumber}}</label>人</label>
+                            </view>
+                        </view>
+                        <button bindtap="handleProxy" class="_button data-v-4e24ec7b btn-liner" data-comkey="{{$k}}" data-eventid="{{'12_'+index}}">转至此团</button>
+                    </view>
+                </view>
+                <image bindtap="handleProxy" class="_img data-v-4e24ec7b close-icon" data-comkey="{{$k}}" data-eventid="{{'13'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+            </view>
+        </view>
+        <view class="_div data-v-4e24ec7b popup-window flex-box" wx:if="{{warningVisible1}}">
+            <view class="_div data-v-4e24ec7b popup-window_shadow"></view>
+            <view class="_div data-v-4e24ec7b popup-window_body warning-popup">
+                <view class="_div data-v-4e24ec7b popup-window_content">
+                    <view class="_div data-v-4e24ec7b popup-window_header">
+                        <view class="_div data-v-4e24ec7b">注意</view>
+                    </view>
+                    <view class="_div data-v-4e24ec7b popup-window_section">
+                        <view class="_div data-v-4e24ec7b">1、如果原拼团已成团，转移此订单后会导至原拼团为待成团状态；<view class="_br data-v-4e24ec7b"></view>2、可能由于不同团人数不一致导致退补款问题，请线下与已拼团学员协商好后再操作！</view>
+                    </view>
+                    <view class="_div data-v-4e24ec7b popup-window_footer flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-4e24ec7b" data-comkey="{{$k}}" data-eventid="{{'14'}}">取消</view>
+                        <view bindtap="handleProxy" class="_div data-v-4e24ec7b" data-comkey="{{$k}}" data-eventid="{{'15'}}">知道了，确定提交</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-4e24ec7b popup-window flex-box" wx:if="{{tipsVisible}}">
+            <view class="_div data-v-4e24ec7b popup-window_shadow"></view>
+            <view class="_div data-v-4e24ec7b popup-window_body warning-popup">
+                <view class="_div data-v-4e24ec7b popup-window_content" style="padding-bottom: 30rpx">
+                    <view class="_div data-v-4e24ec7b popup-window_header">
+                        <view class="_div data-v-4e24ec7b">温馨提示</view>
+                    </view>
+                    <view class="_div data-v-4e24ec7b popup-window_section">
+                        <view class="_p data-v-4e24ec7b" style="color: #000">此订单为团长订单，转移团长订单后将会解散此拼团，因此请在转移团长订单前，先将成员订单全部转移后再操作！</view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-4e24ec7b popup-window_button btn-liner" data-comkey="{{$k}}" data-eventid="{{'16'}}">知道了</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

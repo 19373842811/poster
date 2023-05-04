@@ -1,0 +1,22 @@
+<template name="287cba8c">
+    <view class="_div data-v-2d579ec2 container-wrapper">
+        <image class="_img data-v-2d579ec2" mode="widthFix" src="{{schemeInfo.banner}}" style="width: 100vw;vertical-align: top;"></image>
+        <view class="_div data-v-2d579ec2 content-wrapper" style=" {{'background:'+schemeInfo.bgColor+';'}}">
+            <view class="_div data-v-2d579ec2 text-wrapper">
+                <view class="_p data-v-2d579ec2">{{schemeInfo.content}}</view>
+            </view>
+            <view class="_div data-v-2d579ec2 detail-wrapper" key="{{index}}" wx:for="{{schemeInfo.detailList}}" wx:key="index">
+                <view class="_h1 data-v-2d579ec2 detail-title">{{item.title}}</view>
+                <view class="_div data-v-2d579ec2 template-wrapper">
+                    <view bindtap="handleProxy" class="_div data-v-2d579ec2 image-item" data-comkey="{{$k}}" data-eventid="{{'0_'+index+'-'+imgIndex}}" key="{{imgIndex}}" wx:for="{{item.templateList}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key="imgIndex">
+                        <image class="_img data-v-2d579ec2" mode="widthFix" src="{{imgItem.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                        <view class="_div data-v-2d579ec2">[{{imgItem.tagName||imgItem.realmName}}] {{imgItem.trickName}}</view>
+                    </view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-2d579ec2 toIndex" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}">更多模板，请访问[喵个班]首页 ></view>
+            </view>
+        </view>
+        <button class="_button data-v-2d579ec2 share-btn" openType="share">分享</button>
+        <button bindtap="handleProxy" class="_button data-v-2d579ec2 share-btn" data-comkey="{{$k}}" data-eventid="{{'2'}}">首页</button>
+    </view>
+</template>

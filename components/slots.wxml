@@ -1,0 +1,62 @@
+<template name="data-v-75703d6a-default-7">
+    <view class="_div data-v-75703d6a popup-window_section">
+        <view class="_p data-v-75703d6a" style="color: #000">“{{illegalText.text}}”字眼涉及学科，请更改或删除后再提交!</view>
+        <label class="_span data-v-75703d6a" hidden="{{!illegalText.nearby}}" style="color: #999">建议改为：{{illegalText.nearby}}</label>
+    </view>
+</template>
+<template name="data-v-794b2b4b-default-5">
+    <view class="_div data-v-794b2b4b popup-window_section_subject">
+        <view class="_p data-v-794b2b4b" style="color: #000">“{{illegalText.text}}”字眼涉及学科，请更改或删除后再提交!</view>
+        <label class="_span data-v-794b2b4b" hidden="{{!illegalText.nearby}}" style="color: #999">建议改为：{{illegalText.nearby}}</label>
+    </view>
+</template>
+<template name="data-v-79c9729a-default-5">
+    <view class="_div data-v-79c9729a invitationForm-section">
+        <textarea autoFocus bindinput="handleProxy" class="_textarea data-v-79c9729a" cursorSpacing="200" data-comkey="{{$k}}" data-eventid="{{'25'}}" placeholder="可在此输入邀约上门时间、学员情况等信息" placeholderClass="placeholderStyle" value="{{checkMsg}}"></textarea>
+    </view>
+</template>
+<template name="data-v-79c9729a-default-4">
+    <view class="_div data-v-79c9729a popup-window_section">
+        <view class="_div data-v-79c9729a">如果原拼团已成团，转移此订单后会导至原拼团为待成团状态；</view>
+    </view>
+</template>
+<template name="data-v-79c9729a-default-3">
+    <view class="_div data-v-79c9729a popup-window_section">
+        <view class="_p data-v-79c9729a">如果原拼团已成团，此订单置为开团后会导至原拼团为待成团状态！请线下与已拼团学员协商好再操作！</view>
+    </view>
+</template>
+<template name="data-v-79c9729a-default-1">
+    <view class="_div data-v-79c9729a popup-window_section">
+        <view class="_p data-v-79c9729a" style="color: #000">此订单为团长订单，转移团长订单后将会解散此拼团，因此请在转移团长订单前，先将成员订单全部转移后再操作！</view>
+    </view>
+</template>
+<template name="data-v-15ae6e34-default-5">
+    <view class="_div data-v-15ae6e34 warning-section">抱歉！系统升级中，<view class="_br data-v-15ae6e34"></view>暂无法续期！</view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/operate-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/notification-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/modules/mpvue-cropper/mpvue-cropper.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/pages/createOrg/components/show-demo.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/notification-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/pages/A-package/pages/orgMember/components/confirm-staff.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>

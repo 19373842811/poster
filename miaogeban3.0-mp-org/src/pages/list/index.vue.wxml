@@ -1,0 +1,53 @@
+<template name="b8797f9a">
+    <view class="_div data-v-8236c20a container-wrapper">
+        <view class="_header data-v-8236c20a" id="header" wx:if="{{mode==1}}">
+            <view class="_div data-v-8236c20a nav-section">
+                <scroll-view class="_scroll-view data-v-8236c20a" enhanced="true" scrollIntoView="{{trickScrollId}}" scrollX="{{showMoreTrick?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(showMoreTrick?'wrap':'nowrap')+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.trickId==''?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}" id="scroll0" style="padding: 0 20rpx">全部</view>
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.trickId==item.id?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" id="{{item.scrollId}}" key="{{index}}" wx:for="{{tricksList}}" wx:key="index">{{item.name}}</view>
+                </scroll-view>
+                <view bindtap="handleProxy" class="_div data-v-8236c20a arrow-shadow" data-comkey="{{$k}}" data-eventid="{{'2'}}"></view>
+                <view bindtap="handleProxy" class="_div data-v-8236c20a bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'3'}}" style=" {{'transform:'+(showMoreTrick?'rotate(180deg)':'')+';'}}">
+                    <image alt class="_img data-v-8236c20a" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                </view>
+            </view>
+            <view class="_div data-v-8236c20a nav-section margin-top-20">
+                <scroll-view class="_scroll-view data-v-8236c20a" enhanced="true" scrollIntoView="{{fieldScrollId}}" scrollX="{{showMoreField?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(showMoreField?'wrap':'nowrap')+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.realmId==''?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'4'}}" id="scroll0" style="padding: 0 20rpx">全部</view>
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.realmId==item.id?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" id="{{item.scrollId}}" key="{{index}}" wx:for="{{fieldList}}" wx:key="index">{{item.name}}</view>
+                </scroll-view>
+                <view bindtap="handleProxy" class="_div data-v-8236c20a arrow-shadow" data-comkey="{{$k}}" data-eventid="{{'6'}}" wx:if="{{fieldList.length>6}}"></view>
+                <view bindtap="handleProxy" class="_div data-v-8236c20a bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'7'}}" style=" {{'transform:'+(showMoreField?'rotate(180deg)':'')+';'}}" wx:if="{{fieldList.length>6}}">
+                    <image alt class="_img data-v-8236c20a" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_header data-v-8236c20a" id="header" wx:if="{{mode==2}}">
+            <view class="_div data-v-8236c20a nav-section">
+                <scroll-view class="_scroll-view data-v-8236c20a" enhanced="true" scrollIntoView="{{fieldScrollId}}" scrollX="{{showMoreClassify?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(showMoreClassify?'wrap':'nowrap')+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.typeId==''?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'8'}}" id="scroll0" style="padding: 0 20rpx">全部</view>
+                    <view bindtap="handleProxy" class="_div data-v-8236c20a nav-item {{queryList.typeId==item.id?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'9_'+index}}" id="{{item.scrollId}}" key="{{index}}" wx:for="{{classifyList}}" wx:key="index">{{item.name}}</view>
+                </scroll-view>
+                <view class="_div data-v-8236c20a arrow-shadow"></view>
+                <view bindtap="handleProxy" class="_div data-v-8236c20a bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'10'}}" style=" {{'transform:'+(showMoreClassify?'rotate(180deg)':'')+';'}}">
+                    <image alt class="_img data-v-8236c20a" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-8236c20a" wx:if="{{imageList.length>0}}">
+            <view class="_div data-v-8236c20a imageList-wrapper">
+                <view class="_div data-v-8236c20a image-item" wx:for="{{imageList}}" wx:key="index">
+                    <image bindtap="handleProxy" class="_img data-v-8236c20a image" data-comkey="{{$k}}" data-eventid="{{'11_'+index}}" mode="widthFix" src="{{item.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                    <view class="_div data-v-8236c20a">[{{item.tagName||item.realmName}}] {{item.trickName}}</view>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-8236c20a" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <view class="_section data-v-8236c20a flex-box" wx:if="{{imageList.length==0}}">
+            <view class="_div data-v-8236c20a noData-wrapper">
+                <image alt class="_img data-v-8236c20a" src="/miaogeban3.0-mp-org/static/images/noData.png"></image>
+                <view class="_div data-v-8236c20a">暂无数据</view>
+            </view>
+        </view>
+    </view>
+</template>

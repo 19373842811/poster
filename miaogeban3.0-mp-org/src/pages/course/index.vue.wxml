@@ -1,0 +1,211 @@
+<template name="67fd9ca0">
+    <view class="_div data-v-0d972db8 container-wrapper">
+        <view class="_header data-v-0d972db8 flex-space">
+            <view bindtap="handleProxy" class="_div data-v-0d972db8 tab-item {{queryList.status==0?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+                <label class="_span data-v-0d972db8">草稿<label class="_span data-v-0d972db8 flag" wx:if="{{countInfo.status0&&countInfo.status0>0}}">{{countInfo.status0}}</label>
+                </label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-0d972db8 tab-item {{queryList.status==1?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'1'}}">
+                <label class="_span data-v-0d972db8">待审核<label class="_span data-v-0d972db8 flag" wx:if="{{countInfo.status1&&countInfo.status1>0}}">{{countInfo.status1}}</label>
+                </label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-0d972db8 tab-item {{queryList.status==2?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                <label class="_span data-v-0d972db8">招生中<label class="_span data-v-0d972db8 flag" wx:if="{{countInfo.status2&&countInfo.status2>0}}">{{countInfo.status2}}</label>
+                </label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-0d972db8 tab-item {{queryList.status==3?'active-tab':''}}" data-comkey="{{$k}}" data-eventid="{{'3'}}">
+                <label class="_span data-v-0d972db8">已结束<label class="_span data-v-0d972db8 flag" wx:if="{{countInfo.status3&&countInfo.status3>0}}">{{countInfo.status3}}</label>
+                </label>
+            </view>
+        </view>
+        <view class="_div data-v-0d972db8 header_tips flex-box-start" wx:if="{{headerTipsVisible&&queryList.status==2}}">
+            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/Icons/editor_prompt.png"></image>
+            <label bindtap="handleProxy" class="_span data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'4'}}">点击这里</label>, <label class="_span data-v-0d972db8">可实时接收学员报名消息</label>
+        </view>
+        <view class="_section data-v-0d972db8 noData flex-box" wx:if="{{list.length==0}}">
+            <view class="_div data-v-0d972db8">
+                <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/noData.png"></image>
+                <view class="_p data-v-0d972db8">暂时没有课程</view>
+                <navigator class="_navigator data-v-0d972db8 btn" hoverClass="none" openType="switchTab" url="../index/main"> 去制作 </navigator>
+            </view>
+        </view>
+        <view class="_section data-v-0d972db8" wx:if="{{list.length>0}}">
+            <view class="_div data-v-0d972db8 list-item margin-top-20" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-0d972db8 list-item-header flex-space">
+                    <navigator class="_navigator data-v-0d972db8 list-item-header_left" hoverClass="none" url="{{'../A-package/pages/editTemplate/main?cid='+item.id}}">
+                        <image class="_img data-v-0d972db8 banner_img" mode="widthFix" src="{{item.banner+'?x-oss-process=image/resize,p_80'}}"></image>
+                        <view class="_div data-v-0d972db8 flex-box">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_edit.png"></image>
+                            <label class="_span data-v-0d972db8">修改活动内容</label>
+                        </view>
+                    </navigator>
+                    <view class="_div data-v-0d972db8 list-item-header_right">
+                        <view class="_div data-v-0d972db8 list-item-title">{{item.title}}</view>
+                        <view class="_div data-v-0d972db8 list-item-time flex-box-start">
+                            <image alt class="_img data-v-0d972db8" src="{{item.updateAva}}" wx:if="{{item.updateAva}}"></image>
+                            <label class="_span data-v-0d972db8" wx:if="{{item.updateTime}}">最新编辑于：{{item.updateTime}}</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-0d972db8 list-item-section flex-space" wx:if="{{item.status==2||item.status==3}}">
+                    <view bindtap="handleProxy" class="_div data-v-0d972db8 section-item" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}">
+                        <view class="_p data-v-0d972db8">{{item.visitNum||0}}</view>
+                        <view class="_div data-v-0d972db8">
+                            <label class="_span data-v-0d972db8">浏览量</label>
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                        </view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-0d972db8 section-item" data-comkey="{{$k}}" data-eventid="{{'6_'+index}}">
+                        <view class="_p data-v-0d972db8">{{item.signNum||0}}</view>
+                        <view class="_div data-v-0d972db8">
+                            <label class="_span data-v-0d972db8">总报名量</label>
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                        </view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-0d972db8 section-item" data-comkey="{{$k}}" data-eventid="{{'7_'+index}}">
+                        <view class="_p data-v-0d972db8" style=" {{'color:'+(item.newOrderNum>0?'#ff0000':'#333')+';'+'font-weight:'+(item.newOrderNum>0?'bold':'')+';'}}">{{item.newOrderNum||0}}</view>
+                        <view class="_div data-v-0d972db8">
+                            <label class="_span data-v-0d972db8">新报名</label>
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                        </view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-0d972db8 section-item" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}">
+                        <view class="_p data-v-0d972db8">{{item.introduceNum||0}}</view>
+                        <view class="_div data-v-0d972db8">
+                            <label class="_span data-v-0d972db8">转介绍榜单</label>
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-0d972db8 line"></view>
+                <view class="_div data-v-0d972db8 list-item-footer flex-space" wx:if="{{item.status==0}}">
+                    <view class="_div data-v-0d972db8 flex-box-start btn-group">
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'9_'+index}}">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_delete.png"></image>
+                            <label class="_span data-v-0d972db8">删除活动</label>
+                        </view>
+                    </view>
+                    <view bindtap="handleProxy" class="_div data-v-0d972db8 btn-liner" data-comkey="{{$k}}" data-eventid="{{'10_'+index}}">去发布</view>
+                </view>
+                <view class="_div data-v-0d972db8 list-item-shadow flex-box" wx:if="{{item.status==1}}">
+                    <view class="_div data-v-0d972db8 flex-box">
+                        <view class="_p data-v-0d972db8">平台审核中...</view>
+                        <button bindtap="handleProxy" class="_button data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'11_'+index}}">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_editYellow.png"></image>
+                            <label class="_span data-v-0d972db8" style="color: yellow">修改内容</label>
+                        </button>
+                    </view>
+                    <view class="_div data-v-0d972db8 flex-box" style="margin-top: -40rpx">
+                        <label class="_span data-v-0d972db8">您可以联系客服加快课程审核进度，</label>
+                        <button class="_button data-v-0d972db8 flex-box-start" openType="contact">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/kefuYellow.png"></image>
+                            <label class="_span data-v-0d972db8" style="color: yellow;text-decoration: underline;">联系客服</label>
+                        </button>
+                    </view>
+                </view>
+                <view class="_div data-v-0d972db8 list-item-footer flex-space" wx:if="{{item.status==2}}">
+                    <view class="_div data-v-0d972db8 flex-box-start btn-group">
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'12_'+index}}">
+                            <image class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_brower.png" style="margin-right: 8rpx"></image>
+                            <label class="_span data-v-0d972db8 bold" style="color: #ff9900;">浏览活动</label>
+                        </view>
+                        <navigator class="_navigator data-v-0d972db8 flex-box" hoverClass="none" openType="navigate" url="../A-package/pages/extensionIntro/main">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_share.png"></image>
+                            <label class="_span data-v-0d972db8">推广活动</label>
+                        </navigator>
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'13_'+index}}">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_bind.png"></image>
+                            <label class="_span data-v-0d972db8">克隆活动</label>
+                        </view>
+                    </view>
+                    <view class="_div data-v-0d972db8 flex-box switch-wrapper">
+                        <label class="_span data-v-0d972db8">招生中</label>   <switch disabled bindtap="handleProxy" checked="true" class="_switch data-v-0d972db8" color="#FDA50F" data-comkey="{{$k}}" data-eventid="{{'14_'+index}}" type="switch"></switch>
+                    </view>
+                </view>
+                <view class="_div data-v-0d972db8 list-item-footer flex-space" wx:if="{{item.status==3}}">
+                    <view class="_div data-v-0d972db8 flex-box-start btn-group">
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'15_'+index}}">
+                            <image class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_brower.png" style="margin-right: 8rpx"></image>
+                            <label class="_span data-v-0d972db8 bold" style="color: #ff9900;">浏览活动</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'16_'+index}}">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_bind.png"></image>
+                            <label class="_span data-v-0d972db8">克隆活动</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 flex-box" data-comkey="{{$k}}" data-eventid="{{'17_'+index}}">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/src/pages/course/images/course_delete.png"></image>
+                            <label class="_span data-v-0d972db8">删除活动</label>
+                        </view>
+                    </view>
+                    <view class="_div data-v-0d972db8 flex-box switch-wrapper">
+                        <label class="_span data-v-0d972db8" style="color: #999;">已结束</label>   <switch disabled bindtap="handleProxy" class="_switch data-v-0d972db8" color="#FDA50F" data-comkey="{{$k}}" data-eventid="{{'18_'+index}}" type="switch"></switch>
+                    </view>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-0d972db8" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <template is="54667386" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+        <view class="_div data-v-0d972db8 popup-window flex-box" wx:if="{{expireVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-0d972db8 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'20'}}"></view>
+            <view class="_div data-v-0d972db8 popup-window_body warning-popupWindow">
+                <view class="_div data-v-0d972db8 popup-window_content">
+                    <view class="_div data-v-0d972db8 popup-window_header">
+                        <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/templateIcons/landscape_warning01.png"></image>
+                        <view class="_div data-v-0d972db8">机构VIP特权已过期！</view>
+                    </view>
+                    <view class="_div data-v-0d972db8 popup-window_section androidWarning">
+                        <view class="_p data-v-0d972db8">限时特惠，续期所有模板免费用</view>
+                        <view class="_div data-v-0d972db8 warning-item flex-box-start">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-0d972db8">多名资深设计师倾注心血之作</label>
+                        </view>
+                        <view class="_div data-v-0d972db8 warning-item flex-box-start">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-0d972db8">教培业顾问级操刀策划课程活动方案</label>
+                        </view>
+                        <view class="_div data-v-0d972db8 warning-item flex-box-start">
+                            <image alt class="_img data-v-0d972db8" src="/miaogeban3.0-mp-org/static/images/templateIcons/gou.png"></image>
+                            <label class="_span data-v-0d972db8">模板不断上新，紧跟热点和招生期段</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8 renew-btn" data-comkey="{{$k}}" data-eventid="{{'21'}}">去续期，享限时特惠</view>
+                    </view>
+                </view>
+                <view class="_div data-v-0d972db8 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'22'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <view catchtouchmove="handleProxy" class="_div data-v-0d972db8 notice-wrapper flex-box" data-comkey="{{$k}}" data-eventid="{{'25'}}" wx:if="{{noticeVisible}}">
+            <view class="_div data-v-0d972db8">
+                <image bindtap="handleProxy" class="_img data-v-0d972db8 notice-image" data-comkey="{{$k}}" data-eventid="{{'23'}}" mode="widthFix" src="{{noticeInfo.image}}"></image>
+                <image bindtap="handleProxy" class="_img data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'24'}}" src="/miaogeban3.0-mp-org/static/images/Icons/editor_deletefff.png" style="width: 70rpx;height: 70rpx;padding: 20rpx;" wx:if="{{noticeInfo.pauseFlag==0}}"></image>
+            </view>
+        </view>
+        <view class="_div data-v-0d972db8 popup-window flex-box" wx:if="{{cloneVisible}}">
+            <view class="_div data-v-0d972db8 popup-window_shadow"></view>
+            <view class="_div data-v-0d972db8 popup-window_body clone-popupWindow">
+                <view class="_div data-v-0d972db8 popup-window_content">
+                    <view class="_div data-v-0d972db8 popup-window_header">
+                        <view class="_div data-v-0d972db8">克隆课程</view>
+                    </view>
+                    <view class="_div data-v-0d972db8 popup-window_section">
+                        <view class="_p data-v-0d972db8">此操作将会帮您克隆一个完全一致的招生课程，新课程将会默认置为“<label class="_span data-v-0d972db8 bold">草稿</label>”状态，您可以在此基础上进行修改，以便提升您的课程编辑效率！</view>
+                        <view class="_div data-v-0d972db8">
+                            <icon class="_icon data-v-0d972db8" size="24" type=" success"></icon>
+                        </view>
+                    </view>
+                    <view class="_div data-v-0d972db8 popup-window_button flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'26'}}">取消</view>
+                        <view bindtap="handleProxy" class="_div data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'27'}}">确定克隆</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <van-popup class="_van-popup data-v-0d972db8" position="bottom" show="{{popupVisible}}">
+            <van-datetime-picker bindcancel="handleProxy" bindconfirm="handleProxy" class="_van-datetime-picker data-v-0d972db8" data-comkey="{{$k}}" data-eventid="{{'28'}}" formatter="{{formatterDateTimePicker}}" minDate="{{minDate}}" title="{{dateTimePickTitle}}" type="datetime" value="{{currentDate}}"></van-datetime-picker>
+        </van-popup>
+        <template is="1036d005" data="{{...$root[$kk+'4'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/notification-dialog.vue.wxml"></import>

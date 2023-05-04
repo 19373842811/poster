@@ -1,0 +1,24 @@
+<template name="75780e48">
+    <view class="_div data-v-69a7830a container-wrapper">
+        <view class="_header data-v-69a7830a flex-space_around" wx:if="{{queryList.typeId==4}}">
+            <view bindtap="handleProxy" class="_div data-v-69a7830a {{queryList.columnNum==item.value?'active-nav nav-item':'nav-item'}}" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:for="{{columnList}}" wx:key="index">{{item.label}}</view>
+        </view>
+        <view class="_section data-v-69a7830a">
+            <view class="_div data-v-69a7830a list-wrapper">
+                <view class="_div data-v-69a7830a">
+                    <view bindtap="handleProxy" class="_div data-v-69a7830a list-item flex-box" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" wx:if="{{index%2==0}}" wx:for="{{list}}" wx:key="index">
+                        <image class="_img data-v-69a7830a" mode="widthFix" src="{{item.thumbnail}}"></image>
+                        <label class="_span data-v-69a7830a" wx:if="{{item.tips}}">{{item.tips}}</label>
+                    </view>
+                </view>
+                <view class="_div data-v-69a7830a">
+                    <view bindtap="handleProxy" class="_div data-v-69a7830a list-item flex-box" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" wx:if="{{index%2!=0}}" wx:for="{{list}}" wx:key="index">
+                        <image class="_img data-v-69a7830a" mode="widthFix" src="{{item.thumbnail}}"></image>
+                        <label class="_span data-v-69a7830a" wx:if="{{item.tips}}">{{item.tips}}</label>
+                    </view>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-69a7830a" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+    </view>
+</template>

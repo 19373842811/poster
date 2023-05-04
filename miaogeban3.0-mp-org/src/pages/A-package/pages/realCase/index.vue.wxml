@@ -1,0 +1,37 @@
+<template name="59182c06">
+    <view class="_div data-v-408ab5aa container-wrapper">
+        <view class="_header data-v-408ab5aa" id="header">
+            <view class="_div data-v-408ab5aa nav-section margin-top-20">
+                <scroll-view class="_scroll-view data-v-408ab5aa" enhanced="true" scrollIntoView="{{fieldScrollId}}" scrollX="{{showMoreClassify?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(showMoreClassify?'wrap':'nowrap')+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-408ab5aa nav-item {{queryList.typeId==''?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}" id="scroll0" style="padding: 0 20rpx">全部</view>
+                    <view bindtap="handleProxy" class="_div data-v-408ab5aa nav-item {{queryList.typeId==item.id?'active-nav':''}}" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" id="{{item.scrollId}}" key="{{index}}" wx:for="{{classifyList}}" wx:key="index">{{item.name}}</view>
+                </scroll-view>
+                <view bindtap="handleProxy" class="_div data-v-408ab5aa arrow-shadow" data-comkey="{{$k}}" data-eventid="{{'2'}}" wx:if="{{classifyList.length>6}}"></view>
+                <view bindtap="handleProxy" class="_div data-v-408ab5aa bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'3'}}" style=" {{'transform:'+(showMoreClassify?'rotate(180deg)':'')+';'}}" wx:if="{{classifyList.length>6}}">
+                    <image alt class="_img data-v-408ab5aa" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-408ab5aa">
+            <view class="_div data-v-408ab5aa image-item" wx:for="{{list}}" wx:key="index">
+                <image bindtap="handleProxy" class="_img data-v-408ab5aa image" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" mode="widthFix" src="{{item.thumb+'?x-oss-process=image/resize,p_80'}}"></image>
+                <view class="_div data-v-408ab5aa">
+                    <view class="_div data-v-408ab5aa title">{{item.title}}</view>
+                    <view class="_div data-v-408ab5aa num-wrapper flex-box-start">
+                        <view class="_div data-v-408ab5aa flex-box-start" style="margin-right: 50rpx;">
+                            <image alt class="_img data-v-408ab5aa" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/realCase/images/eye.png"></image>
+                            <label class="_span data-v-408ab5aa">曝光人数： <label class="_span data-v-408ab5aa" style="color: #666">{{item.visitNum}}</label>
+                            </label>
+                        </view>
+                        <view class="_div data-v-408ab5aa flex-box-start">
+                            <image alt class="_img data-v-408ab5aa" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/realCase/images/signup.png"></image>
+                            <label class="_span data-v-408ab5aa">报名人数： <label class="_span data-v-408ab5aa" style="color: #666">{{item.orderNum}}</label>
+                            </label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-408ab5aa" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+    </view>
+</template>

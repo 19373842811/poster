@@ -1,0 +1,23 @@
+<template name="3bf6e435">
+    <view class="_div data-v-8a6689ba container-wrapper">
+        <view class="_header data-v-8a6689ba flex-space">
+            <view class="_div data-v-8a6689ba search-input-wrapper flex-box-start">
+                <image class="_img data-v-8a6689ba search-icon" src="/miaogeban3.0-mp-org/static/images/Icons/search.png"></image>
+                <input bindconfirm="handleProxy" bindinput="handleProxy" class="_input data-v-8a6689ba search-input" confirmType="search" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="试试手气" placeholderClass="placeholderStyle" value="{{queryList.keyword}}"></input>
+                <icon bindtap="handleProxy" class="_icon data-v-8a6689ba clear-icon" data-comkey="{{$k}}" data-eventid="{{'1'}}" hidden="{{!queryList.keyword}}" size="16" type="clear"></icon>
+            </view>
+            <label bindtap="handleProxy" class="_span data-v-8a6689ba search-btn" data-comkey="{{$k}}" data-eventid="{{'2'}}">搜索</label>
+        </view>
+        <view class="_section data-v-8a6689ba margin-top-20" style="background: #fff;">
+            <view class="_div data-v-8a6689ba imageList-wrapper">
+                <view bindtap="handleProxy" class="_div data-v-8a6689ba template-item" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}" wx:for="{{imageList}}" wx:key="index">
+                    <image class="_img data-v-8a6689ba" mode="widthFix" src="{{item.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                    <view class="_div data-v-8a6689ba">[{{item.tagName||item.realmName}}] {{item.trickName}}</view>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-8a6689ba" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <template is="cec1e984" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>

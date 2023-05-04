@@ -1,0 +1,77 @@
+<template name="389677d2">
+    <view class="_div data-v-5c6e151f container-wrapper">
+        <view class="_header data-v-5c6e151f flex-space">
+            <view class="_div data-v-5c6e151f search-input-wrapper flex-box-start">
+                <image class="_img data-v-5c6e151f search-icon" src="/miaogeban3.0-mp-org/static/images/Icons/search.png"></image>
+                <input bindconfirm="handleProxy" bindinput="handleProxy" class="_input data-v-5c6e151f search-input" confirmType="search" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="试试手气" placeholderClass="placeholderStyle" value="{{queryList.keyWord}}"></input>
+                <icon bindtap="handleProxy" class="_icon data-v-5c6e151f clear-icon" data-comkey="{{$k}}" data-eventid="{{'1'}}" hidden="{{!queryList.keyWord}}" size="16" type="clear"></icon>
+            </view>
+            <label bindtap="handleProxy" class="_span data-v-5c6e151f search-btn" data-comkey="{{$k}}" data-eventid="{{'2'}}">搜索</label>
+        </view>
+        <view class="_section data-v-5c6e151f" wx:if="{{!hasDate}}">
+            <view class="_div data-v-5c6e151f history-wrapper" style="padding: 20rpx 0;">
+                <view class="_div data-v-5c6e151f history-title flex-space" style="padding:0 30rpx;">
+                    <view class="_p data-v-5c6e151f">历史搜索</view>
+                    <view bindtap="handleProxy" class="_div data-v-5c6e151f flex-box" data-comkey="{{$k}}" data-eventid="{{'3'}}">
+                        <image alt class="_img data-v-5c6e151f" src="/miaogeban3.0-mp-org/static/images/Icons/editor_lose.png"></image>
+                        <label class="_span data-v-5c6e151f">清空</label>
+                    </view>
+                </view>
+                <view class="_div data-v-5c6e151f historyList-wrapper flex-box-start margin-top-10" wx:if="{{historyList.length>0}}">
+                    <block wx:for="{{historyList}}" wx:key="index">
+                        <view bindtap="handleProxy" class="_div data-v-5c6e151f history-item margin-top-10" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" wx:if="{{!showAllHistory&&index<10}}">{{item}}</view>
+                        <view bindtap="handleProxy" class="_div data-v-5c6e151f history-item margin-top-10" data-comkey="{{$k}}" data-eventid="{{'5_'+index}}" wx:if="{{showAllHistory}}">{{item}}</view>
+                    </block>
+                </view>
+                <view class="_div data-v-5c6e151f noSearchRecord" wx:elif="{{historyList.length==0}}">暂无历史搜索记录</view>
+                <view bindtap="handleProxy" class="_div data-v-5c6e151f showMore-wrapper flex-box" data-comkey="{{$k}}" data-eventid="{{'6'}}" wx:if="{{historyList.length>10}}">
+                    <image class="_img data-v-5c6e151f" src="/miaogeban3.0-mp-org/static/images/Icons/toTop.png" style=" {{'transform:'+(showAllHistory?'':'rotate(180deg)')+';'}}"></image>
+                    <label class="_span data-v-5c6e151f">{{showAllHistory?'收起':'全部'}}</label>
+                </view>
+            </view>
+            <view class="_div data-v-5c6e151f history-wrapper" wx:if="{{tagList.length>0}}">
+                <view class="_div data-v-5c6e151f history-title flex-space">
+                    <view class="_p data-v-5c6e151f">热门标签</view>
+                    <view class="_div data-v-5c6e151f flex-box">
+                        <label bindtap="handleProxy" class="_span data-v-5c6e151f" data-comkey="{{$k}}" data-eventid="{{'7'}}">更多 ></label>
+                    </view>
+                </view>
+                <view class="_div data-v-5c6e151f tag-wrapper flex-wrap flex-space">
+                    <view bindtap="handleProxy" class="_div data-v-5c6e151f tag-item" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}" wx:for="{{tagList}}" wx:key="index">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="_div data-v-5c6e151f history-wrapper" wx:if="{{hotSearchList.length>0}}">
+                <view class="_div data-v-5c6e151f history-title flex-space">
+                    <view class="_p data-v-5c6e151f">热搜榜</view>
+                    <view class="_div data-v-5c6e151f flex-box">
+                        <label bindtap="handleProxy" class="_span data-v-5c6e151f" data-comkey="{{$k}}" data-eventid="{{'9'}}">TOP100 ></label>
+                    </view>
+                </view>
+                <view class="_div data-v-5c6e151f hotSearch-wrapper flex-wrap flex-box-start">
+                    <view bindtap="handleProxy" class="_div data-v-5c6e151f hotSearch-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'10_'+index}}" wx:for="{{hotSearchList}}" wx:key="index">
+                        <view class="_div data-v-5c6e151f" style=" {{'color:'+(index<=2?'#ff9900':'#999')+';'+'margin-right:'+'5rpx'+';'}}">{{index+1}}</view>
+                        <label class="_span data-v-5c6e151f" style=" {{'color:'+(index<=2?'':'#999')+';'}}">{{item.keyWord}}</label>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-5c6e151f history-wrapper" wx:if="{{hotTemplateList.length>0}}">
+                <view class="_div data-v-5c6e151f history-title flex-space">
+                    <view class="_p data-v-5c6e151f">30天内最热模板</view>
+                    <view class="_div data-v-5c6e151f flex-box">
+                        <label bindtap="handleProxy" class="_span data-v-5c6e151f" data-comkey="{{$k}}" data-eventid="{{'11'}}">详细榜单 ></label>
+                    </view>
+                </view>
+                <view class="_div data-v-5c6e151f template-wrapper flex-wrap flex-space">
+                    <view bindtap="handleProxy" class="_div data-v-5c6e151f template-item" data-comkey="{{$k}}" data-eventid="{{'12_'+index}}" wx:for="{{hotTemplateList}}" wx:key="index">
+                        <image class="_img data-v-5c6e151f" mode="widthFix" src="{{item.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                        <view class="_div data-v-5c6e151f">[{{item.tagName||item.realmName}}] {{item.trickName}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <template is="54667386" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+        <template is="cec1e984" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/index.vue.wxml"></import>

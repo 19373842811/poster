@@ -1,0 +1,114 @@
+<template name="7caf9139">
+    <view class="_div data-v-010494eb container-wrapper">
+        <view class="_header data-v-010494eb" style="position: sticky;top: 0;">
+            <view class="_div data-v-010494eb flex-space">
+                <view class="_div data-v-010494eb search-input-wrapper">
+                    <view bindtap="handleProxy" class="_div data-v-010494eb flex-box-start" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+                        <image class="_img data-v-010494eb search-icon" src="/miaogeban3.0-mp-org/static/images/Icons/search.png"></image>
+                        <label class="_span data-v-010494eb">试试手气</label>
+                    </view>
+                </view>
+                <image bindtap="handleProxy" class="_img data-v-010494eb" data-comkey="{{$k}}" data-eventid="{{'1'}}" src="/miaogeban3.0-mp-org/src/pages/index/images/classify.png" style="width: 40rpx;height: 40rpx;"></image>
+            </view>
+        </view>
+        <view class="_div data-v-010494eb banner-wrapper flex-space">
+            <swiper autoplay circular indicatorDots class="_swiper data-v-010494eb background-wrapper" indicatorActiveColor="#ffffff" indicatorColor="rgba(255, 255, 255, 0.5)" wx:if="{{bannerList.length>0}}">
+                <swiper-item class="_swiper-item data-v-010494eb" key="{{index}}" wx:for="{{bannerList}}" wx:key="index">
+                    <image bindtap="handleProxy" class="_img data-v-010494eb" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" src="{{item.banner+'?x-oss-process=image/resize,p_80'}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="_div data-v-010494eb nav-wrapper flex-box-start">
+            <view bindtap="handleProxy" class="_div data-v-010494eb nav-item" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}" wx:if="{{index<5}}" wx:for="{{navList}}" wx:key="index">
+                <image class="_img data-v-010494eb nav-icon" src="{{item.icon}}"></image>
+                <view class="_div data-v-010494eb">{{item.name}}</view>
+            </view>
+        </view>
+        <scroll-view bindscrolltolower="handleProxy" bindscrolltoupper="handleProxy" class="_scroll-view data-v-010494eb nav-wrapper scroll-nav-wrapper" data-comkey="{{$k}}" data-eventid="{{'6'}}" enhanced="true" scrollX="true" showScrollbar="{{false}}">
+            <view bindtap="handleProxy" class="_div data-v-010494eb nav-item" data-comkey="{{$k}}" data-eventid="{{'4_'+index}}" wx:if="{{index>=5}}" wx:for="{{navList}}" wx:key="index">
+                <image class="_img data-v-010494eb nav-icon" src="{{item.icon}}"></image>
+                <view class="_div data-v-010494eb">{{item.name}}</view>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-010494eb nav-item" data-comkey="{{$k}}" data-eventid="{{'5'}}" wx:if="{{navList.length>0}}">
+                <image class="_img data-v-010494eb nav-icon" src="https://img.miaogeban.com/images_miaogeban/iquanbu.png"></image>
+                <view class="_div data-v-010494eb">全部</view>
+            </view>
+        </scroll-view>
+        <view class="_div data-v-010494eb scrollFlag-wrapper" wx:if="{{navList.length>=10}}">
+            <label class="_span data-v-010494eb {{scrollFlag==0?'active-flag':''}}"></label>
+            <label class="_span data-v-010494eb {{scrollFlag==1?'active-flag':''}}"></label>
+        </view>
+        <view class="_div data-v-010494eb note-wrapper flex-space">
+            <navigator class="_navigator data-v-010494eb note-item" hoverClass="none" url="../A-package/pages/operationHelp/main">
+                <image class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/src/pages/index/images/note01.png"></image>
+            </navigator>
+            <navigator class="_navigator data-v-010494eb note-item" hoverClass="none" url="../trickIntro/main">
+                <image class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/src/pages/index/images/note02.png"></image>
+            </navigator>
+            <navigator class="_navigator data-v-010494eb note-item" hoverClass="none" url="../A-package/pages/realCase/main?type=1">
+                <image class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/src/pages/index/images/note04.png"></image>
+            </navigator>
+        </view>
+        <view class="_div data-v-010494eb special-wrapper">
+            <view class="_p data-v-010494eb">近期推荐</view>
+            <scroll-view scrollX class="_scroll-view data-v-010494eb scheme-list margin-top-20" enhanced="true" showScrollbar="{{false}}">
+                <block wx:for="{{schemeList}}" wx:key="index">
+                    <navigator class="_navigator data-v-010494eb scheme-item" hoverClass="none" openType="navigate" url="{{'../scheme/main?id='+item.id}}" wx:if="{{!item.url}}">
+                        <image class="_img data-v-010494eb" mode="widthFix" src="{{item.homeIcon}}"></image>
+                    </navigator>
+                    <navigator class="_navigator data-v-010494eb scheme-item" hoverClass="none" openType="navigate" url="{{item.url}}" wx:elif="{{item.url}}">
+                        <image class="_img data-v-010494eb" mode="widthFix" src="{{item.homeIcon}}"></image>
+                    </navigator>
+                </block>
+            </scroll-view>
+        </view>
+        <view class="_div data-v-010494eb">
+            <view class="_section data-v-010494eb section-item" wx:for="{{recruitList}}" wx:key="index">
+                <view class="_div data-v-010494eb section-title flex-space margin-bottom-10">
+                    <label class="_span data-v-010494eb">{{item.name}}</label>
+                    <view bindtap="handleProxy" class="_div data-v-010494eb more flex-box-end" data-comkey="{{$k}}" data-eventid="{{'7_'+index}}">
+                        <label class="_span data-v-010494eb">更多</label>
+                        <image alt class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                    </view>
+                </view>
+                <view class="_div data-v-010494eb section-nav-wrapper">
+                    <scroll-view class="_scroll-view data-v-010494eb" enhanced="true" scrollX="{{item.showMore?false:true}}" showScrollbar="{{false}}" style=" {{'white-space:'+(item.showMore?'wrap':'nowrap')+';'}}">
+                        <view bindtap="handleProxy" class="_div data-v-010494eb section-nav-item" data-comkey="{{$k}}" data-eventid="{{'8_'+index+'-'+navIndex}}" key="{{navIndex}}" wx:for="{{item.realmList}}" wx:for-index="navIndex" wx:for-item="navItem" wx:key="navIndex"> {{navItem.name}} </view>
+                    </scroll-view>
+                    <view class="_div data-v-010494eb arrow-shadow" wx:if="{{item.realmList.length>6}}"></view>
+                    <view bindtap="handleProxy" class="_div data-v-010494eb bottom-arrow" data-comkey="{{$k}}" data-eventid="{{'9_'+index}}" style=" {{'transform:'+(item.showMore?'rotate(180deg)':'')+';'}}" wx:if="{{item.realmList.length>6}}">
+                        <image alt class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/static/images/Icons/bottomArrow.png"></image>
+                    </view>
+                </view>
+                <view class="_div data-v-010494eb imageList-wrapper flex-space margin-top-20" wx:if="{{item.realmList[0]}}">
+                    <view bindtap="handleProxy" class="_div data-v-010494eb image-item" data-comkey="{{$k}}" data-eventid="{{'10_'+index+'-'+imgIndex}}" key="{{imgIndex}}" wx:for="{{item.realmList[0].templateList}}" wx:for-index="imgIndex" wx:for-item="imgItem" wx:key="imgIndex">
+                        <image class="_img data-v-010494eb" mode="widthFix" src="{{imgItem.thumbnail+'?x-oss-process=image/resize,p_80'}}"></image>
+                        <view class="_div data-v-010494eb">[{{imgItem.tagName||imgItem.realmName}}] {{imgItem.trickName}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-010494eb tips-wrapper" wx:if="{{landscapeVisible}}">
+            <view catchtouchmove="handleProxy" class="_div data-v-010494eb shadow" data-comkey="{{$k}}" data-eventid="{{'11'}}"></view>
+            <view class="_div data-v-010494eb coupon-container">
+                <image class="_img data-v-010494eb promoter-avatar" src="{{promoterInfo.avatarUrl}}"></image>
+                <view class="_div data-v-010494eb promoter-name">{{promoterInfo.nickName}}</view>
+                <view class="_p data-v-010494eb promoter-coupon">
+                    <image class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/src/pages/index/images/yinhao_left.png"></image> 真心向您推荐[喵个班]小程序，<view class="_br data-v-010494eb"></view>祝您工作顺利，生活幸福! <image class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/src/pages/index/images/yinhao_right.png"></image>
+                </view>
+                <view class="_div data-v-010494eb promoter-btn" style=" {{'transform:'+scale+';'}}">
+                    <view bindtap="handleProxy" class="_div data-v-010494eb" data-comkey="{{$k}}" data-eventid="{{'12'}}">开始激动人心的招生引流之旅</view>
+                </view>
+            </view>
+        </view>
+        <view catchtouchmove="handleProxy" class="_div data-v-010494eb notice-wrapper flex-box" data-comkey="{{$k}}" data-eventid="{{'15'}}" wx:if="{{noticeVisible}}">
+            <view class="_div data-v-010494eb">
+                <image bindtap="handleProxy" class="_img data-v-010494eb notice-image" data-comkey="{{$k}}" data-eventid="{{'13'}}" mode="widthFix" src="{{noticeInfo.image}}"></image>
+                <image bindtap="handleProxy" class="_img data-v-010494eb" data-comkey="{{$k}}" data-eventid="{{'14'}}" src="/miaogeban3.0-mp-org/static/images/Icons/editor_deletefff.png" style="width: 70rpx;height: 70rpx;padding: 20rpx;" wx:if="{{noticeInfo.pauseFlag==0}}"></image>
+            </view>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-010494eb float-btn" data-comkey="{{$k}}" data-eventid="{{'16'}}" wx:if="{{scrollTop>100}}">
+            <image alt class="_img data-v-010494eb" src="/miaogeban3.0-mp-org/static/images/Icons/toTop_fff.png"></image>
+        </view>
+    </view>
+</template>

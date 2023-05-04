@@ -1,0 +1,9 @@
+<template name="4c68a202">
+    <view class="_div data-v-6892bace container-wrapper">
+        <icon class="_icon data-v-6892bace success-icon" size="40" type="success"></icon>
+        <view class="_div data-v-6892bace success-info">恭喜成为推广员！请花一分钟观看以下推广视频</view>
+        <view bindtap="handleProxy" class="_div data-v-6892bace goBackBtn btn-liner" data-comkey="{{$k}}" data-eventid="{{'0'}}">我看完了视频，开始推广</view>
+        <video class="_video data-v-6892bace video" src="https://img.miaogeban.com/video/promoterHelp1.mp4"></video>
+        <image class="_img data-v-6892bace image" mode="widthFix" src="https://img.miaogeban.com/images/promoterRules1.jpg"></image>
+    </view>
+</template>

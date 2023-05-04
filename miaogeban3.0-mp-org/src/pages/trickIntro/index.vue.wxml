@@ -1,0 +1,47 @@
+<template name="1e42436e">
+    <view class="_div data-v-2ffe89f6 container-wrapper">
+        <view class="_section data-v-2ffe89f6">
+            <view class="_div data-v-2ffe89f6 trick-section">
+                <view bindtap="handleProxy" class="_div data-v-2ffe89f6 trick-item" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:for="{{trickList}}" wx:key="index">
+                    <image alt class="_img data-v-2ffe89f6" src="{{item.icon}}"></image>
+                    <view class="_div data-v-2ffe89f6">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-2ffe89f6 popup-window flex-box" wx:if="{{popupWindowVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-2ffe89f6 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'1'}}"></view>
+            <view class="_div data-v-2ffe89f6 popup-window_body trick-popupWindow">
+                <view class="_div data-v-2ffe89f6 popup-window_content">
+                    <view class="_div data-v-2ffe89f6 popup-window_header">
+                        <image alt class="_img data-v-2ffe89f6" src="/miaogeban3.0-mp-org/src/pages/template/images/landscapeIcon.png"></image>
+                        <view class="_div data-v-2ffe89f6">“{{trickInfo.name}}”玩法介绍</view>
+                    </view>
+                    <view class="_div data-v-2ffe89f6 popup-window_section">
+                        <view class="_div data-v-2ffe89f6 trick-desc_wrapper">
+                            <view class="_div data-v-2ffe89f6 trick-desc_item">
+                                <view class="_p data-v-2ffe89f6">01</view>
+                                <view class="_div data-v-2ffe89f6">{{trickInfo.desc1}}</view>
+                            </view>
+                            <view class="_div data-v-2ffe89f6 trick-desc_item" wx:if="{{trickInfo.desc2}}">
+                                <view class="_p data-v-2ffe89f6">02</view>
+                                <view class="_div data-v-2ffe89f6">{{trickInfo.desc2}}</view>
+                            </view>
+                            <view class="_div data-v-2ffe89f6 trick-desc_item" wx:if="{{trickInfo.desc3}}">
+                                <view class="_p data-v-2ffe89f6">03</view>
+                                <view class="_div data-v-2ffe89f6">{{trickInfo.desc3}}</view>
+                            </view>
+                            <view class="_div data-v-2ffe89f6 trick-desc_item" wx:if="{{trickInfo.desc4}}">
+                                <view class="_p data-v-2ffe89f6">04</view>
+                                <view class="_div data-v-2ffe89f6">{{trickInfo.desc4}}</view>
+                            </view>
+                        </view>
+                        <view bindtap="handleProxy" class="_p data-v-2ffe89f6 trick-desc_tips margin-top-15" data-comkey="{{$k}}" data-eventid="{{'2'}}">查看相关模板({{trickInfo.templateNum}}) ></view>
+                    </view>
+                </view>
+                <view class="_div data-v-2ffe89f6 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-2ffe89f6" data-comkey="{{$k}}" data-eventid="{{'3'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

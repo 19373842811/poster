@@ -1,0 +1,32 @@
+<template name="3158e092">
+    <view class="_div data-v-89343980 container-wrapper">
+        <form bindsubmit="handleProxy" class="_form data-v-89343980" data-comkey="{{$k}}" data-eventid="{{'3'}}">
+            <view class="_section data-v-89343980 form-section">
+                <button bindchooseavatar="handleProxy" class="_button data-v-89343980 form-item flex-space" data-comkey="{{$k}}" data-eventid="{{'0'}}" openType="chooseAvatar" style="border-bottom: 1px solid #efefef;">
+                    <view class="_div data-v-89343980 flex-box-start" style="width: 40%;">
+                        <label class="_span data-v-89343980 form-item_label">头像</label>
+                        <image class="_img data-v-89343980 avatar" src="{{form.avatarUrl}}"></image>
+                    </view>
+                    <view class="_div data-v-89343980 flex-box-end" style="width: 40%;padding-right: 20rpx;">
+                        <label class="_span data-v-89343980 font-color-999" style="font-size: 26rpx;">更改</label>
+                        <image class="_img data-v-89343980 arrow-icon" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+                    </view>
+                </button>
+                <view class="_div data-v-89343980 form-item flex-box-start">
+                    <label class="_span data-v-89343980 form-item_label">昵称</label>
+                    <input class="_input data-v-89343980" name="nickName" placeholder="请输入昵称" placeholderClass="placeholderStyle" style="width: 80%" type="nickname" value="{{form.nickName}}"></input>
+                </view>
+                <view class="_div data-v-89343980 form-item flex-space">
+                    <view class="_div data-v-89343980 flex-box-start">
+                        <label class="_span data-v-89343980 form-item_label">手机号</label>
+                        <input disabled bindblur="handleProxy" bindinput="handleProxy" class="_input data-v-89343980" data-comkey="{{$k}}" data-eventid="{{'1'}}" placeholder="请获取手机号" placeholderClass="placeholderStyle" type="number" value="{{form.mobile}}"></input>
+                    </view>
+                    <button bindgetphonenumber="handleProxy" class="_button data-v-89343980 getPhoneBtn {{mobileBtnText=='获取手机号'?'':'disableBtn'}}" data-comkey="{{$k}}" data-eventid="{{'2'}}" disabled="{{mobileBtnText!='获取手机号'}}" openType="getPhoneNumber"> {{mobileBtnText}} </button>
+                </view>
+            </view>
+            <button class="_button data-v-89343980 submit-btn" formType="submit">保存修改</button>
+        </form>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

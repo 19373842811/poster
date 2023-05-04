@@ -1,0 +1,24 @@
+<template name="19d1de6c">
+    <view class="_div data-v-aa1b7654 container-wrapper">
+        <view class="_header data-v-aa1b7654 flex-box">
+            <view bindtap="handleProxy" class="_div data-v-aa1b7654 {{index==1?'active':''}}" data-comkey="{{$k}}" data-eventid="{{'0'}}">日</view>
+            <view bindtap="handleProxy" class="_div data-v-aa1b7654 {{index==2?'active':''}}" data-comkey="{{$k}}" data-eventid="{{'1'}}">周</view>
+            <view bindtap="handleProxy" class="_div data-v-aa1b7654 {{index==3?'active':''}}" data-comkey="{{$k}}" data-eventid="{{'2'}}">月</view>
+        </view>
+        <view class="_section data-v-aa1b7654 margin-top-20" wx:if="{{list.length>0}}">
+            <view bindtap="handleProxy" class="_div data-v-aa1b7654 list-item flex-space" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-aa1b7654 flex-box-start">
+                    <view class="_div data-v-aa1b7654" style=" {{'color:'+(index<=2?'#ff9900':'#999')+';'}}">{{index+1}}</view>
+                    <view class="_div data-v-aa1b7654" style=" {{'color:'+(index<=2?'#444':'#999')+';'}}">{{item.keyword}}</view>
+                </view>
+                <label class="_span data-v-aa1b7654">{{item.amount}}</label>
+            </view>
+        </view>
+        <view class="_div data-v-aa1b7654 noData" wx:else>
+            <view class="_div data-v-aa1b7654">
+                <image alt class="_img data-v-aa1b7654" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/Nodata.png"></image>
+                <view class="_p data-v-aa1b7654">暂无数据</view>
+            </view>
+        </view>
+    </view>
+</template>

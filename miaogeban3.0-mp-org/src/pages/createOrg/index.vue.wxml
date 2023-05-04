@@ -1,0 +1,58 @@
+<template name="b9aa46a2">
+    <view class="_div data-v-27b3743e container-wrapper">
+        <form bindsubmit="handleProxy" class="_form data-v-27b3743e" data-comkey="{{$k}}" data-eventid="{{'5'}}" wx:if="{{!type}}">
+            <view class="_div data-v-27b3743e form-item-wrapper margin-top-20">
+                <view class="_div data-v-27b3743e form-item flex-box-start">
+                    <label class="_span data-v-27b3743e">机构简称：</label>
+                    <input bindinput="handleProxy" class="_input data-v-27b3743e" data-comkey="{{$k}}" data-eventid="{{'0'}}" placeholder="如：新东方教育" placeholderClass="placeholderStyle" type="text" value="{{form.name}}"></input>
+                </view>
+            </view>
+            <view class="_div data-v-27b3743e form-item-wrapper margin-top-20">
+                <view class="_div data-v-27b3743e form-item flex-box-start">
+                    <label class="_span data-v-27b3743e">您的姓名：</label>
+                    <input bindinput="handleProxy" class="_input data-v-27b3743e" data-comkey="{{$k}}" data-eventid="{{'1'}}" placeholder="请输入您的姓名" placeholderClass="placeholderStyle" type="text" value="{{form.username}}"></input>
+                </view>
+                <view class="_div data-v-27b3743e form-item flex-box-start">
+                    <label class="_span data-v-27b3743e">您的手机号：</label>
+                    <input disabled bindinput="handleProxy" class="_input data-v-27b3743e" data-comkey="{{$k}}" data-eventid="{{'2'}}" placeholder="请获取您的手机号" placeholderClass="placeholderStyle" style="width: 52%;" type="number" value="{{form.mobile}}"></input>
+                    <button bindgetphonenumber="handleProxy" class="_button data-v-27b3743e getPhoneNumberBtn {{mobileBtnText=='获取手机号'?'':'disableBtn'}}" data-comkey="{{$k}}" data-eventid="{{'3'}}" disabled="{{mobileBtnText!='获取手机号'}}" openType="getPhoneNumber"> {{mobileBtnText}} </button>
+                    <button bindgetphonenumber="handleProxy" class="_button data-v-27b3743e getPhoneNumberPos" data-comkey="{{$k}}" data-eventid="{{'4'}}" disabled="{{mobileBtnText!='获取手机号'}}" openType="getPhoneNumber"></button>
+                </view>
+                <view class="_div data-v-27b3743e remind flex-box-start">
+                    <image alt class="_img data-v-27b3743e" src="/miaogeban3.0-mp-org/static/images/Icons/remind.png"></image>
+                    <view class="_div data-v-27b3743e">创建者将作为机构管理员(拥有最高权限)<button class="_button data-v-27b3743e" openType="share" style="color: #003399">邀请校长来创建</button>
+                    </view>
+                </view>
+            </view>
+            <view class="_p data-v-27b3743e copyright">您的机构信息将严格保密,请您放心。</view>
+            <button class="_button data-v-27b3743e submit-btn btn-liner" formType="submit">立即提交</button>
+        </form>
+        <view class="_section data-v-27b3743e" wx:elif="{{type}}">
+            <view class="_div data-v-27b3743e form-item-wrapper margin-top-20">
+                <view class="_div data-v-27b3743e form-title">基本信息</view>
+                <view class="_div data-v-27b3743e form-item flex-space">
+                    <label class="_span data-v-27b3743e">机构简称：</label>
+                    <view class="_div data-v-27b3743e">{{form.name}}</view>
+                </view>
+                <view class="_div data-v-27b3743e form-item flex-space">
+                    <label class="_span data-v-27b3743e">管理员姓名：</label>
+                    <view class="_div data-v-27b3743e">{{form.username}}</view>
+                </view>
+                <view class="_div data-v-27b3743e form-item flex-space">
+                    <label class="_span data-v-27b3743e">管理员手机号：</label>
+                    <view class="_div data-v-27b3743e" wx:if="{{form.mobile}}">{{form.mobile}}</view>
+                </view>
+            </view>
+            <view class="_div data-v-27b3743e form-item-wrapper margin-top-20" wx:if="{{form.businessPic}}">
+                <view class="_div data-v-27b3743e form-title">营业执照</view>
+                <view class="_div data-v-27b3743e img-wrapper flex-box">
+                    <image class="_img data-v-27b3743e" mode="heightFix" src="{{form.businessPic}}" style="height: 100%" wx:if="{{form.businessPic}}"></image>
+                </view>
+            </view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+        <template is="022468a0" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/pages/createOrg/components/show-demo.vue.wxml"></import>

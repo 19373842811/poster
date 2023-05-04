@@ -1,0 +1,29 @@
+<template name="7ef9469c">
+    <view class="_div data-v-64ab9b20 container-wrapper">
+        <view class="_header data-v-64ab9b20">
+            <view class="_div data-v-64ab9b20 avatar-wrapper circle">
+                <image class="_img data-v-64ab9b20 avatar circle" src="{{avatarUrl}}"></image>
+                <image class="_img data-v-64ab9b20 flag" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top1.png" wx:if="{{rank==1}}"></image>
+                <image class="_img data-v-64ab9b20 flag" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top2.png" wx:if="{{rank==2}}"></image>
+                <image class="_img data-v-64ab9b20 flag" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top3.png" wx:if="{{rank==3}}"></image>
+            </view>
+            <view class="_p data-v-64ab9b20">{{list.length}}</view>
+            <label class="_span data-v-64ab9b20">“{{nickName}}”成功推广人数</label>
+        </view>
+        <view class="_div data-v-64ab9b20 line"></view>
+        <view class="_section data-v-64ab9b20">
+            <view class="_div data-v-64ab9b20 list-item" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-64ab9b20 flex-space list-top">
+                    <view class="_div data-v-64ab9b20 list-nickName">{{item.title}}</view>
+                </view>
+                <view class="_div data-v-64ab9b20 flex-space list-bottom">
+                    <view class="_div data-v-64ab9b20">{{item.createTime}}</view>
+                    <view bindtap="handleProxy" class="_div data-v-64ab9b20" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}">
+                        <label class="_span data-v-64ab9b20">查看详情</label>
+                        <image class="_img data-v-64ab9b20 arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=function(e,t,n){var u,l,r,a,o,i=function i(){var s=+new Date-a;s<t&&s>=0?u=setTimeout(i,t-s):(u=null,n||(o=e.apply(r,l),u||(r=null,l=null)))};return function(){r=this,l=arguments,a=+new Date;var s=n&&!u;return u||(u=setTimeout(i,t)),s&&(o=e.apply(r,l),r=null,l=null),o}};

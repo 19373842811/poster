@@ -1,0 +1,16 @@
+<template name="54667386">
+    <view class="_div data-v-653e6908">
+        <view bindtap="handleProxy" class="_div data-v-653e6908 weui-mask" data-comkey="{{$k}}" data-eventid="{{'0'}}" hidden="{{!popupVisible}}" id="iosMask" style="opacity: 1;"></view>
+        <view class="_div data-v-653e6908 weui-actionsheet {{[popupVisible?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+            <view class="_div data-v-653e6908 weui-actionsheet__title">
+                <view class="_p data-v-653e6908 weui-actionsheet__title-text">{{title}}</view>
+            </view>
+            <view class="_div data-v-653e6908 weui-actionsheet__menu">
+                <view bindtap="handleProxy" class="_div data-v-653e6908 weui-actionsheet__cell weui-actionsheet__cell_warn" data-comkey="{{$k}}" data-eventid="{{'1'}}"> {{confirmBtn}} </view>
+            </view>
+            <view class="_div data-v-653e6908 weui-actionsheet__action">
+                <view bindtap="handleProxy" class="_div data-v-653e6908 weui-actionsheet__cell" data-comkey="{{$k}}" data-eventid="{{'2'}}" id="iosActionsheetCancel"> {{cancelBtn}} </view>
+            </view>
+        </view>
+    </view>
+</template>

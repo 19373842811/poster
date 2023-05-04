@@ -1,0 +1,87 @@
+<template name="41d5f0bf">
+    <view class="_div data-v-5b00426d container-wrapper">
+        <view class="_header data-v-5b00426d flex-box-start">
+            <image class="_img data-v-5b00426d icon" src="/miaogeban3.0-mp-org/static/images/Icons/editor_prompt.png"></image>
+            <view class="_p data-v-5b00426d">根据网络相关政策，线上支付活动提现需进行实名认证</view>
+        </view>
+        <view class="_section data-v-5b00426d">
+            <view class="_div data-v-5b00426d section-header">上传提现人身份证</view>
+            <view class="_div data-v-5b00426d OCR-wrapper flex-space">
+                <ocr-navigator bindonSuccess="handleProxy" certificateType="idCard" class="_ocr-navigator data-v-5b00426d img-item" data-comkey="{{$k}}" data-eventid="{{'0'}}" opposite="{{false}}" wx:if="{{!form.idCardFront}}">
+                    <image class="_img data-v-5b00426d" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/card_idz.png"></image>
+                </ocr-navigator>
+                <view class="_div data-v-5b00426d img-item" wx:if="{{form.idCardFront}}">
+                    <image class="_img data-v-5b00426d" src="{{form.idCardFront}}"></image>
+                    <view class="_div data-v-5b00426d btns-group flex-space_around">
+                        <ocr-navigator bindonSuccess="handleProxy" certificateType="idCard" class="_ocr-navigator data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'1'}}" opposite="{{false}}" style="height: 50rpx">
+                            <image alt class="_img data-v-5b00426d" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/editFFF.png"></image>
+                        </ocr-navigator>
+                        <image bindtap="handleProxy" class="_img data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'2'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                    </view>
+                </view>
+                <ocr-navigator bindonSuccess="handleProxy" certificateType="idCard" class="_ocr-navigator data-v-5b00426d img-item" data-comkey="{{$k}}" data-eventid="{{'3'}}" opposite="{{true}}" wx:if="{{!form.idCardBack}}">
+                    <image class="_img data-v-5b00426d" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/card_idbg.png"></image>
+                </ocr-navigator>
+                <view class="_div data-v-5b00426d img-item" wx:if="{{form.idCardBack}}">
+                    <image class="_img data-v-5b00426d" src="{{form.idCardBack}}"></image>
+                    <view class="_div data-v-5b00426d btns-group flex-space_around">
+                        <ocr-navigator bindonSuccess="handleProxy" certificateType="idCard" class="_ocr-navigator data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'4'}}" opposite="{{true}}">
+                            <image alt class="_img data-v-5b00426d" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/editFFF.png"></image>
+                        </ocr-navigator>
+                        <image bindtap="handleProxy" class="_img data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'5'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-5b00426d section-footer">提示：身份证照片需清晰无反光</view>
+        </view>
+        <view class="_section data-v-5b00426d">
+            <view class="_div data-v-5b00426d section-header">上传提现人银行卡</view>
+            <view class="_div data-v-5b00426d OCR-wrapper flex-space">
+                <ocr-navigator bindonSuccess="handleProxy" certificateType="bankCard" class="_ocr-navigator data-v-5b00426d img-item" data-comkey="{{$k}}" data-eventid="{{'6'}}" wx:if="{{!form.bankFront}}">
+                    <image class="_img data-v-5b00426d" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/card_bankz.png"></image>
+                </ocr-navigator>
+                <view class="_div data-v-5b00426d img-item" wx:if="{{form.bankFront}}">
+                    <image class="_img data-v-5b00426d" src="{{form.bankFront}}" style="height: 225rpx"></image>
+                    <view class="_div data-v-5b00426d btns-group flex-space_around">
+                        <ocr-navigator bindonSuccess="handleProxy" certificateType="bankCard" class="_ocr-navigator data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'7'}}" style="height: 50rpx">
+                            <image alt class="_img data-v-5b00426d" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/editFFF.png"></image>
+                        </ocr-navigator>
+                        <image bindtap="handleProxy" class="_img data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'8'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                    </view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-5b00426d img-item" data-comkey="{{$k}}" data-eventid="{{'9'}}" wx:if="{{!form.bankBack}}">
+                    <image class="_img data-v-5b00426d" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/card_bankbg.png"></image>
+                </view>
+                <view class="_div data-v-5b00426d img-item" wx:if="{{form.bankBack}}">
+                    <image class="_img data-v-5b00426d" src="{{form.bankBack}}" style="height: 225rpx"></image>
+                    <view class="_div data-v-5b00426d btns-group flex-space_around">
+                        <image bindtap="handleProxy" class="_img data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'10'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/editFFF.png"></image>
+                        <image bindtap="handleProxy" class="_img data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'11'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-5b00426d section-footer">提示：<view class="_br data-v-5b00426d"></view>• 请拍照上传提现银行卡的彩色原件照片<view class="_br data-v-5b00426d"></view>• 照片需清晰无反光，<label class="_span data-v-5b00426d bold font-color-444">户名必须和上传的身份证姓名一致</label>；<view class="_br data-v-5b00426d"></view>
+            </view>
+            <view class="_div data-v-5b00426d input-wrapper margin-top-20">
+                <label class="_span data-v-5b00426d">银行卡绑定手机号：</label>
+                <view class="_div data-v-5b00426d input-border">
+                    <input bindinput="handleProxy" class="_input data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'12'}}" placeholder="请输入银行卡绑定的手机号" placeholderClass="placeholderStyle" type="number" value="{{form.bankMobile}}"></input>
+                </view>
+            </view>
+            <view class="_div data-v-5b00426d input-wrapper margin-top-20">
+                <label class="_span data-v-5b00426d">开卡银行所在地区：</label>
+                <view class="_div data-v-5b00426d input-border">
+                    <input disabled bindtap="handleProxy" class="_input data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'13'}}" placeholder="请选择开卡银行所在地区" placeholderClass="placeholderStyle" value="{{form.bankProvince+form.bankCity}}"></input>
+                </view>
+            </view>
+        </view>
+        <view class="_footer data-v-5b00426d">
+            <view bindtap="handleProxy" class="_div data-v-5b00426d btn-liner" data-comkey="{{$k}}" data-eventid="{{'14'}}">下一步</view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'6'],$root:$root}}"></template>
+        <van-popup round class="_van-popup data-v-5b00426d" position="bottom" show="{{show}}">
+            <van-cascader activeColor="#ff9900" bindclose="handleProxy" bindfinish="handleProxy" class="_van-cascader data-v-5b00426d" data-comkey="{{$k}}" data-eventid="{{'15'}}" options="{{options}}" title="请选择开卡银行所在地区" wx:if="{{show}}"></van-cascader>
+        </van-popup>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

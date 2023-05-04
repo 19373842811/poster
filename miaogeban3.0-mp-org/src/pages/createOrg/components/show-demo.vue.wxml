@@ -1,0 +1,8 @@
+<template name="022468a0">
+    <view class="_div data-v-724ac43b show-demo-wrapper" hidden="{{!visible}}">
+        <view class="_div data-v-724ac43b zoomIn animated">
+            <image alt class="_img data-v-724ac43b demo-img" mode="widthFix" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images_miaogeban/license-demo.jpg" wx:if="{{ossImageUrl}}"></image>
+            <image alt bindtap="handleProxy" class="_img data-v-724ac43b close-demo" data-comkey="{{$k}}" data-eventid="{{'0'}}" src="/static/images/Icons/landscape_close.png"></image>
+        </view>
+    </view>
+</template>

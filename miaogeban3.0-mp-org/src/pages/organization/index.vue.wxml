@@ -1,0 +1,69 @@
+<template name="184a0f88">
+    <view class="_div data-v-15600350 container-wrapper">
+        <view class="_section data-v-15600350 has-organization">
+            <view class="_header data-v-15600350">
+                <image class="_img data-v-15600350 background" src="/miaogeban3.0-mp-org/src/pages/organization/images/org_bg.png"></image>
+                <view class="_div data-v-15600350 orgName-wrapper" style=" {{'padding-bottom:'+(sysParams.iosSign==1||isIos==0?'42rpx':'130rpx')+';'}}">
+                    <view class="_div data-v-15600350 flex-space">
+                        <view class="_div data-v-15600350 orgName flex-box-start">
+                            <label class="_span data-v-15600350">{{orgInfo.name}}</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-15600350 flex-box-end" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+                            <label class="_span data-v-15600350">机构详情</label>
+                            <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/src/pages/organization/images/right-arrow1.png"></image>
+                        </view>
+                    </view>
+                    <view class="_div data-v-15600350 validityTime flex-box-start" style="z-index: 99" wx:if="{{sysParams.iosSign==1||isIos==0}}">
+                        <view class="_div data-v-15600350 flex-box-start" wx:if="{{validityTime>0}}">贵机构会员权益仅剩<label class="_span data-v-15600350">{{validityTime}}</label>天</view>
+                        <view class="_div data-v-15600350" style="color: red" wx:if="{{validityTime<1}}">贵机构VIP会员已过期！</view>
+                        <navigator class="_navigator data-v-15600350 btn flex-box" hoverClass="none" url="../renew/main">
+                            <label class="_span data-v-15600350">去续费</label>
+                            <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow_fff.png"></image>
+                        </navigator>
+                    </view>
+                </view>
+                <image class="_img data-v-15600350 shadow" src="/miaogeban3.0-mp-org/static/images/org_shadow.png"></image>
+            </view>
+            <navigator class="_navigator data-v-15600350 section-item" hoverClass="none" url="../orgInfo/main">
+                <view class="_div data-v-15600350 section-item-header flex-space">
+                    <view class="_div data-v-15600350 section-item-header_left flex-box-start">
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/static/images/orgIcons/icon01.png"></image>
+                        <view class="_div data-v-15600350">机构介绍</view>
+                    </view>
+                    <view class="_div data-v-15600350 flex-box-end">
+                        <label class="_span data-v-15600350" style="color: #FDA50F;">去完善</label>
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/src/pages/organization/images/right-arrow2.png"></image>
+                    </view>
+                </view>
+                <view class="_p data-v-15600350">完善好机构介绍，编辑课程活动时可自动填入合适位置。</view>
+            </navigator>
+            <view bindtap="handleProxy" class="_div data-v-15600350 section-item" data-comkey="{{$k}}" data-eventid="{{'1'}}">
+                <view class="_div data-v-15600350 section-item-header flex-space">
+                    <view class="_div data-v-15600350 section-item-header_left flex-box-start">
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/static/images/orgIcons/icon02.png"></image>
+                        <view class="_div data-v-15600350">机构成员 <label class="_span data-v-15600350" wx:if="{{orgInfo.waitConfirm>0}}">(有 <label class="_span data-v-15600350" style="color: red">{{orgInfo.waitConfirm}}</label> 位成员待确认)</label>
+                        </view>
+                    </view>
+                    <view class="_div data-v-15600350 flex-box-end">
+                        <label class="_span data-v-15600350" style="color: #FDA50F;">去管理</label>
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/src/pages/organization/images/right-arrow2.png"></image>
+                    </view>
+                </view>
+                <view class="_p data-v-15600350">邀请机构成员，可以帮您制作、管理课程。</view>
+            </view>
+            <navigator class="_navigator data-v-15600350 section-item" hoverClass="none" url="../A-package/pages/renewRecord/main">
+                <view class="_div data-v-15600350 section-item-header flex-space">
+                    <view class="_div data-v-15600350 section-item-header_left flex-box-start">
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/static/images/orgIcons/icon03.png"></image>
+                        <view class="_div data-v-15600350">续费记录</view>
+                    </view>
+                    <view class="_div data-v-15600350 flex-box-end">
+                        <image alt class="_img data-v-15600350" src="/miaogeban3.0-mp-org/src/pages/organization/images/right-arrow2.png"></image>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

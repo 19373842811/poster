@@ -1,0 +1,28 @@
+<template name="0899a17f">
+    <view class="_div data-v-dab2b7a6 container-wrapper">
+        <view class="_header data-v-dab2b7a6">
+            <view class="_p data-v-dab2b7a6">{{list.length}}</view>
+            <label class="_span data-v-dab2b7a6">推广人</label>
+        </view>
+        <view class="_div data-v-dab2b7a6 line"></view>
+        <view class="_section data-v-dab2b7a6">
+            <view bindtap="handleProxy" class="_div data-v-dab2b7a6 list-item flex-space" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-dab2b7a6 flex-box-start">
+                    <view class="_div data-v-dab2b7a6 rank">
+                        <image alt class="_img data-v-dab2b7a6" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top1.png" wx:if="{{item.rank==1}}"></image>
+                        <image alt class="_img data-v-dab2b7a6" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top2.png" wx:if="{{item.rank==2}}"></image>
+                        <image alt class="_img data-v-dab2b7a6" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/promoterList/images/top3.png" wx:if="{{item.rank==3}}"></image>
+                        <label class="_span data-v-dab2b7a6" wx:if="{{item.rank>3}}">{{item.rank}}</label>
+                    </view>
+                    <image class="_img data-v-dab2b7a6 circle" src="{{item.avatarUrl}}"></image>
+                    <view class="_div data-v-dab2b7a6 list-nickName">{{item.nickName}}</view>
+                </view>
+                <view class="_div data-v-dab2b7a6 flex-box-end">
+                    <view class="_div data-v-dab2b7a6">成交人数：<label class="_span data-v-dab2b7a6 bold">{{item.amount||0}}</label>
+                    </view>
+                    <image class="_img data-v-dab2b7a6 arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

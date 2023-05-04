@@ -1,0 +1,75 @@
+<template name="7ef14cfe">
+    <view class="_div data-v-422dcb09 contianer-wrapper">
+        <view class="_div data-v-422dcb09 userInfo-wrapper" style=" {{'padding-bottom:'+(baseInfo.loginStatus==1?'0':'40rpx')+';'}}">
+            <image class="_img data-v-422dcb09 circle avatar" src="{{avatar}}"></image>
+            <view bindtap="handleProxy" class="_div data-v-422dcb09 login-btn" data-comkey="{{$k}}" data-eventid="{{'0'}}" wx:if="{{baseInfo.loginStatus==0}}">去登陆</view>
+            <view class="_div data-v-422dcb09 flex-box margin-top-20 userName" wx:if="{{baseInfo.loginStatus==1}}">
+                <label class="_span data-v-422dcb09">{{baseInfo.userInfo.nickName||'微信用户'}}</label>
+                <navigator class="_navigator data-v-422dcb09" hoverClass="none" openType="navigate" url="../A-package/pages/editUserInfo/main">
+                    <image alt class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/edit.png"></image>
+                </navigator>
+            </view>
+            <view class="_div data-v-422dcb09 org-wrapper" wx:if="{{baseInfo.loginStatus==1}}">
+                <image class="_img data-v-422dcb09 background" src="/miaogeban3.0-mp-org/src/pages/my/images/orgBg.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <view class="_div data-v-422dcb09 org-info">
+                        <view class="_div data-v-422dcb09 flex-box-start">
+                            <image class="_img data-v-422dcb09" mode="widthFix" src="/miaogeban3.0-mp-org/src/pages/my/images/orgIcon.png"></image>
+                            <view class="_div data-v-422dcb09 bold">我的机构</view>
+                            <view class="_p data-v-422dcb09" wx:if="{{baseInfo.org&&baseInfo.org.status==2&&validityTime>0}}">会员权益剩 <label class="_span data-v-422dcb09" style="color: #ffff00">{{validityTime}}</label> 天</view>
+                            <view class="_p data-v-422dcb09" wx:if="{{baseInfo.org&&baseInfo.org.status==2&&validityTime<1}}">贵机构VIP会员已过期！</view>
+                        </view>
+                        <label class="_span data-v-422dcb09" wx:if="{{!baseInfo.org}}">1分钟创建机构，所有模板免费试用！</label>
+                        <label class="_span data-v-422dcb09" wx:elif="{{baseInfo.org.status==1}}">您的机构正在审核！</label>
+                        <label class="_span data-v-422dcb09" wx:elif="{{baseInfo.org.status==2&&baseInfo.org.memberStatus==1}}">待管理员确认</label>
+                        <label class="_span data-v-422dcb09" wx:elif="{{baseInfo.org.status==2&&baseInfo.org.memberStatus==2}}">{{baseInfo.org.name}}</label>
+                    </view>
+                    <navigator class="_navigator data-v-422dcb09 org-btn" hoverClass="none" openType="navigate" url="../createOrg/main" wx:if="{{!baseInfo.org}}">立即创建</navigator>
+                    <navigator class="_navigator data-v-422dcb09 org-btn" hoverClass="none" openType="navigate" url="../organization/main" wx:elif="{{baseInfo.org.status==2&&baseInfo.org.memberStatus==2}}">管理机构</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-422dcb09 nav-wrapper">
+            <navigator class="_navigator data-v-422dcb09 nav-item" hoverClass="none" url="../A-package/pages/operationHelp/main">
+                <image class="_img data-v-422dcb09 nav-icon" src="/miaogeban3.0-mp-org/src/pages/my/images/me_help.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <label class="_span data-v-422dcb09">操作帮助</label>
+                    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;"></image>
+                </view>
+            </navigator>
+            <navigator class="_navigator data-v-422dcb09 nav-item" hoverClass="none" url="{{'../promoter/main?tabIndex='+(baseInfo.isPromoter==1?'2':'1')}}">
+                <image class="_img data-v-422dcb09 nav-icon" src="/miaogeban3.0-mp-org/src/pages/my/images/me_earnings.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <label class="_span data-v-422dcb09">我的推广收益</label>
+                    <view class="_div data-v-422dcb09 flex-box" wx:if="{{balance>0&&baseInfo.isPromoter==1}}">
+                        <label class="_span data-v-422dcb09 bold" style="color: red;font-size: 30rpx;">￥{{balance}}</label>    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;"></image>
+                    </view>
+                    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;" wx:else></image>
+                </view>
+            </navigator>
+        </view>
+        <view class="_div data-v-422dcb09 nav-wrapper">
+            <navigator class="_navigator data-v-422dcb09 nav-item" hoverClass="none" url="../A-package/pages/follow/main">
+                <image class="_img data-v-422dcb09 nav-icon" src="/miaogeban3.0-mp-org/src/pages/my/images/me_public.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <label class="_span data-v-422dcb09">关注公众号</label>
+                    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;"></image>
+                </view>
+            </navigator>
+            <navigator class="_navigator data-v-422dcb09 nav-item" hoverClass="none" url="../A-package/pages/feedback/main">
+                <image class="_img data-v-422dcb09 nav-icon" src="/miaogeban3.0-mp-org/src/pages/my/images/me_feedback.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <label class="_span data-v-422dcb09">建议/反馈</label>
+                    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;"></image>
+                </view>
+            </navigator>
+            <button class="_button data-v-422dcb09 nav-item" openType="contact">
+                <image class="_img data-v-422dcb09 nav-icon" src="/miaogeban3.0-mp-org/src/pages/my/images/me_service.png"></image>
+                <view class="_div data-v-422dcb09 flex-space">
+                    <label class="_span data-v-422dcb09">联系客服</label>
+                    <image class="_img data-v-422dcb09" src="/miaogeban3.0-mp-org/src/pages/my/images/right-arrow-grey.png" style="width: 10rpx;height: 20rpx;"></image>
+                </view>
+            </button>
+        </view>
+    </view>
+</template>

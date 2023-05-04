@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=function(e,r,t){(t=t||{}).childrenKeyName=t.childrenKeyName||"children";var i=e||[],n=[],l=0;do{var a=i.filter((function(e){return r(e,l)}))[0];if(!a)break;n.push(a),i=a[t.childrenKeyName]||[],l+=1}while(i.length>0);return n};exports.default=e;

@@ -1,0 +1,51 @@
+<template name="4323026e">
+    <view class="_div data-v-d36c9a56 container-wrapper">
+        <view class="_header data-v-d36c9a56">
+            <view class="_div data-v-d36c9a56 sourceType-list flex-box-start" wx:if="{{type=='source'}}">
+                <view bindtap="handleProxy" class="_div data-v-d36c9a56 sourceType-item {{queryList.tagId==item.id?'actived-item':''}}" data-comkey="{{$k}}" data-eventid="{{'0_'+index}}" key="{{index}}" wx:for="{{typeList}}" wx:key="index"> {{item.name}} </view>
+            </view>
+            <scroll-view scrollX class="_scroll-view data-v-d36c9a56" enhanced="true" showScrollbar="{{false}}" style="width: 100%" wx:if="{{type=='background'}}">
+                <view class="_div data-v-d36c9a56 bgType-list">
+                    <view bindtap="handleProxy" class="_div data-v-d36c9a56 bgType-item {{queryList.typeId==item.id?'actived-item':''}}" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" key="{{index}}" style=" {{'background:'+item.name+';'+'opacity:'+(queryList.typeId==item.id?'1':'0.5')+';'}}" wx:for="{{typeList}}" wx:key="index"></view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="_section data-v-d36c9a56" wx:if="{{type=='source'}}">
+            <view class="_div data-v-d36c9a56 list-wrapper flex-box-start">
+                <view bindtap="handleProxy" class="_div data-v-d36c9a56 list-item flex-box" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                    <view class="_div data-v-d36c9a56 flag" wx:if="{{item.tips&&item.members.length>0}}">可选{{item.tips}}</view>
+                    <image class="_img data-v-d36c9a56" src="{{item.imgPath+'?x-oss-process=image/resize,w_'+item.width+',m_mfit'}}" style=" {{'width:'+item.width+'rpx'+';'+'height:'+item.height+'rpx'+';'}}"></image>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-d36c9a56" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <view class="_section data-v-d36c9a56" wx:if="{{type=='background'}}">
+            <view class="_div data-v-d36c9a56 list-wrapper flex-box-start">
+                <view bindtap="handleProxy" class="_div data-v-d36c9a56 list-item flex-box bg-item" data-comkey="{{$k}}" data-eventid="{{'3_'+index}}" key="{{index}}" wx:for="{{list}}" wx:key="index">
+                    <image class="_img data-v-d36c9a56" mode="widthFix" src="{{item.poster+'?x-oss-process=image/resize,p_60'}}"></image>
+                </view>
+            </view>
+            <i-load-more class="_i-load-more data-v-d36c9a56" loading="{{showLoading}}" tip="{{resTips}}"></i-load-more>
+        </view>
+        <view class="_footer data-v-d36c9a56 flex-box" wx:if="{{type=='background'&&posterType!=3}}">
+            <view bindtap="handleProxy" class="_div data-v-d36c9a56 flex-box" data-comkey="{{$k}}" data-eventid="{{'4'}}" wx:if="{{posterType==1}}">
+                <image alt class="_img data-v-d36c9a56" src="/miaogeban3.0-mp-org/static/images/Icons/editor_upload444.png"></image>
+                <label class="_span data-v-d36c9a56">没有合适的，自己上传</label>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-d36c9a56 flex-box" data-comkey="{{$k}}" data-eventid="{{'5'}}">
+                <image alt class="_img data-v-d36c9a56" src="/miaogeban3.0-mp-org/static/images/Icons/editor_turn444.png"></image>
+                <label class="_span data-v-d36c9a56">恢复默认背景</label>
+            </view>
+        </view>
+        <wux-landscape bindclose="handleProxy" class="_wux-landscape data-v-d36c9a56 landscape" data-comkey="{{$k}}" data-eventid="{{'7'}}" maskClosable="{{true}}" visible="{{landscapeVisible}}">
+            <view class="_div data-v-d36c9a56 landscape-wrapper">
+                <view class="_div data-v-d36c9a56 landscape-header"> 请选择{{item.tips}} </view>
+                <view class="_div data-v-d36c9a56 landscape-section {{item.members.length>=4?'flex-box-start':'flex-box'}}" style="width: 95%" wx:if="{{type=='source'&&item.imgPath}}">
+                    <view bindtap="handleProxy" class="_div data-v-d36c9a56 num-item" data-comkey="{{$k}}" data-eventid="{{'6_'+mIndex}}" key="{{index}}" wx:for="{{item.members}}" wx:for-index="mIndex" wx:for-item="mItem" wx:key="index">
+                        <image class="_img data-v-d36c9a56" mode="widthFix" src="{{mItem}}"></image>
+                    </view>
+                </view>
+            </view>
+        </wux-landscape>
+    </view>
+</template>

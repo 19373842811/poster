@@ -1,0 +1,63 @@
+<template name="a8c7c26a">
+    <view class="_div data-v-637752d7 container-wrapper">
+        <view class="_header data-v-637752d7">
+            <view bindtap="handleProxy" class="_div data-v-637752d7 member-item flex-space" data-comkey="{{$k}}" data-eventid="{{'0'}}" wx:if="{{list.length>0}}">
+                <view class="_div data-v-637752d7 flex-box-start">
+                    <image class="_img data-v-637752d7 avatar" src="{{list[0].avatarUrl}}"></image>
+                    <view class="_div data-v-637752d7">
+                        <view class="_div data-v-637752d7 flex-box-start"> {{list[0].nickName}} <label class="_span data-v-637752d7 admin-flag">管理员</label>
+                            <label class="_span data-v-637752d7 transfer-btn">转让</label>
+                        </view>
+                        <label class="_span data-v-637752d7 memeber-mobile" wx:if="{{list[0].mobile}}">{{list[0].mobile}}</label>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="_section data-v-637752d7 margin-top-20" wx:if="{{list.length>1}}">
+            <view class="_div data-v-637752d7 member-item flex-box-start" wx:if="{{index>0}}" wx:for="{{list}}" wx:key="index">
+                <image class="_img data-v-637752d7 avatar" src="{{item.avatarUrl}}"></image>
+                <view class="_div data-v-637752d7" style="width: calc(100% - 120rpx)">
+                    <view class="_div data-v-637752d7 flex-box-start">
+                        <view class="_div data-v-637752d7"> {{item.nickName}} <label class="_span data-v-637752d7" style="font-size: 22rpx;color:#999;" wx:if="{{item.status==1}}">（该员工尚未得到您的确认）</label>
+                        </view>
+                    </view>
+                    <view class="_div data-v-637752d7 flex-space margin-top-10">
+                        <label class="_span data-v-637752d7 memeber-mobile">{{item.mobile||''}}</label>
+                        <view class="_div data-v-637752d7 operate-wrapper flex-box-end">
+                            <button bindtap="handleProxy" class="_button data-v-637752d7 btn-liner confirm-btn" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" wx:if="{{item.status==1}}">确认</button>
+                            <image bindtap="handleProxy" class="_img data-v-637752d7 delete-icon" data-comkey="{{$k}}" data-eventid="{{'2_'+index}}" src="/static/images/Icons/editor_lose444.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <button class="_button data-v-637752d7 btn-liner invite-btn" openType="share">+邀请成员</button>
+        </view>
+        <view class="_section data-v-637752d7 noMember" style="padding-top: 250rpx;" wx:if="{{list.length==1}}">
+            <view class="_p data-v-637752d7">邀请机构成员，可以帮您制作、管理课程。</view>
+            <button class="_button data-v-637752d7 btn-liner" openType="share">+邀请成员</button>
+        </view>
+        <view class="_div data-v-637752d7 popup-window flex-box" wx:if="{{landscapeVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-637752d7 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'3'}}"></view>
+            <view class="_div data-v-637752d7 popup-window_body warning-popupWindow">
+                <view class="_div data-v-637752d7 popup-window_content">
+                    <view class="_div data-v-637752d7 popup-window_header">
+                        <view class="_div data-v-637752d7">温馨提示</view>
+                    </view>
+                    <view class="_div data-v-637752d7 popup-window_section">
+                        <view class="_p data-v-637752d7">您有任何问题，欢迎随时联系我们！</view>
+                        <view class="_div data-v-637752d7">客服微信号： <label class="_span data-v-637752d7">{{weChat}}</label>
+                        </view>
+                        <button bindtap="handleProxy" class="_button data-v-637752d7 btn-liner" data-comkey="{{$k}}" data-eventid="{{'4'}}">拷贝微信号({{weChat}})</button>
+                    </view>
+                </view>
+                <view class="_div data-v-637752d7 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-637752d7" data-comkey="{{$k}}" data-eventid="{{'5'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <template is="a09aed38" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+        <template is="54667386" data="{{...$root[$kk+'1'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/pages/A-package/pages/orgMember/components/confirm-staff.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>

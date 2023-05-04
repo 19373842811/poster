@@ -1,0 +1,2 @@
+<import src="/miaogeban3.0-mp-org/src/pages/classify/index.vue.wxml"></import>
+<template is="eda6b1ce" data="{{...$root['0'],$root:$root}}"></template>

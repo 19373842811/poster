@@ -1,0 +1,55 @@
+<template name="1982693f">
+    <view class="_div data-v-0c6045cb container-wrapper">
+        <view class="_header data-v-0c6045cb">
+            <label class="_span data-v-0c6045cb">报名款余额</label>
+            <view class="_p data-v-0c6045cb margin-top-10">￥{{balance}}</view>
+            <button bindtap="handleProxy" class="_button data-v-0c6045cb btn-liner" data-comkey="{{$k}}" data-eventid="{{'0'}}" disabled="{{btnText=='提现到微信零钱'?false:true}}" style="color: #fff; {{'background:'+(btnText=='提现到微信零钱'?'linear-gradient(135deg, #F3711D 0%, #FBCD3C 100%);':'#909399')+';'}}" wx:if="{{baseInfo.isAdmin==1}}"> {{btnText}} </button>
+            <label class="_span data-v-0c6045cb">-- 提现规则 --</label>
+            <label class="_span data-v-0c6045cb">单笔上限：500元 | 日上限：5000元 | 日次数： 10次</label>
+        </view>
+        <view class="_div data-v-0c6045cb line"></view>
+        <view class="_section data-v-0c6045cb">
+            <view class="_div data-v-0c6045cb section-title">-- 报名款账单 --</view>
+            <view class="_div data-v-0c6045cb list-item" wx:for="{{list}}" wx:key="index">
+                <view class="_div data-v-0c6045cb flex-space list-top">
+                    <view class="_div data-v-0c6045cb list-nickName">{{item.title}}</view>
+                    <view class="_div data-v-0c6045cb list-profit" wx:if="{{item.price>0}}">+{{item.price}}</view>
+                    <view class="_div data-v-0c6045cb list-profit" style="color: #67C23A" wx:if="{{item.price<0}}">{{item.price}}</view>
+                </view>
+                <view class="_div data-v-0c6045cb flex-space list-bottom">
+                    <view class="_div data-v-0c6045cb">{{item.createTime}}</view>
+                    <view bindtap="handleProxy" class="_div data-v-0c6045cb" data-comkey="{{$k}}" data-eventid="{{'1_'+index}}" wx:if="{{item.oid}}">
+                        <label class="_span data-v-0c6045cb">查看详情</label>
+                        <image class="_img data-v-0c6045cb arrow-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/right-arrow.png"></image>
+                    </view>
+                </view>
+                <image class="_img data-v-0c6045cb flag" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/courseAccount/images/apply.png" wx:if="{{item.cashStatus==0}}"></image>
+            </view>
+        </view>
+        <view class="_div data-v-0c6045cb">
+            <view bindtap="handleProxy" class="_div data-v-0c6045cb weui-mask" data-comkey="{{$k}}" data-eventid="{{'2'}}" hidden="{{!popupVisible}}" id="iosMask" style="opacity: 1;"></view>
+            <view class="_div data-v-0c6045cb weui-actionsheet {{[popupVisible?'weui-actionsheet_toggle':'']}}" id="iosActionsheet">
+                <view class="_div data-v-0c6045cb weui-actionsheet__title">
+                    <view class="_p data-v-0c6045cb" style="margin-bottom: 10rpx;">确认要将所有余额提现至微信钱包吗？</view>
+                </view>
+                <view class="_div data-v-0c6045cb weui-actionsheet__menu">
+                    <view bindtap="handleProxy" class="_div data-v-0c6045cb weui-actionsheet__cell weui-actionsheet__cell_warn" data-comkey="{{$k}}" data-eventid="{{'3'}}"> 确定 </view>
+                    <view bindtap="handleProxy" class="_div data-v-0c6045cb weui-actionsheet__cell" data-comkey="{{$k}}" data-eventid="{{'4'}}" id="iosActionsheetCancel"> 取消 </view>
+                </view>
+            </view>
+        </view>
+        <view class="_div data-v-0c6045cb popup-window flex-box" wx:if="{{withdrawVisible}}">
+            <view class="_div data-v-0c6045cb popup-window_shadow"></view>
+            <view class="_div data-v-0c6045cb successWithdraw">
+                <view class="_div data-v-0c6045cb">
+                    <icon class="_icon data-v-0c6045cb" size="22" type="success"></icon>
+                    <view class="_p data-v-0c6045cb" style="margin: 20rpx 0 10rpx">成功提现</view>
+                    <view class="_div data-v-0c6045cb" style="font-weight: bold;color: #ff0000">{{balance>500?'500':balance}}元</view>
+                </view>
+                <view bindtap="handleProxy" class="_div data-v-0c6045cb btn-liner" data-comkey="{{$k}}" data-eventid="{{'5'}}">ok</view>
+            </view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

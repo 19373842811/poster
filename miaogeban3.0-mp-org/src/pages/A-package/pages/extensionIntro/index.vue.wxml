@@ -1,0 +1,6 @@
+<template name="2a5e1c08">
+    <view class="_div data-v-e20d9f2c container-wrapper">
+        <view class="_p data-v-e20d9f2c">亲爱的老师，为了更好的促进课程转介绍，喵个班为您提供了强大的<label class="_span data-v-e20d9f2c bold">转介绍</label>功能，能有效的提升转介绍效率及成交率，也可将此方法作为长期考核内部招生业绩的依据，快通过以下视频了解一下吧：</view>
+        <video class="_video data-v-e20d9f2c video" src="https://img.miaogeban.com/video_miaogeban/miaogebanCoursePromoter.mp4"></video>
+    </view>
+</template>

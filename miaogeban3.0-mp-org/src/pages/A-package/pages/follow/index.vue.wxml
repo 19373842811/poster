@@ -1,0 +1,5 @@
+<template name="c8f65f80">
+    <view class="_div data-v-0eaf00a4 container-wrpper">
+        <web-view bindmessage="handleProxy" class="_web-view data-v-0eaf00a4" data-comkey="{{$k}}" data-eventid="{{'0'}}" src="{{mpAddress}}"></web-view>
+    </view>
+</template>

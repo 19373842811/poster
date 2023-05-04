@@ -1,0 +1,40 @@
+<template name="bdac4ed0">
+    <view class="_div data-v-c3806740 staff-invite-wrapper">
+        <view class="_div data-v-c3806740 invite-invalid-wrapper" wx:if="{{!isEffective}}">
+            <image alt class="_img data-v-c3806740 errorImg" src="/static/images/Icons/fail.png"></image>
+            <label class="_span data-v-c3806740 tips">此邀请页面已失效，请联系机构管理员重新邀请！</label>
+            <view bindtap="handleProxy" class="_div data-v-c3806740 text-btn" data-comkey="{{$k}}" data-eventid="{{'0'}}">了解更多 ></view>
+        </view>
+        <view class="_div data-v-c3806740 invite-wrapper" wx:if="{{isEffective&&isConfirm==0}}">
+            <image alt class="_img data-v-c3806740 orgAvatar" src="{{avatar}}"></image>
+            <view class="_div data-v-c3806740 org-name">
+                <label class="_span data-v-c3806740">{{userName}}</label>邀请你</view>
+            <view class="_p data-v-c3806740 org-intro">管理“<label class="_span data-v-c3806740" style="color: #ffac00;">{{orgName}}</label>”在线招生课程</view>
+            <form bindsubmit="handleProxy" class="_form data-v-c3806740" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                <view class="_section data-v-c3806740 form-wrapper">
+                    <view class="_div data-v-c3806740 form-item flex-box-start" style="border-bottom: 1px solid #f2f2f2;">
+                        <label class="_span data-v-c3806740 form-item_label">昵称</label>
+                        <input class="_input data-v-c3806740" name="nickName" placeholder="请输入昵称" placeholderClass="placeholderStyle" style="width: 80%" type="nickname"></input>
+                    </view>
+                    <button bindchooseavatar="handleProxy" class="_button data-v-c3806740 form-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'1'}}" openType="chooseAvatar">
+                        <label class="_span data-v-c3806740 form-item_label">头像</label>
+                        <image class="_img data-v-c3806740 avatar" src="{{form.avatarUrl}}" wx:if="{{form.avatarUrl}}"></image>
+                        <view class="_div data-v-c3806740 upload-avatar-btn" wx:else>
+                            <label class="_span data-v-c3806740">+</label>
+                            <view class="_div data-v-c3806740">请上传</view>
+                        </view>
+                    </button>
+                </view>
+                <button class="_button data-v-c3806740 btn-liner" formType="submit">接受邀请</button>
+            </form>
+            <view bindtap="handleProxy" class="_div data-v-c3806740 text-btn" data-comkey="{{$k}}" data-eventid="{{'3'}}">访问小程序 ></view>
+        </view>
+        <view class="_div data-v-c3806740 accept-invite-wrapper" wx:if="{{isConfirm==1}}">
+            <icon class="_icon data-v-c3806740" size="40" type="success"></icon>
+            <view class="_p data-v-c3806740 tips margin-top-20">成功接受邀请,请等待管理员<label class="_span data-v-c3806740" style="text-decoration: underline;">{{userName}}</label>确认...</view>
+            <view class="_div data-v-c3806740 text-btn-wrapper">
+                <view bindtap="handleProxy" class="_div data-v-c3806740 text-btn" data-comkey="{{$k}}" data-eventid="{{'4'}}">访问小程序 ></view>
+            </view>
+        </view>
+    </view>
+</template>

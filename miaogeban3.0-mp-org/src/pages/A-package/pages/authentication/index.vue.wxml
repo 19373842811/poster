@@ -1,0 +1,88 @@
+<template name="7ba9cd72">
+    <view class="_div data-v-665357b5 container-wrapper">
+        <view class="_div data-v-665357b5" wx:if="{{form.authStatus!=3}}">
+            <view class="_header data-v-665357b5 flex-box-start" style="background: #DFECFF" wx:if="{{form.authStatus==2}}">
+                <image class="_img data-v-665357b5 icon" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/Realname_inprogress.png"></image>
+                <view class="_p data-v-665357b5" style="color: #0066FF">您的提现实名正在审核中，审核通过后就可以提现啦！</view>
+            </view>
+            <view class="_header data-v-665357b5 flex-box-start" style="background: #E1FFE1" wx:if="{{form.authStatus==5}}">
+                <image class="_img data-v-665357b5 icon" src="https://miaogeban.oss-cn-shenzhen.aliyuncs.com/images/authentication/Realname_approved.png"></image>
+                <view class="_p data-v-665357b5" style="color: #009900">恭喜！您已实名，可以随时申请提现。</view>
+            </view>
+            <view class="_section data-v-665357b5">
+                <view class="_div data-v-665357b5 section-header">提现人身份证</view>
+                <view class="_div data-v-665357b5 OCR-wrapper flex-space">
+                    <view class="_div data-v-665357b5 img-item">
+                        <image class="_img data-v-665357b5" src="{{form.idCardFront}}"></image>
+                        <view class="_div data-v-665357b5 btns-group flex-space_around">
+                            <image bindtap="handleProxy" class="_img data-v-665357b5" data-comkey="{{$k}}" data-eventid="{{'0'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                        </view>
+                    </view>
+                    <view class="_div data-v-665357b5 img-item">
+                        <image class="_img data-v-665357b5" src="{{form.idCardBack}}"></image>
+                        <view class="_div data-v-665357b5 btns-group flex-space_around">
+                            <image bindtap="handleProxy" class="_img data-v-665357b5" data-comkey="{{$k}}" data-eventid="{{'1'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="_section data-v-665357b5">
+                <view class="_div data-v-665357b5 section-header">提现人银行卡</view>
+                <view class="_div data-v-665357b5 OCR-wrapper flex-space">
+                    <view class="_div data-v-665357b5 img-item">
+                        <image class="_img data-v-665357b5" src="{{form.bankFront}}"></image>
+                        <view class="_div data-v-665357b5 btns-group flex-space_around">
+                            <image bindtap="handleProxy" class="_img data-v-665357b5" data-comkey="{{$k}}" data-eventid="{{'2'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                        </view>
+                    </view>
+                    <view class="_div data-v-665357b5 img-item">
+                        <image class="_img data-v-665357b5" src="{{form.bankBack}}"></image>
+                        <view class="_div data-v-665357b5 btns-group flex-space_around">
+                            <image bindtap="handleProxy" class="_img data-v-665357b5" data-comkey="{{$k}}" data-eventid="{{'3'}}" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/magnifier.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="_section data-v-665357b5">
+                <view class="_div data-v-665357b5 section-header">文字信息</view>
+                <view class="_div data-v-665357b5 text-wrapper">
+                    <view class="_div data-v-665357b5 flex-box-start margin-top-10">
+                        <label class="_span data-v-665357b5 font-color-666">提现人姓名：</label>
+                        <view class="_div data-v-665357b5">{{form.cardName}}</view>
+                    </view>
+                    <view class="_div data-v-665357b5 flex-box-start margin-top-10">
+                        <label class="_span data-v-665357b5 font-color-666">提现人身份证：</label>
+                        <view class="_div data-v-665357b5">{{form.certNo}}</view>
+                    </view>
+                    <view class="_div data-v-665357b5 flex-box-start margin-top-10">
+                        <label class="_span data-v-665357b5 font-color-666">提现卡号：</label>
+                        <view class="_div data-v-665357b5">{{form.bankNo}}</view>
+                    </view>
+                    <view class="_div data-v-665357b5 flex-box-start margin-top-10">
+                        <label class="_span data-v-665357b5 font-color-666">提现人手机号：</label>
+                        <view class="_div data-v-665357b5">{{form.bankMobile}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="_div data-v-665357b5 tips font-color-333" wx:if="{{form.authStatus==2}}">（如果以上实名信息有误，请修改后重新提交）</view>
+            <view class="_div data-v-665357b5 tips font-color-333" wx:if="{{form.authStatus==5}}">（如果以上实名信息有变更，请修改后重新提交）</view>
+            <view class="_footer data-v-665357b5 flex-space">
+                <navigator class="_navigator data-v-665357b5 btn-liner" hoverClass="none" style="width: 100%" url="../authenticationSubmit/main" wx:if="{{form.authStatus==5}}">修改认证信息</navigator>
+                <navigator class="_navigator data-v-665357b5 flex-box" hoverClass="none" openType="redirect" url="../authenticationSubmit/main" wx:if="{{form.authStatus==2}}">
+                    <image alt class="_img data-v-665357b5" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/goEdit.png"></image>
+                    <label class="_span data-v-665357b5 font-color-666">修改认证信息</label>
+                </navigator>
+                <navigator class="_navigator data-v-665357b5 btn-liner flex-box" hoverClass="none" openType="switchTab" url="../../../course/main" wx:if="{{form.authStatus==2}}">
+                    <image alt class="_img data-v-665357b5" src="/miaogeban3.0-mp-org/src/pages/A-package/images/Icons/goIndex.png"></image>
+                    <label class="_span data-v-665357b5">返回课程首页</label>
+                </navigator>
+            </view>
+        </view>
+        <view class="_div data-v-665357b5 noPass-section" wx:if="{{form.authStatus==3}}">
+            <image alt class="_img data-v-665357b5" src="/miaogeban3.0-mp-org/static/images/Icons/fail.png"></image>
+            <label class="_span data-v-665357b5">提现实名认证失败！原因如下：</label>
+            <view class="_p data-v-665357b5">{{form.remark}}</view>
+            <navigator class="_navigator data-v-665357b5 btn-liner" hoverClass="none" url="../authenticationSubmit/main">去修改 ></navigator>
+        </view>
+    </view>
+</template>

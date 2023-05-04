@@ -1,0 +1,6 @@
+<template name="51c0fa4c">
+    <view class="_div data-v-13b6f70c container-wrapper">
+        <view class="_div data-v-13b6f70c title">请花一分钟观看一下推广帮助视频：</view>
+        <video class="_video data-v-13b6f70c video" src="{{sysParams.promoteVideo}}"></video>
+    </view>
+</template>

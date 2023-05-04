@@ -1,0 +1,2 @@
+<import src="/miaogeban3.0-mp-org/src/pages/memberInvite/index.vue.wxml"></import>
+<template is="bdac4ed0" data="{{...$root['0'],$root:$root}}"></template>

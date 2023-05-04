@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=function(e,t){for(var r=e.split("."),n=t.split("."),s=Math.max(r.length,n.length);r.length<s;)r.push("0");for(;n.length<s;)n.push("0");for(var a=0;a<s;a++){var u=parseInt(r[a]),l=parseInt(n[a]);if(u>l)return 1;if(u<l)return-1}return 0};exports.default=e;

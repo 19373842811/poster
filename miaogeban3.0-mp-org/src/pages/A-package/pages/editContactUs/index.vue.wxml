@@ -1,0 +1,64 @@
+<template name="52a445be">
+    <view class="_div data-v-6ce88ca6 container-wrapper">
+        <view bindtap="handleProxy" class="_div data-v-6ce88ca6 qrcode-wrapper" data-comkey="{{$k}}" data-eventid="{{'0'}}">
+            <image alt class="_img data-v-6ce88ca6" src="{{form.qrCode||'https://img.miaogeban.com/20200310/557dfc18-c0cf-4dae-ac48-c4d6c02efb2b.jpeg'}}"></image>
+            <view class="_div data-v-6ce88ca6 flag flex-box">
+                <image class="_img data-v-6ce88ca6 edit-icon" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editContactUs/images/editTemplate.png"></image>
+                <label class="_span data-v-6ce88ca6">点击修改二维码</label>
+            </view>
+        </view>
+        <view class="_div data-v-6ce88ca6 form-section">
+            <view class="_div data-v-6ce88ca6 form-item flex-box-start">
+                <label class="_span data-v-6ce88ca6">机构简称</label>
+                <input bindinput="handleProxy" class="_input data-v-6ce88ca6" data-comkey="{{$k}}" data-eventid="{{'1'}}" placeholder="请输入机构简称" placeholderClass="placeholderStyle" value="{{form.shortName}}"></input>
+            </view>
+            <view class="_div data-v-6ce88ca6 form-item flex-box-start">
+                <label class="_span data-v-6ce88ca6">咨询手机号</label>
+                <input bindinput="handleProxy" class="_input data-v-6ce88ca6" data-comkey="{{$k}}" data-eventid="{{'2'}}" placeholder="请输入咨询手机号" placeholderClass="placeholderStyle" type="number" value="{{form.phone}}"></input>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-6ce88ca6 form-item flex-box-start form-item-textarea" data-comkey="{{$k}}" data-eventid="{{'4'}}" style="align-items: center;">
+                <label class="_span data-v-6ce88ca6">校区地址</label>
+                <textarea autoHeight disabled bindinput="handleProxy" class="_textarea data-v-6ce88ca6" data-comkey="{{$k}}" data-eventid="{{'3'}}" placeholder="请选择校区地址" placeholderClass="placeholderStyle" value="{{form.address}}"></textarea>
+                <image alt class="_img data-v-6ce88ca6" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </view>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-6ce88ca6 submit-btn" data-comkey="{{$k}}" data-eventid="{{'5'}}">保存修改</view>
+        <view class="_div data-v-6ce88ca6 popup-window flex-box" wx:if="{{codeVisible}}">
+            <view bindtap="handleProxy" class="_div data-v-6ce88ca6 popup-window_shadow" data-comkey="{{$k}}" data-eventid="{{'6'}}"></view>
+            <view class="_div data-v-6ce88ca6 popup-window_body" style="width: 85%;">
+                <view class="_div data-v-6ce88ca6 popup-window_section">
+                    <view class="_div data-v-6ce88ca6 landscape-header">{{editQrCode?'管理二维码':'请选择常用二维码'}}</view>
+                    <view class="_div data-v-6ce88ca6 landscape-section">
+                        <view class="_div data-v-6ce88ca6 qrCodeList-wrapper flex-box-start">
+                            <view class="_div data-v-6ce88ca6 qrCode-item" key="{{index}}" wx:for="{{qrCodeList}}" wx:key="index">
+                                <view class="_div data-v-6ce88ca6 default-flag" wx:if="{{item.isDefault==1}}">默认</view>
+                                <image bindtap="handleProxy" class="_img data-v-6ce88ca6" data-comkey="{{$k}}" data-eventid="{{'7_'+index}}" mode="widthFix" src="{{item.path}}"></image>
+                                <view class="_div data-v-6ce88ca6 default-btn-wrapper" wx:if="{{editQrCode}}">
+                                    <view bindtap="handleProxy" class="_div data-v-6ce88ca6 default-btn" data-comkey="{{$k}}" data-eventid="{{'8_'+index}}" wx:if="{{item.isDefault==0}}">设为默认</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="_div data-v-6ce88ca6 landscape-footer flex-space" wx:if="{{!editQrCode}}">
+                        <view bindtap="handleProxy" class="_div data-v-6ce88ca6 icon-btn flex-box" data-comkey="{{$k}}" data-eventid="{{'9'}}">
+                            <image class="_img data-v-6ce88ca6" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editContactUs/images/editor_modify.png"></image>
+                            <label class="_span data-v-6ce88ca6">修改默认二维码</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-6ce88ca6 add-qrCode-btn" data-comkey="{{$k}}" data-eventid="{{'10'}}">+添加二维码</view>
+                    </view>
+                    <view class="_div data-v-6ce88ca6 landscape-footer flex-box" wx:if="{{editQrCode}}">
+                        <view bindtap="handleProxy" class="_div data-v-6ce88ca6 icon-btn flex-box" data-comkey="{{$k}}" data-eventid="{{'11'}}">
+                            <image class="_img data-v-6ce88ca6" src="/miaogeban3.0-mp-org/src/pages/A-package/pages/editContactUs/images/editor_back444.png"></image>
+                            <label class="_span data-v-6ce88ca6">取消设置</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="_div data-v-6ce88ca6 popup-window_footer">
+                    <image bindtap="handleProxy" class="_img data-v-6ce88ca6" data-comkey="{{$k}}" data-eventid="{{'12'}}" src="/miaogeban3.0-mp-org/static/images/Icons/landscape_close.png"></image>
+                </view>
+            </view>
+        </view>
+        <template is="ca26c5b0" data="{{...$root[$kk+'0'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>

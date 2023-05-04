@@ -1,0 +1,156 @@
+<template name="f3256282">
+    <view class="_div data-v-794b2b4b container-wrapper">
+        <view class="_div data-v-794b2b4b form-section">
+            <view class="_div data-v-794b2b4b form-item form-item-textarea">
+                <label class="_span data-v-794b2b4b">课程标题</label>
+                <textarea autoHeight bindinput="handleProxy" class="_textarea data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'0'}}" maxlength="40" placeholder="请输入课程标题" placeholderClass="placeholderStyle" value="{{form.title}}"></textarea>
+            </view>
+            <view class="_div data-v-794b2b4b form-item form-item-textarea">
+                <label class="_span data-v-794b2b4b">副标题</label>
+                <textarea autoHeight bindinput="handleProxy" class="_textarea data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'1'}}" maxlength="40" placeholder="请输入副标题" placeholderClass="placeholderStyle" value="{{form.title2}}"></textarea>
+            </view>
+            <view bindtap="handleProxy" class="_div data-v-794b2b4b form-item flex-box-start" data-comkey="{{$k}}" data-eventid="{{'2'}}">
+                <label class="_span data-v-794b2b4b">活动到期时间</label>
+                <label class="_span data-v-794b2b4b">{{form.passTime}}</label>
+                <image alt class="_img data-v-794b2b4b" src="/miaogeban3.0-mp-org/static/images/Icons/right-arrow.png"></image>
+            </view>
+        </view>
+        <view class="_div data-v-794b2b4b form-section margin-top-20" wx:if="{{trickType!=3}}">
+            <view class="_div data-v-794b2b4b form-item flex-box-start">
+                <label class="_span data-v-794b2b4b">{{trickType==1?'原价(元)':'单独报名(元)'}}</label>
+                <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'3'}}" placeholder="{{trickType==1?'请输入原价':'请输入单独报名价格'}}" placeholderClass="placeholderStyle" type="number" value="{{form.oldPrice}}"></input>
+            </view>
+            <view class="_div data-v-794b2b4b form-item flex-box-start" wx:if="{{trickType==1}}">
+                <label class="_span data-v-794b2b4b">抢购价(元)</label>
+                <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'4'}}" placeholder="请输入抢购价" placeholderClass="placeholderStyle" type="digit" value="{{form.newPrice}}"></input>
+            </view>
+            <view class="_div data-v-794b2b4b" wx:else>
+                <view class="_div data-v-794b2b4b form-item flex-box-start">
+                    <label class="_span data-v-794b2b4b">可拼团类型</label>
+                    <checkbox-group bindchange="handleProxy" class="_checkbox-group data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'5'}}">
+                        <checkbox checked="{{groupPrice2}}" class="_checkbox data-v-794b2b4b" color="#ff9900" value="2">2人团</checkbox>
+                        <checkbox checked="{{groupPrice3}}" class="_checkbox data-v-794b2b4b" color="#ff9900" value="3">3人团</checkbox>
+                        <checkbox checked="{{groupPrice4}}" class="_checkbox data-v-794b2b4b" color="#ff9900" value="4">4人团</checkbox>
+                        <checkbox checked="{{groupPrice5}}" class="_checkbox data-v-794b2b4b" color="#ff9900" value="5">5人团</checkbox>
+                    </checkbox-group>
+                </view>
+                <view class="_div data-v-794b2b4b form-item flex-box-start" wx:if="{{groupPrice2}}">
+                    <label class="_span data-v-794b2b4b">2人团价格(元)</label>
+                    <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'6'}}" placeholder="请输入2人团价格" placeholderClass="placeholderStyle" type="digit" value="{{form.groupPrice2}}"></input>
+                </view>
+                <view class="_div data-v-794b2b4b form-item flex-box-start" wx:if="{{groupPrice3}}">
+                    <label class="_span data-v-794b2b4b">3人团价格(元)</label>
+                    <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'7'}}" placeholder="请输入3人团价格" placeholderClass="placeholderStyle" type="digit" value="{{form.groupPrice3}}"></input>
+                </view>
+                <view class="_div data-v-794b2b4b form-item flex-box-start" wx:if="{{groupPrice4}}">
+                    <label class="_span data-v-794b2b4b">4人团价格(元)</label>
+                    <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'8'}}" placeholder="请输入4人团价格" placeholderClass="placeholderStyle" type="digit" value="{{form.groupPrice4}}"></input>
+                </view>
+                <view class="_div data-v-794b2b4b form-item flex-box-start" wx:if="{{groupPrice5}}">
+                    <label class="_span data-v-794b2b4b">5人团价格(元)</label>
+                    <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'9'}}" placeholder="请输入5人团价格" placeholderClass="placeholderStyle" type="digit" value="{{form.groupPrice5}}"></input>
+                </view>
+            </view>
+            <view class="_div data-v-794b2b4b form-item flex-box-start" style="border-bottom: 0;" wx:if="{{trickType==2}}">
+                <label class="_span data-v-794b2b4b">老学员拼团</label>
+                <radio-group bindchange="handleProxy" class="_radio-group data-v-794b2b4b flex-box-start" data-comkey="{{$k}}" data-eventid="{{'10'}}" value="{{form.teamStatus}}">
+                    <label class="_label data-v-794b2b4b radio-item" style="font-size: 24rpx">
+                        <radio checked="{{form.teamStatus==0}}" class="_radio data-v-794b2b4b" color="#ff9900" style="zoom: 0.7" value="0"></radio>
+                        <view class="_view data-v-794b2b4b weui-cell__bd" style=" {{'color:'+(form.teamStatus==0?'#ff9900':'#666')+';'}}">只能开团不能跟团</view>
+                    </label>
+                    <label class="_label data-v-794b2b4b radio-item" style="font-size: 24rpx">
+                        <radio checked="{{form.teamStatus==1}}" class="_radio data-v-794b2b4b" color="#ff9900" style="zoom: 0.7" value="1"></radio>
+                        <view class="_view data-v-794b2b4b weui-cell__bd" style=" {{'color:'+(form.teamStatus==1?'#ff9900':'#666')+';'}}">既可开团也可跟团</view>
+                    </label>
+                </radio-group>
+            </view>
+            <view class="_div data-v-794b2b4b tips" style="color: #999;border-bottom: 1px solid #f0f0f0;" wx:if="{{trickType==2}}">如不允许老学员跟团，当用户在跟团时将会弹出提醒进行强调!</view>
+        </view>
+        <view class="_div data-v-794b2b4b form-section margin-top-20" wx:if="{{trickType==3}}">
+            <view class="_div data-v-794b2b4b form-section-header"> 优惠设置<label class="_span data-v-794b2b4b">(不优惠请输入0)</label>
+            </view>
+            <view class="_div data-v-794b2b4b form-item flex-box-start">
+                <label class="_span data-v-794b2b4b">报1科/期减(元)</label>
+                <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'11'}}" placeholder="请输入报1科/期减(元)" placeholderClass="placeholderStyle" type="number" value="{{form.specialPrice1}}"></input>
+            </view>
+            <view class="_div data-v-794b2b4b form-item flex-box-start">
+                <label class="_span data-v-794b2b4b">报2科/期减(元)</label>
+                <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'12'}}" placeholder="请输入报2科/期减(元)" placeholderClass="placeholderStyle" type="number" value="{{form.specialPrice2}}"></input>
+            </view>
+            <view class="_div data-v-794b2b4b form-item flex-box-start" style="border-bottom: 0">
+                <label class="_span data-v-794b2b4b">3科或以上减(元)</label>
+                <input bindinput="handleProxy" class="_input data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'13'}}" placeholder="请输入3科或以上减(元)" placeholderClass="placeholderStyle" type="number" value="{{form.specialPrice3}}"></input>
+            </view>
+        </view>
+        <view class="_div data-v-794b2b4b form-section margin-top-20" wx:if="{{trickType==3}}">
+            <view class="_div data-v-794b2b4b form-section-header flex-space sticky"> 可选课程/期别设置 <view bindtap="handleProxy" class="_div data-v-794b2b4b btn-liner" data-comkey="{{$k}}" data-eventid="{{'14'}}">+添加</view>
+            </view>
+            <view class="_div data-v-794b2b4b course-item" wx:for="{{clazzList}}" wx:key="index">
+                <view class="_div data-v-794b2b4b course-item-title flex-space">
+                    <view class="_div data-v-794b2b4b flex-box-start"> {{item.clazzName}} <label class="_span data-v-794b2b4b" style="color: #ff0000;padding-left: 20rpx;">￥{{item.price}}</label>
+                    </view>
+                    <view class="_div data-v-794b2b4b flex-space">
+                        <view bindtap="handleProxy" class="_div data-v-794b2b4b course-item-btn flex-box" data-comkey="{{$k}}" data-eventid="{{'15_'+index}}">
+                            <image alt class="_img data-v-794b2b4b" src="/miaogeban3.0-mp-org/static/images/Icons/editor_modify.png"></image>
+                            <label class="_span data-v-794b2b4b">编辑</label>
+                        </view>
+                        <view bindtap="handleProxy" class="_div data-v-794b2b4b course-item-btn flex-box" data-comkey="{{$k}}" data-eventid="{{'16_'+index}}">
+                            <image alt class="_img data-v-794b2b4b" src="/miaogeban3.0-mp-org/static/images/Icons/editor_lose.png"></image>
+                            <label class="_span data-v-794b2b4b">删除</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="_p data-v-794b2b4b course-item-desc">{{item.clazzDesc}}</view>
+            </view>
+        </view>
+        <view bindtap="handleProxy" class="_div data-v-794b2b4b submit-btn" data-comkey="{{$k}}" data-eventid="{{'17'}}">保存修改</view>
+        <van-popup class="_van-popup data-v-794b2b4b" position="bottom" show="{{popupVisible}}">
+            <van-datetime-picker bindcancel="handleProxy" bindconfirm="handleProxy" class="_van-datetime-picker data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'18'}}" formatter="{{formatterDateTimePicker}}" minDate="{{minDate}}" type="datetime" value="{{currentDate}}"></van-datetime-picker>
+        </van-popup>
+        <view class="_div data-v-794b2b4b signUpPopupWindow" wx:if="{{courseVisible}}">
+            <view class="_div data-v-794b2b4b signUpPopupWindow-body">
+                <view class="_p data-v-794b2b4b">{{clazzForm.id?'编辑':'新增'}}课程</view>
+                <view class="_div data-v-794b2b4b">
+                    <view class="_div data-v-794b2b4b form-item_course flex-box-start">
+                        <view class="_div data-v-794b2b4b form-item_label"> 课程/期别名称 </view>
+                        <view class="_div data-v-794b2b4b form-item_content">
+                            <input bindinput="handleProxy" class="_input data-v-794b2b4b textareaStyle" data-comkey="{{$k}}" data-eventid="{{'19'}}" placeholder="请输入课程或期别名称" placeholderClass="placeholderStyle" type="text" value="{{clazzForm.clazzName}}"></input>
+                        </view>
+                    </view>
+                    <view class="_div data-v-794b2b4b form-item_course flex-box-start">
+                        <view class="_div data-v-794b2b4b form-item_label"> 课程说明 </view>
+                        <view class="_div data-v-794b2b4b form-item_content">
+                            <textarea autoHeight bindinput="handleProxy" class="_textarea data-v-794b2b4b textareaStyle" data-comkey="{{$k}}" data-eventid="{{'20'}}" placeholder="如：12课时，每课时45分钟" placeholderClass="placeholderStyle" value="{{clazzForm.clazzDesc}}"></textarea>
+                        </view>
+                    </view>
+                    <view class="_div data-v-794b2b4b form-item_course flex-box-start">
+                        <view class="_div data-v-794b2b4b form-item_label"> 价格 </view>
+                        <view class="_div data-v-794b2b4b form-item_content">
+                            <input bindinput="handleProxy" class="_input data-v-794b2b4b textareaStyle" data-comkey="{{$k}}" data-eventid="{{'21'}}" placeholder="请输入价格" placeholderClass="placeholderStyle" type="digit" value="{{clazzForm.price}}"></input>
+                        </view>
+                    </view>
+                    <view class="_div data-v-794b2b4b form-item_course flex-box-start">
+                        <view class="_div data-v-794b2b4b form-item_label"> 排序值 </view>
+                        <view class="_div data-v-794b2b4b form-item_content flex-space">
+                            <input bindinput="handleProxy" class="_input data-v-794b2b4b textareaStyle" data-comkey="{{$k}}" data-eventid="{{'22'}}" placeholder="如：1" placeholderClass="placeholderStyle" style="width: 60%;" type="number" value="{{clazzForm.sort}}"></input>
+                        </view>
+                    </view>
+                    <view class="_div data-v-794b2b4b tips flex-box-start">
+                        <image alt class="_img data-v-794b2b4b" src="/miaogeban3.0-mp-org/static/images/Icons/editor_prompt.png"></image>
+                        <label class="_span data-v-794b2b4b">排序值越大越靠前</label>
+                    </view>
+                </view>
+                <view class="_div data-v-794b2b4b button-group flex-box">
+                    <button bindtap="handleProxy" class="_button data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'23'}}">取消</button>
+                    <button bindtap="handleProxy" class="_button data-v-794b2b4b" data-comkey="{{$k}}" data-eventid="{{'24'}}">提交</button>
+                </view>
+            </view>
+        </view>
+        <template is="54667386" data="{{...$root[$kk+'4'],$root:$root}}"></template>
+        <template is="38064374" data="{{...$root[$kk+'5'],$root:$root,$for:{default:'data-v-794b2b4b-default-5'},$slotdefault:'data-v-794b2b4b-default-5'}}"></template>
+        <template is="ca26c5b0" data="{{...$root[$kk+'6'],$root:$root}}"></template>
+    </view>
+</template>
+<import src="/miaogeban3.0-mp-org/src/components/Popup/v-popup.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Dialog/v-dialog.vue.wxml"></import>
+<import src="/miaogeban3.0-mp-org/src/components/Toast/bottomToast.vue.wxml"></import>
